@@ -1,0 +1,75 @@
+# Domain_Profile_QML.yaml
+# 学科配置文件 (User Persona & Domain Configuration)
+# 作用：将具体学科知识与底层 Agent 代码彻底解耦。代码只负责读取此文件中的变量。
+
+profile_name: "Quantum Machine Learning Researcher"
+target_discipline: "Quantum Computing & Machine Learning"
+
+# 1. 核心研究意图 (用于注入给 Analysis Agent 的系统提示词中)
+research_intent: |
+  I am researching Quantum Machine Learning (QML), specifically focusing on 
+  parameterized quantum circuits, variational quantum algorithms (VQE, QAOA), 
+  and quantum neural networks. I care deeply about barren plateaus, circuit expressibility, 
+  and hardware-efficient implementations.
+
+# 2. 关键词评分权重矩阵 (供 Filter Agent 计算 Score_core 使用)
+keywords_scoring:
+  must_have:
+    - "quantum machine learning"
+    - "variational quantum algorithm"
+    - "VQA"
+  highly_relevant (weight: 1.0):
+    - "barren plateau"
+    - "parameterized quantum circuit"
+    - "PQC"
+    - "quantum neural network"
+    - "QNN"
+  relevant (weight: 0.5):
+    - "error mitigation"
+    - "tensor network"
+  exclude (weight: -100): # 碰到这些词直接大幅度降分或直接扔进 Rejected Track
+    - "string theory"
+    - "purely classical machine learning"
+    - "fluid dynamics"
+    - "high energy physics"
+
+# 3. 影响力评分实体库 (供 Filter Agent 计算 Score_impact 使用)
+impact_entities:
+  tier_1_venues:
+    - "Nature"
+    - "Science"
+    - "Physical Review Letters"
+    - "PRL"
+    - "Nature Physics"
+    - "PRX"
+    - "NeurIPS" # AI顶会同样视为Tier1
+    - "ICLR"
+  tier_2_venues:
+    - "Quantum"
+    - "Physical Review A"
+    - "ICML"
+  tier_1_institutions:
+    - "MIT"
+    - "Caltech"
+    - "IBM Quantum"
+    - "Google Quantum AI"
+    - "USTC"
+    - "Max Planck Institute"
+  vip_authors:
+    - "Maria Schuld"
+    - "John Preskill"
+    - "Seth Lloyd"
+    - "Nathan Wiebe"
+
+# 4. Agent 定制化分析指令 (供 Analysis Agent 动态组装 Prompt 时调用)
+analysis_prompts:
+  core_paper_focus: |
+    - Extract the exact Ansatz structure or quantum circuit design used.
+    - Identify if and how they addressed the Barren Plateau or noise problems.
+    - Summarize the hardware requirements (e.g., number of qubits, circuit depth).
+    - Compare their method with standard VQE/QAOA approaches.
+  
+  impact_paper_focus: |
+    - Explain the core breakthrough in 3 sentences using the Feynman technique.
+    - Do NOT focus on mathematical proofs. Focus on the paradigm shift.
+    - Analyze how this breakthrough might indirectly influence or disrupt the feasibility of Quantum Machine Learning (e.g., hardware scaling, new error correction codes).

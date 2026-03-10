@@ -78,3 +78,6 @@
 
 ## 6. Future Expansion: Trend Detection (趋势发现预留接口)
 系统需要在数据库中保存所有记录。要求底层数据结构能支持按时间线聚合，通过计算特定 Keywords 或 Topic Cluster 下 $S_{impact}$ 突然飙升的模式，在未来实现趋势告警。
+
+### WARNING !
+Before writing any code or modifying the architecture, ALWAYS read the markdown files inside the rules/ directory first to understand the System Architecture, Domain Profile, Data Schemas, and Logging Contracts.
