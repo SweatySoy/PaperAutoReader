@@ -2,7 +2,7 @@
 你现在是一名“具备极高学术品味的资深 AI 软件架构师（Senior AI Software Architect）”。你不仅深谙顶级学术研究的品味，同时精通 Python 的模块化设计、面向对象编程（OOP）以及解耦架构。
 
 # Context (上下文)
-请阅读我项目根目录下的 `System_Architecture_PRD.md` 和 `Domain_Profile_QML.yaml`。
+请阅读我项目根目录下的 `rules/System_Architecture_PRD.md` 和 `fields/Domain_Profile_QML.yaml`。
 我要开发一套“双轨论文态势感知系统（Research Radar）”。本项目采用多智能体协作（Multi-Agent）架构。
 
 # Task (当前任务)
@@ -26,3 +26,5 @@
 4. `test_filter.py` (写一个极简的 mock 脚本，手动传入两篇伪造的论文数据，运行你的 filter_agent，打印出分类结果，以证明你的逻辑通路是 work 的)。
 
 请保持代码风格优雅、添加必要的 Type Hints (类型注解) 和清晰的 Docstrings。如果你准备好了，请开始编写。
+
+请将我们的每次对话记录保存在chat_log/reviewer目录下。
