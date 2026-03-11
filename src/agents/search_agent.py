@@ -463,9 +463,10 @@ class SearchAgent:
                         continue
                     seen_ids.add(paper_id)
 
-                    # 日期过滤
+                    # Date filtering - use timezone-aware datetime
                     if paper.published:
-                        cutoff_date = datetime.now() - timedelta(days=days_back)
+                        from datetime import timezone
+                        cutoff_date = datetime.now(timezone.utc) - timedelta(days=days_back)
                         if paper.published < cutoff_date:
                             continue
 

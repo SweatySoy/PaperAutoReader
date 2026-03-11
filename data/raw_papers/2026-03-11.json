@@ -1,0 +1,101 @@
+[
+  {
+    "paper_id": "arXiv:2603.09966",
+    "title": "Caratheodory II: The Geometry of Financial Irreversibility",
+    "abstract": "In quantum mechanics and finance, numeraire invariance - the unobservability of absolute phase or price scale - fits with a projective and curved state space. This projective geometry has a measurable signature. For spin-one and higher spin systems, the Taylor expansion of directed distance contains a non-zero cubic term, which induces a fundamental asymmetry under the exchange of states. The Second Law, the failure of Maxwell's demon, and the limitations of sequential traders can all be reduced to this asymmetry.",
+    "authors": [
+      "Bernhard K Meister"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2026-03-10",
+    "url": "http://arxiv.org/abs/2603.09966v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2603.09959",
+    "title": "A complete classification of 2d symmetry protected states with symmetric entanglers",
+    "abstract": "We consider symmetry protected topological states of 2d quantum spin systems, with a finite symmetry group $G$. It has been conjectured that such states are classified by the cohomology group $H^3(G,U(1))$, but the completeness of this classfication is an open problem. We restrict ourselves to symmetry protected topological states that can be prepared from a product state by a symmetric entangler. For this class of states, we prove that the classification by $H^3(G,U(1))$ is complete.",
+    "authors": [
+      "Alex Bols",
+      "Wojciech De Roeck",
+      "Michiel De Wilde",
+      "Bruno de O. Carvalho"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2026-03-10",
+    "url": "http://arxiv.org/abs/2603.09959v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2603.09944",
+    "title": "Globally stable, ghost-free hyperbolic square-root deformation of the Starobinsky model",
+    "abstract": "We propose an exact, analytic deformation of the Starobinsky model governed by the strictly positive derivative of its Lagrangian, $f'(R) = αR + \\sqrt{α^2 R^2 + 1}$, with $α> 0$. This geometric hyperbolic square-root ansatz is designed to eliminate the well-known strong-coupling singularity that arises in quadratic $f(R)$ gravity when $f'(R)=0$. The construction seamlessly recovers general relativity at low curvatures and preserves the successful slow-roll inflationary plateau at extreme positive curvatures. In the limit $R \\to -\\infty$, the derivative $f'(R)$ asymptotes to zero strictly from above, removing the pathological branch associated with the vanishing of $f'(R)$. This guarantees that the only admissible constant-curvature ($R=A$) solutions correspond to standard Einstein spaces with an effective cosmological constant $Λ_{\\text{eff}} \\equiv A/4$. The first and second derivatives of the action, as well as the scalaron mass squared, remain strictly positive globally, ensuring a perfectly ghost-free and tachyon-free cosmological evolution across the entire spacetime manifold. In the Einstein frame, the dynamics of the scalaron is governed by the globally defined potential $V(φ) = \\frac{1}{8α} [ 1 - (1 + 2\\sqrt{2/3}φ) \\exp(-2\\sqrt{2/3}φ) ] + Λ\\exp(-2\\sqrt{2/3}φ)$, which naturally establishes an impenetrable energetic wall as $φ\\to -\\infty$, offering a robust, globally stable mechanism for non-singular bouncing cosmologies. For $N = 60$ inflationary e-folds, the model predicts a scalar spectral index of $n_s \\simeq 0.967$ and a strongly suppressed tensor-to-scalar ratio of $r \\simeq 0.00083$, which position the proposed theory within the observationally favored parameter space of the Planck and BICEP/Keck Array baseline constraints.",
+    "authors": [
+      "Andrei Galiautdinov"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2026-03-10",
+    "url": "http://arxiv.org/abs/2603.09944v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2603.09974",
+    "title": "Task Aware Modulation Using Representation Learning for Upsaling of Terrestrial Carbon Fluxes",
+    "abstract": "Accurately upscaling terrestrial carbon fluxes is central to estimating the global carbon budget, yet remains challenging due to the sparse and regionally biased distribution of ground measurements. Existing data-driven upscaling products often fail to generalize beyond observed domains, leading to systematic regional biases and high predictive uncertainty. We introduce Task-Aware Modulation with Representation Learning (TAM-RL), a framework that couples spatio-temporal representation learning with knowledge-guided encoder-decoder architecture and loss function derived from the carbon balance equation. Across 150+ flux tower sites representing diverse biomes and climate regimes, TAM-RL improves predictive performance relative to existing state-of-the-art datasets, reducing RMSE by 8-9.6% and increasing explained variance ($R^2$) from 19.4% to 43.8%, depending on the target flux. These results demonstrate that integrating physically grounded constraints with adaptive representation learning can substantially enhance the robustness and transferability of global carbon flux estimates.",
+    "authors": [
+      "Aleksei Rozanov",
+      "Arvind Renganathan",
+      "Vipin Kumar"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2026-03-10",
+    "url": "http://arxiv.org/abs/2603.09974v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2603.09972",
+    "title": "From Data Statistics to Feature Geometry: How Correlations Shape Superposition",
+    "abstract": "A central idea in mechanistic interpretability is that neural networks represent more features than they have dimensions, arranging them in superposition to form an over-complete basis. This framing has been influential, motivating dictionary learning approaches such as sparse autoencoders. However, superposition has mostly been studied in idealized settings where features are sparse and uncorrelated. In these settings, superposition is typically understood as introducing interference that must be minimized geometrically and filtered out by non-linearities such as ReLUs, yielding local structures like regular polytopes. We show that this account is incomplete for realistic data by introducing Bag-of-Words Superposition (BOWS), a controlled setting to encode binary bag-of-words representations of internet text in superposition. Using BOWS, we find that when features are correlated, interference can be constructive rather than just noise to be filtered out. This is achieved by arranging features according to their co-activation patterns, making interference between active features constructive, while still using ReLUs to avoid false positives. We show that this kind of arrangement is more prevalent in models trained with weight decay and naturally gives rise to semantic clusters and cyclical structures which have been observed in real language models yet were not explained by the standard picture of superposition. Code for this paper can be found at https://github.com/LucasPrietoAl/correlations-feature-geometry.",
+    "authors": [
+      "Lucas Prieto",
+      "Edward Stevinson",
+      "Melih Barsbey",
+      "Tolga Birdal",
+      "Pedro A. M. Mediano"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2026-03-10",
+    "url": "http://arxiv.org/abs/2603.09972v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": true
+  },
+  {
+    "paper_id": "arXiv:2603.09696",
+    "title": "TemporalDoRA: Temporal PEFT for Robust Surgical Video Question Answering",
+    "abstract": "Surgical Video Question Answering (VideoQA) requires accurate temporal grounding while remaining robust to natural variation in how clinicians phrase questions, where linguistic bias can arise. Standard Parameter Efficient Fine Tuning (PEFT) methods adapt pretrained projections without explicitly modeling frame-to-frame interactions within the adaptation pathway, limiting their ability to exploit sparse temporal evidence. We introduce TemporalDoRA, a video-specific PEFT formulation that extends Weight-Decomposed Low-Rank Adaptation by (i) inserting lightweight temporal Multi-Head Attention (MHA) inside the low-rank bottleneck of the vision encoder and (ii) selectively applying weight decomposition only to the trainable low-rank branch rather than the full adapted weight. This design enables temporally-aware updates while preserving a frozen backbone and stable scaling. By mixing information across frames within the adaptation subspace, TemporalDoRA steers updates toward temporally consistent visual cues and improves robustness with minimal parameter overhead. To benchmark this setting, we present REAL-Colon-VQA, a colonoscopy VideoQA dataset with 6,424 clip--question pairs, including paired rephrased Out-of-Template questions to evaluate sensitivity to linguistic variation. TemporalDoRA improves Out-of-Template performance, and ablation studies confirm that temporal mixing inside the low-rank branch is the primary driver of these gains. We also validate on EndoVis18-VQA adapted to short clips and observe consistent improvements on the Out-of-Template split. Code and dataset available at~\\href{https://anonymous.4open.science/r/TemporalDoRA-BFC8/}{Anonymous GitHub}.",
+    "authors": [
+      "Luca Carlini",
+      "Chiara Lena",
+      "Cesare Hassan",
+      "Danail Stoyanov",
+      "Elena De Momi",
+      "Sophia Bano",
+      "Mobarak I. Hoque"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2026-03-10",
+    "url": "http://arxiv.org/abs/2603.09696v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  }
+]
