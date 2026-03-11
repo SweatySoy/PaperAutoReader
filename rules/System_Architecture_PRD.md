@@ -69,7 +69,7 @@
   4. Rejected Pipeline (被滤除记录清单)
 
 ## 5. Configuration Strategy (配置驱动化)
-整个系统必须是可配置的。要求 AI 编写一个 `config.yaml` 模板。
+整个系统必须是可配置的。要求 AI 编写一个 `fields/Domain_xxx.yaml` 模板。
 包含：
 - 评分阈值（Core threshold, Impact threshold）
 - 目标关键词表（Must-include, Must-exclude）

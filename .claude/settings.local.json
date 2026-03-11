@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd /d D:\\\\work\\\\code\\\\PaperAutoReader && python -m src.test_filter)",
+      "Bash(python -m src.test_filter)"
+    ]
+  }
+}

@@ -18,16 +18,19 @@ keywords_scoring:
     - "quantum machine learning"
     - "variational quantum algorithm"
     - "VQA"
-  highly_relevant (weight: 1.0):
+  # highly_relevant: weight = 1.0
+  highly_relevant:
     - "barren plateau"
     - "parameterized quantum circuit"
     - "PQC"
     - "quantum neural network"
     - "QNN"
-  relevant (weight: 0.5):
+  # relevant: weight = 0.5
+  relevant:
     - "error mitigation"
     - "tensor network"
-  exclude (weight: -100): # 碰到这些词直接大幅度降分或直接扔进 Rejected Track
+  # exclude: weight = -100 (碰到这些词直接大幅度降分或直接扔进 Rejected Track)
+  exclude:
     - "string theory"
     - "purely classical machine learning"
     - "fluid dynamics"
