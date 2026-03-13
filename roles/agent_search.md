@@ -34,3 +34,16 @@
 
 
 请将我们的每次对话记录保存在chat_log/search目录下。
+
+
+# 优化需求！！！
+CTO 架构审查意见：
+在获取论文引用数据时，绝对禁止在 for 循环中逐篇请求 Semantic Scholar API！这会引发严重的 N+1 性能问题并触发限流。
+请你修改代码，必须使用 Semantic Scholar 的 Batch API 进行批量查询：
+收集 ID：从 arXiv 获取完所有候选论文后，提取它们的 arXiv ID，拼接成 S2 要求的格式（例如 ARXIV:2401.12345），组成一个列表。
+批量请求：向 https://api.semanticscholar.org/graph/v1/paper/batch 发送 POST 请求。
+请求体格式：{"ids": ["ARXIV:id1", "ARXIV:id2", ...]}。
+URL 参数：记得带上 ?fields=citationCount,influentialCitationCount。
+数据对齐：拿到批量返回的 JSON 数组后，根据 ID 将引用数据映射回对应的 CandidatePaper 对象中。
+请重新调整这部分逻辑，并确保加上针对 POST 请求的 try-except 容错。如果没有查到某篇论文的引用（返回 null），将其默认值设为 0。
+

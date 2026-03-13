@@ -4,7 +4,10 @@
       "Bash(cd /d D:\\\\work\\\\code\\\\PaperAutoReader && python -m src.test_filter)",
       "Bash(python -m src.test_filter)",
       "Bash(python test_search.py)",
-      "Bash(cd ../PaperAutoReader-Agent3 && python test_analysis.py)"
+      "Bash(cd ../PaperAutoReader-Agent3 && python test_analysis.py)",
+      "Bash(cd /d/work/code/PaperAutoReader-Agent4 && python test_report.py)",
+      "Bash(cd D:/work/code/PaperAutoReader && python test_filter.py 2>&1 | head -100)",
+      "Bash(cd D:/work/code/PaperAutoReader && python test_filter.py 2>&1 | tail -30)"
     ]
   }
 }

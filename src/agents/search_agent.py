@@ -169,10 +169,11 @@ class SemanticScholarClient:
     """
 
     BASE_URL = "https://api.semanticscholar.org/graph/v1"
+    BASE_API = "Zs5EfRHuFX9ZUZfdV4NFY6kUV6ezReKX3u1rkcpC"
     MAX_RETRIES = 3
     BASE_DELAY = 1.0  # 秒
 
-    def __init__(self, api_key: Optional[str] = None):
+    def __init__(self, api_key: Optional[str] = BASE_API):
         self.api_key = api_key
         self.session = requests.Session()
         if api_key:
@@ -262,6 +263,122 @@ class SemanticScholarClient:
                 "year": data.get("year")
             }
         return None
+
+    def get_papers_batch(
+        self,
+        arxiv_ids: List[str],
+        batch_size: int = 500
+    ) -> Dict[str, Dict[str, Any]]:
+        """
+        批量查询论文引用数据 (Batch API)。
+        **推荐使用** - 避免 N+1 API 浪费问题。
+
+        Args:
+            arxiv_ids: arXiv ID 列表 (如 ["2303.12345", "2401.00001"])
+            batch_size: 每批最大数量 (S2 限制 500)
+
+        Returns:
+            字典: {arxiv_id: {citation_count, influential_citation_count, ...}}
+        """
+        if not arxiv_ids:
+            return {}
+
+        results: Dict[str, Dict[str, Any]] = {}
+
+        # 分批处理 (S2 API 限制每批最多 500 个)
+        for i in range(0, len(arxiv_ids), batch_size):
+            batch_ids = arxiv_ids[i:i + batch_size]
+
+            # 构造 S2 格式的 ID 列表
+            s2_ids = [f"ARXIV:{aid}" for aid in batch_ids]
+
+            logger.info(
+                f"[Search Agent] 批量查询 Semantic Scholar: "
+                f"第 {i//batch_size + 1} 批，共 {len(s2_ids)} 篇论文"
+            )
+
+            # POST 请求到 batch endpoint
+            url = f"{self.BASE_URL}/paper/batch"
+            params = {"fields": "citationCount,influentialCitationCount,title,year"}
+            payload = {"ids": s2_ids}
+
+            for attempt in range(self.MAX_RETRIES):
+                try:
+                    response = self.session.post(
+                        url,
+                        params=params,
+                        json=payload,
+                        timeout=60
+                    )
+
+                    if response.status_code == 200:
+                        data = response.json()
+                        # S2 Batch API 返回数组，顺序与请求顺序一致
+                        # data[i] 对应 s2_ids[i] (若存在)，否则为 null
+                        for idx, item in enumerate(data):
+                            orig_id = batch_ids[idx]  # 原始 arXiv ID
+                            if item is None:
+                                # 论文未在 S2 中找到，设置默认值
+                                results[orig_id] = {
+                                    "citation_count": 0,
+                                    "influential_citation_count": 0,
+                                    "title": None,
+                                    "year": None
+                                }
+                                logger.debug(f"论文 {orig_id} 在 Semantic Scholar 中未找到")
+                            else:
+                                results[orig_id] = {
+                                    "citation_count": item.get("citationCount", 0) or 0,
+                                    "influential_citation_count": item.get("influentialCitationCount", 0) or 0,
+                                    "title": item.get("title"),
+                                    "year": item.get("year")
+                                }
+                        break  # 成功，退出重试循环
+
+                    elif response.status_code == 429:
+                        delay = self.BASE_DELAY * (2 ** attempt)
+                        logger.warning(
+                            f"Semantic Scholar Batch API 限流 (429)，"
+                            f"第 {attempt + 1} 次重试，等待 {delay:.1f} 秒..."
+                        )
+                        time.sleep(delay)
+                        continue
+
+                    elif response.status_code == 400:
+                        logger.error(f"Semantic Scholar Batch API 请求格式错误: {response.text}")
+                        break
+
+                    else:
+                        logger.error(
+                            f"Semantic Scholar Batch API 错误: HTTP {response.status_code}"
+                        )
+                        break
+
+                except requests.exceptions.Timeout:
+                    logger.warning(
+                        f"Semantic Scholar Batch API 超时，第 {attempt + 1} 次重试..."
+                    )
+                    time.sleep(self.BASE_DELAY * (attempt + 1))
+                    continue
+
+                except requests.exceptions.RequestException as e:
+                    logger.error(f"Semantic Scholar Batch API 请求异常: {e}")
+                    # 失败时为所有论文设置默认值
+                    for orig_id in batch_ids:
+                        if orig_id not in results:
+                            results[orig_id] = {
+                                "citation_count": 0,
+                                "influential_citation_count": 0,
+                                "title": None,
+                                "year": None
+                            }
+                    break
+
+        logger.info(
+            f"[Search Agent] 批量查询完成，"
+            f"成功获取 {len([r for r in results.values() if r['citation_count'] > 0])} 篇论文的引用数据"
+        )
+        return results
 
     def search_by_title(
         self,
@@ -488,7 +605,9 @@ class SearchAgent:
         progress_callback: Optional[callable] = None
     ) -> List[Dict[str, Any]]:
         """
-        使用 Semantic Scholar 增强论文的引用数据。
+        使用 Semantic Scholar 批量 API 增强论文的引用数据。
+
+        **优化**: 使用 Batch API 一次性查询所有论文，避免 N+1 API 浪费。
 
         Args:
             papers: arXiv 论文列表
@@ -497,19 +616,24 @@ class SearchAgent:
         Returns:
             增强后的论文字典列表
         """
+        if not papers:
+            return []
+
         enriched_papers: List[Dict[str, Any]] = []
 
-        logger.info(f"[Search Agent] 正在获取 {len(papers)} 篇论文的引用数据...")
+        # Step 1: 提取所有 arXiv ID
+        arxiv_ids = [extract_arxiv_id(paper) for paper in papers]
+        logger.info(
+            f"[Search Agent] 正在批量获取 {len(arxiv_ids)} 篇论文的引用数据..."
+        )
 
+        # Step 2: 批量查询 Semantic Scholar
+        citation_data_map = self.ss_client.get_papers_batch(arxiv_ids)
+
+        # Step 3: 组装结果
         for i, paper in enumerate(papers):
-            arxiv_id = extract_arxiv_id(paper)
-
-            # 尝试通过 arXiv ID 查询
-            citation_data = self.ss_client.get_paper_by_arxiv_id(arxiv_id)
-
-            # 如果失败，尝试标题搜索
-            if not citation_data and paper.title:
-                citation_data = self.ss_client.search_by_title(paper.title)
+            arxiv_id = arxiv_ids[i]
+            citation_data = citation_data_map.get(arxiv_id)
 
             # 转换为候选论文格式
             candidate_dict = convert_arxiv_to_candidate(paper, citation_data)
@@ -518,9 +642,6 @@ class SearchAgent:
             # 进度回调
             if progress_callback:
                 progress_callback(i + 1, len(papers), candidate_dict["title"])
-
-            # 礼貌性延迟 (避免触发 Semantic Scholar 限流)
-            time.sleep(0.1)
 
         logger.info(
             f"[Search Agent] 引用数据获取完成，"

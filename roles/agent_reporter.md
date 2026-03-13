@@ -22,3 +22,5 @@
 # Output Deliverables & Mock Testing
 1. 输出 `src/agents/report_agent.py`。
 2. 编写 `test_report.py`。**不要等待上游数据！** 请在测试脚本中手动构造一个 `List[AnalyzedPaper]`（包含各类别的假数据），传入你的 Agent，并在 `reports/` 目录下生成一份名为 `Test_Mock_Report.md` 的文件供我预览排版效果。
+
+请将我们的每次对话记录保存在chat_log/reporter目录下。

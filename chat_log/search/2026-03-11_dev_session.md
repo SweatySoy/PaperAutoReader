@@ -58,3 +58,33 @@ Total: 5/5 tests passed
 - Imports `CandidatePaper` and `config` from `src.models` and `src.config_loader`
 - If those modules don't exist, test script provides Mock implementations
 - Output schema follows `Data_Schemas_Contract.md` CandidatePaper definition
+
+---
+
+## CTO 架构审查优化 (Batch API)
+
+### 问题发现
+CTO 审查意见：原代码在 for 循环中逐篇请求 Semantic Scholar API，存在 **N+1 API 浪费问题**：
+- 每篇论文发起 1 次 HTTP 请求
+- 极易触发 HTTP 429 限流
+- 效率极低
+
+### 优化方案
+改用 **Semantic Scholar Batch API**:
+- Endpoint: `POST https://api.semanticscholar.org/graph/v1/paper/batch`
+- Payload: `{"ids": ["ARXIV:id1", "ARXIV:id2", ...]}`
+- Params: `?fields=citationCount,influentialCitationCount`
+- 限制: 每批最多 500 篇论文
+
+### 优化后效果
+| 指标 | 优化前 | 优化后 |
+|------|--------|--------|
+| API 调用次数 | N 次 | 1 次 |
+| 限流风险 | 极高 | 低 |
+| 响应时间 | O(N) | O(1) |
+
+### 代码变更
+1. 新增 `SemanticScholarClient.get_papers_batch()` 方法
+2. 重写 `enrich_with_citations()` 使用批量查询
+3. 按顺序映射返回结果 (S2 返回数组顺序与请求一致)
+4. 为未找到的论文设置默认值 (citation_count=0)

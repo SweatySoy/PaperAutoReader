@@ -12,19 +12,95 @@ All domain-specific logic is loaded from the YAML configuration.
 NO hardcoded domain values in this code.
 """
 
+import logging
+import json
+import re
 from datetime import date, timedelta
-from typing import Protocol
+from pathlib import Path
+from typing import Protocol, Optional, Any
+
+import requests
 
 from src.config_loader import Config
 from src.models import CandidatePaper, QuadrantCategory, ScoredPaper
 
 
 # ============================================================================
-# Abstract Interfaces (for LLM/Embedding integration)
+# Logging Configuration
+# ============================================================================
+
+def setup_logging() -> logging.Logger:
+    """Configure logging to both console and file."""
+    logger = logging.getLogger("FilterAgent")
+    logger.setLevel(logging.DEBUG)
+
+    if logger.handlers:
+        return logger
+
+    # Console Handler
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging.INFO)
+    console_format = logging.Formatter("[%(name)s] %(levelname)s: %(message)s")
+    console_handler.setFormatter(console_format)
+    logger.addHandler(console_handler)
+
+    # File Handler
+    log_dir = Path(__file__).parent.parent / "logs"
+    log_dir.mkdir(parents=True, exist_ok=True)
+    log_file = log_dir / f"system_{date.today().isoformat()}.log"
+    file_handler = logging.FileHandler(log_file, encoding="utf-8")
+    file_handler.setLevel(logging.DEBUG)
+    file_format = logging.Formatter(
+        "%(asctime)s - [%(name)s] %(levelname)s: %(message)s"
+    )
+    file_handler.setFormatter(file_format)
+    logger.addHandler(file_handler)
+
+    return logger
+
+
+logger = setup_logging()
+
+
+# ============================================================================
+# LLM Service Configuration (Global Variables)
+# ============================================================================
+
+# Global configuration for LLM services
+# These can be set once at application startup
+LLM_API_KEY: str = ""
+LLM_API_URL: str = "https://api.openai.com/v1"
+LLM_MODEL: str = "gpt-3.5-turbo"
+
+EMBEDDING_API_KEY: str = ""
+EMBEDDING_API_URL: str = "https://api.openai.com/v1"
+EMBEDDING_MODEL: str = "text-embedding-ada-002"
+
+
+def configure_llm(api_key: str, api_url: str = "https://api.openai.com/v1", model: str = "gpt-3.5-turbo") -> None:
+    """Configure LLM service settings globally."""
+    global LLM_API_KEY, LLM_API_URL, LLM_MODEL
+    LLM_API_KEY = api_key
+    LLM_API_URL = api_url
+    LLM_MODEL = model
+    logger.info(f"LLM configured: url={api_url}, model={model}")
+
+
+def configure_embedding(api_key: str, api_url: str = "https://api.openai.com/v1", model: str = "text-embedding-ada-002") -> None:
+    """Configure Embedding service settings globally."""
+    global EMBEDDING_API_KEY, EMBEDDING_API_URL, EMBEDDING_MODEL
+    EMBEDDING_API_KEY = api_key
+    EMBEDDING_API_URL = api_url
+    EMBEDDING_MODEL = model
+    logger.info(f"Embedding configured: url={api_url}, model={model}")
+
+
+# ============================================================================
+# Abstract Interfaces (Protocols)
 # ============================================================================
 
 class EmbeddingService(Protocol):
-    """Protocol for embedding service (to be implemented with actual LLM)."""
+    """Protocol for embedding service."""
 
     def compute_similarity(self, text1: str, text2: str) -> float:
         """Compute cosine similarity between two texts."""
@@ -32,7 +108,7 @@ class EmbeddingService(Protocol):
 
 
 class LLMScoringService(Protocol):
-    """Protocol for LLM-based scoring (to be implemented with actual LLM)."""
+    """Protocol for LLM-based scoring."""
 
     def score_task_relevance(self, abstract: str, research_intent: str) -> float:
         """Score how well the paper addresses the research intent."""
@@ -47,6 +123,270 @@ class LLMScoringService(Protocol):
     ) -> str:
         """Generate a one-sentence explanation for the routing decision."""
         ...
+
+
+# ============================================================================
+# Concrete Embedding Service Implementation
+# ============================================================================
+
+class OpenAIEmbeddingService:
+    """
+    Concrete implementation of EmbeddingService using OpenAI-compatible API.
+
+    Uses global configuration variables for API settings.
+    """
+
+    # Cache for embeddings to reduce API calls
+    _embedding_cache: dict[str, list[float]] = {}
+
+    def __init__(self) -> None:
+        """Initialize the embedding service."""
+        if not EMBEDDING_API_KEY:
+            logger.warning("EMBEDDING_API_KEY not set. Similarity scores will be neutral.")
+        self.api_key = EMBEDDING_API_KEY
+        self.api_url = EMBEDDING_API_URL
+        self.model = EMBEDDING_MODEL
+
+    def _get_embedding(self, text: str) -> list[float]:
+        """
+        Get embedding vector for a text string.
+
+        Args:
+            text: Input text to embed
+
+        Returns:
+            Embedding vector (list of floats)
+        """
+        # Check cache first
+        cache_key = hashlib_key(text)
+        if cache_key in self._embedding_cache:
+            return self._embedding_cache[cache_key]
+
+        # Truncate text if too long (OpenAI limit is ~8191 tokens)
+        max_chars = 8000
+        truncated_text = text[:max_chars] if len(text) > max_chars else text
+
+        try:
+            response = requests.post(
+                f"{self.api_url}/embeddings",
+                headers={
+                    "Authorization": f"Bearer {self.api_key}",
+                    "Content-Type": "application/json"
+                },
+                json={
+                    "input": truncated_text,
+                    "model": self.model
+                },
+                timeout=30
+            )
+            response.raise_for_status()
+            result = response.json()
+            embedding = result["data"][0]["embedding"]
+
+            # Cache the result
+            self._embedding_cache[cache_key] = embedding
+            return embedding
+
+        except requests.exceptions.RequestException as e:
+            logger.error(f"Embedding API error: {e}")
+            # Return a zero vector as fallback
+            return [0.0] * 1536  # Standard OpenAI embedding dimension
+
+    def compute_similarity(self, text1: str, text2: str) -> float:
+        """
+        Compute cosine similarity between two texts.
+
+        Args:
+            text1: First text
+            text2: Second text
+
+        Returns:
+            Cosine similarity score (-1 to 1)
+        """
+        if not self.api_key:
+            # Return neutral similarity if not configured
+            return 0.5
+
+        emb1 = self._get_embedding(text1)
+        emb2 = self._get_embedding(text2)
+
+        # Compute cosine similarity
+        similarity = cosine_similarity(emb1, emb2)
+        logger.debug(f"Similarity computed: {similarity:.4f}")
+        return similarity
+
+
+def hashlib_key(text: str) -> str:
+    """Generate a hash key for caching."""
+    import hashlib
+    return hashlib.md5(text.encode()).hexdigest()
+
+
+def cosine_similarity(vec1: list[float], vec2: list[float]) -> float:
+    """Compute cosine similarity between two vectors."""
+    import math
+
+    dot_product = sum(a * b for a, b in zip(vec1, vec2))
+    norm1 = math.sqrt(sum(a * a for a in vec1))
+    norm2 = math.sqrt(sum(b * b for b in vec2))
+
+    if norm1 == 0 or norm2 == 0:
+        return 0.0
+
+    return dot_product / (norm1 * norm2)
+
+
+# ============================================================================
+# Concrete LLM Scoring Service Implementation
+# ============================================================================
+
+class OpenAILLMScoringService:
+    """
+    Concrete implementation of LLMScoringService using OpenAI-compatible API.
+
+    Uses global configuration variables for API settings.
+    """
+
+    def __init__(self) -> None:
+        """Initialize the LLM service."""
+        if not LLM_API_KEY:
+            logger.warning("LLM_API_KEY not set. LLM scores will be neutral.")
+        self.api_key = LLM_API_KEY
+        self.api_url = LLM_API_URL
+        self.model = LLM_MODEL
+
+    def _call_llm(self, prompt: str, max_tokens: int = 500) -> str:
+        """
+        Make a call to the LLM API.
+
+        Args:
+            prompt: The prompt to send
+            max_tokens: Maximum tokens in response
+
+        Returns:
+            LLM response text
+        """
+        if not self.api_key:
+            return ""
+
+        try:
+            response = requests.post(
+                f"{self.api_url}/chat/completions",
+                headers={
+                    "Authorization": f"Bearer {self.api_key}",
+                    "Content-Type": "application/json"
+                },
+                json={
+                    "model": self.model,
+                    "messages": [{"role": "user", "content": prompt}],
+                    "max_tokens": max_tokens,
+                    "temperature": 0.3
+                },
+                timeout=60
+            )
+            response.raise_for_status()
+            result = response.json()
+            return result["choices"][0]["message"]["content"].strip()
+
+        except requests.exceptions.RequestException as e:
+            logger.error(f"LLM API error: {e}")
+            return ""
+
+    def score_task_relevance(self, abstract: str, research_intent: str) -> float:
+        """
+        Score how well the paper addresses the research intent.
+
+        Args:
+            abstract: Paper abstract
+            research_intent: Research intent/purpose
+
+        Returns:
+            Task relevance score (0-100)
+        """
+        if not self.api_key:
+            return 50.0  # Neutral score
+
+        prompt = f"""Rate how relevant this paper is to the research intent on a scale of 0-100.
+
+Research Intent:
+{research_intent}
+
+Paper Abstract:
+{abstract[:2000]}
+
+Provide ONLY a single number between 0 and 100. No explanation needed."""
+
+        response = self._call_llm(prompt, max_tokens=10)
+
+        # Parse the score
+        try:
+            # Extract number from response
+            match = re.search(r'\d+', response)
+            if match:
+                score = int(match.group())
+                return float(max(0, min(100, score)))
+        except (ValueError, AttributeError):
+            pass
+
+        logger.warning(f"Could not parse LLM score from response: {response}")
+        return 50.0  # Neutral fallback
+
+    def generate_routing_reason(
+        self,
+        core_score: float,
+        impact_score: float,
+        category: QuadrantCategory,
+        paper: CandidatePaper
+    ) -> str:
+        """
+        Generate a one-sentence explanation for the routing decision.
+
+        Args:
+            core_score: Core relevance score
+            impact_score: Impact score
+            category: Quadrant category
+            paper: The paper
+
+        Returns:
+            One-sentence routing reason
+        """
+        if not self.api_key:
+            # Generate mock reason without LLM
+            return self._mock_reason(core_score, impact_score, category)
+
+        prompt = f"""Generate a one-sentence explanation for why this paper was classified as {category.value}.
+
+Paper Title: {paper.title}
+Core Score: {core_score:.1f}/100
+Impact Score: {impact_score:.1f}/100
+Authors: {', '.join(paper.authors[:3])}
+Venue: {paper.venue}
+Citations: {paper.citation_count}
+
+Provide a single sentence explaining the classification. Focus on the key factors."""
+
+        response = self._call_llm(prompt, max_tokens=100)
+
+        if response:
+            return response
+
+        # Fallback to mock reason
+        return self._mock_reason(core_score, impact_score, category)
+
+    def _mock_reason(
+        self,
+        core_score: float,
+        impact_score: float,
+        category: QuadrantCategory
+    ) -> str:
+        """Generate a mock reason when LLM is not available."""
+        reasons = {
+            QuadrantCategory.CROWN_JEWEL: f"High relevance ({core_score:.1f}) and high impact ({impact_score:.1f}) - priority read.",
+            QuadrantCategory.CORE_TRACK: f"High relevance ({core_score:.1f}) but moderate impact ({impact_score:.1f}) - standard analysis.",
+            QuadrantCategory.IMPACT_TRACK: f"Lower relevance ({core_score:.1f}) but high impact ({impact_score:.1f}) - cross-domain insight.",
+            QuadrantCategory.REJECTED: f"Lower relevance ({core_score:.1f}) and impact ({impact_score:.1f}) - skip for now."
+        }
+        return reasons.get(category, "Unknown category")
 
 
 # ============================================================================
@@ -618,3 +958,118 @@ class FilterAgent:
             Papers matching the category
         """
         return [p for p in scored_papers if p.quadrant_category == category]
+
+    def save_checkpoint(
+        self,
+        scored_papers: list[ScoredPaper],
+        output_path: Path | None = None,
+        date_str: str | None = None
+    ) -> Path:
+        """
+        Save scored papers to JSON checkpoint file.
+
+        Following the File_IO_and_Logging.md contract:
+        - Output to data/scored_papers/YYYY-MM-DD.json
+        - Enables resumption if downstream agents fail
+
+        Args:
+            scored_papers: List of scored papers to save
+            output_path: Custom output path (optional)
+            date_str: Date string for filename (defaults to today)
+
+        Returns:
+            Path to the saved file
+        """
+        if output_path is None:
+            project_root = Path(__file__).parent.parent
+            output_dir = project_root / "data" / "scored_papers"
+            output_dir.mkdir(parents=True, exist_ok=True)
+            date_str = date_str or date.today().isoformat()
+            output_path = output_dir / f"{date_str}.json"
+
+        # Convert to JSON-serializable format
+        data = [paper.model_dump() for paper in scored_papers]
+
+        # Convert date objects to strings for JSON serialization
+        for paper_data in data:
+            if isinstance(paper_data.get("publication_date"), date):
+                paper_data["publication_date"] = paper_data["publication_date"].isoformat()
+
+        with open(output_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+
+        logger.info(f"Saved {len(scored_papers)} scored papers to {output_path}")
+        return output_path
+
+    @classmethod
+    def load_checkpoint(cls, input_path: Path) -> list[ScoredPaper]:
+        """
+        Load scored papers from JSON checkpoint file.
+
+        Enables resumption from a previous run.
+
+        Args:
+            input_path: Path to the checkpoint file
+
+        Returns:
+            List of ScoredPaper objects
+        """
+        with open(input_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        # Convert date strings back to date objects
+        for paper_data in data:
+            if isinstance(paper_data.get("publication_date"), str):
+                paper_data["publication_date"] = date.fromisoformat(paper_data["publication_date"])
+
+        papers = [ScoredPaper(**paper_data) for paper_data in data]
+        logger.info(f"Loaded {len(papers)} scored papers from {input_path}")
+        return papers
+
+
+# ============================================================================
+# Factory Function for Easy Setup
+# ============================================================================
+
+def create_filter_agent(
+    llm_api_key: str = "",
+    llm_api_url: str = "https://api.openai.com/v1",
+    llm_model: str = "gpt-3.5-turbo",
+    embedding_api_key: str = "",
+    embedding_api_url: str = "https://api.openai.com/v1",
+    embedding_model: str = "text-embedding-ada-002",
+    config: Config | None = None
+) -> FilterAgent:
+    """
+    Factory function to create a FilterAgent with configured services.
+
+    This is the recommended way to create a FilterAgent for production use.
+
+    Args:
+        llm_api_key: API key for LLM service
+        llm_api_url: API URL for LLM service
+        llm_model: Model name for LLM service
+        embedding_api_key: API key for embedding service
+        embedding_api_url: API URL for embedding service
+        embedding_model: Model name for embedding service
+        config: Configuration instance (uses singleton if None)
+
+    Returns:
+        Configured FilterAgent instance
+    """
+    # Configure global settings
+    if llm_api_key:
+        configure_llm(llm_api_key, llm_api_url, llm_model)
+    if embedding_api_key:
+        configure_embedding(embedding_api_key, embedding_api_url, embedding_model)
+
+    # Create services
+    embedding_service = OpenAIEmbeddingService() if embedding_api_key else None
+    llm_service = OpenAILLMScoringService() if llm_api_key else None
+
+    # Create and return agent
+    return FilterAgent(
+        config=config,
+        embedding_service=embedding_service,
+        llm_service=llm_service
+    )

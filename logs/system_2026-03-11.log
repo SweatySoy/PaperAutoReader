@@ -135,3 +135,113 @@
 2026-03-11 15:25:38,584 - [SearchAgent] ERROR: Semantic Scholar API: 达到最大重试次数 3，放弃
 2026-03-11 15:25:38,686 - [SearchAgent] INFO: [Search Agent] 引用数据获取完成，成功增强 6 篇论文
 2026-03-11 15:25:38,688 - [SearchAgent] INFO: [Search Agent] 论文已保存至: d:\work\code\PaperAutoReader\data\raw_papers\2026-03-11.json
+2026-03-11 16:33:31,619 - [SearchAgent] WARNING: Semantic Scholar API 限流 (429)，第 1 次重试，等待 1.0 秒...
+2026-03-11 16:33:33,282 - [SearchAgent] INFO: 从 YAML 文件加载配置: D:\work\code\PaperAutoReader\fields\Domain_Profile_QML.yaml
+2026-03-11 16:33:33,282 - [SearchAgent] DEBUG: 构建了 9 个搜索查询: ['all:PQC', 'ti:quantum machine learning', 'all:barren plateau', 'abs:quantum machine learning', 'abs:variational quantum algorithm', 'abs:VQA', 'all:parameterized quantum circuit', 'ti:VQA', 'ti:variational quantum algorithm']
+2026-03-11 16:33:33,282 - [SearchAgent] DEBUG: 构建了 7 个搜索查询: ['ti:quantum machine learning', 'all:barren plateau', 'abs:quantum machine learning', 'abs:variational quantum algorithm', 'all:parameterized quantum circuit', 'all:VQA', 'ti:variational quantum algorithm']
+2026-03-11 16:33:33,282 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: ti:quantum machine learning
+2026-03-11 16:33:35,737 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: all:barren plateau
+2026-03-11 16:33:38,387 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: abs:quantum machine learning
+2026-03-11 16:33:42,373 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: abs:variational quantum algorithm
+2026-03-11 16:33:45,227 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: all:parameterized quantum circuit
+2026-03-11 16:33:49,462 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: all:VQA
+2026-03-11 16:33:52,833 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: ti:variational quantum algorithm
+2026-03-11 16:33:56,224 - [SearchAgent] INFO: [Search Agent] 成功从 arXiv 抓取 6 篇论文
+2026-03-11 16:33:56,224 - [SearchAgent] INFO: [Search Agent] 正在批量获取 6 篇论文的引用数据...
+2026-03-11 16:33:56,224 - [SearchAgent] INFO: [Search Agent] 批量查询 Semantic Scholar: 第 1 批，共 6 篇论文
+2026-03-11 16:33:57,459 - [SearchAgent] ERROR: Semantic Scholar Batch API 请求格式错误: {"error":"No valid paper ids given"}
+
+2026-03-11 16:33:57,460 - [SearchAgent] DEBUG: 论文 2603.09974 在 Semantic Scholar 中未找到，设为默认值
+2026-03-11 16:33:57,460 - [SearchAgent] DEBUG: 论文 2603.09972 在 Semantic Scholar 中未找到，设为默认值
+2026-03-11 16:33:57,460 - [SearchAgent] DEBUG: 论文 2603.09944 在 Semantic Scholar 中未找到，设为默认值
+2026-03-11 16:33:57,460 - [SearchAgent] DEBUG: 论文 2603.09966 在 Semantic Scholar 中未找到，设为默认值
+2026-03-11 16:33:57,460 - [SearchAgent] DEBUG: 论文 2603.09959 在 Semantic Scholar 中未找到，设为默认值
+2026-03-11 16:33:57,460 - [SearchAgent] DEBUG: 论文 2603.09696 在 Semantic Scholar 中未找到，设为默认值
+2026-03-11 16:33:57,460 - [SearchAgent] INFO: [Search Agent] 批量查询完成，成功获取 0 篇论文的引用数据
+2026-03-11 16:33:57,460 - [SearchAgent] INFO: [Search Agent] 引用数据获取完成，成功增强 6 篇论文
+2026-03-11 16:33:57,461 - [SearchAgent] INFO: [Search Agent] 论文已保存至: D:\work\code\PaperAutoReader\data\raw_papers\2026-03-11.json
+2026-03-11 17:06:28,888 - [SearchAgent] WARNING: Semantic Scholar API 限流 (429)，第 1 次重试，等待 1.0 秒...
+2026-03-11 17:06:30,127 - [SearchAgent] WARNING: Semantic Scholar API 限流 (429)，第 2 次重试，等待 2.0 秒...
+2026-03-11 17:06:32,353 - [SearchAgent] WARNING: Semantic Scholar API 限流 (429)，第 3 次重试，等待 4.0 秒...
+2026-03-11 17:06:36,353 - [SearchAgent] ERROR: Semantic Scholar API: 达到最大重试次数 3，放弃
+2026-03-11 17:06:36,359 - [SearchAgent] INFO: 从 YAML 文件加载配置: D:\work\code\PaperAutoReader\fields\Domain_Profile_QML.yaml
+2026-03-11 17:06:36,360 - [SearchAgent] DEBUG: 构建了 9 个搜索查询: ['ti:variational quantum algorithm', 'abs:variational quantum algorithm', 'abs:quantum machine learning', 'abs:VQA', 'all:barren plateau', 'ti:VQA', 'all:PQC', 'ti:quantum machine learning', 'all:parameterized quantum circuit']
+2026-03-11 17:06:36,360 - [SearchAgent] DEBUG: 构建了 7 个搜索查询: ['ti:variational quantum algorithm', 'all:VQA', 'abs:variational quantum algorithm', 'abs:quantum machine learning', 'all:barren plateau', 'ti:quantum machine learning', 'all:parameterized quantum circuit']
+2026-03-11 17:06:36,360 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: ti:variational quantum algorithm
+2026-03-11 17:06:38,071 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: all:VQA
+2026-03-11 17:06:40,089 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: abs:variational quantum algorithm
+2026-03-11 17:06:42,397 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: abs:quantum machine learning
+2026-03-11 17:06:44,947 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: all:barren plateau
+2026-03-11 17:06:47,745 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: ti:quantum machine learning
+2026-03-11 17:06:50,568 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: all:parameterized quantum circuit
+2026-03-11 17:06:52,386 - [SearchAgent] INFO: [Search Agent] 成功从 arXiv 抓取 6 篇论文
+2026-03-11 17:06:52,386 - [SearchAgent] INFO: [Search Agent] 正在批量获取 6 篇论文的引用数据...
+2026-03-11 17:06:52,387 - [SearchAgent] INFO: [Search Agent] 批量查询 Semantic Scholar: 第 1 批，共 6 篇论文
+2026-03-11 17:06:53,243 - [SearchAgent] ERROR: Semantic Scholar Batch API 请求格式错误: {"error":"No valid paper ids given"}
+
+2026-03-11 17:06:53,244 - [SearchAgent] INFO: [Search Agent] 批量查询完成，成功获取 0 篇论文的引用数据
+2026-03-11 17:06:53,244 - [SearchAgent] INFO: [Search Agent] 引用数据获取完成，成功增强 6 篇论文
+2026-03-11 17:06:53,246 - [SearchAgent] INFO: [Search Agent] 论文已保存至: D:\work\code\PaperAutoReader\data\raw_papers\2026-03-11.json
+2026-03-11 21:46:49,959 - [SearchAgent] INFO: 从 YAML 文件加载配置: d:\work\code\PaperAutoReader\fields\Domain_Profile_QML.yaml
+2026-03-11 21:46:49,959 - [SearchAgent] DEBUG: 构建了 9 个搜索查询: ['all:parameterized quantum circuit', 'abs:variational quantum algorithm', 'all:barren plateau', 'abs:quantum machine learning', 'abs:VQA', 'all:PQC', 'ti:quantum machine learning', 'ti:variational quantum algorithm', 'ti:VQA']
+2026-03-11 21:46:49,960 - [SearchAgent] DEBUG: 构建了 7 个搜索查询: ['all:VQA', 'all:parameterized quantum circuit', 'all:barren plateau', 'abs:variational quantum algorithm', 'abs:quantum machine learning', 'ti:quantum machine learning', 'ti:variational quantum algorithm']
+2026-03-11 21:46:49,960 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: all:VQA
+2026-03-11 21:46:52,849 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: all:parameterized quantum circuit
+2026-03-11 21:46:55,540 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: all:barren plateau
+2026-03-11 21:47:02,160 - [SearchAgent] INFO: 从 YAML 文件加载配置: d:\work\code\PaperAutoReader\fields\Domain_Profile_QML.yaml
+2026-03-11 21:47:02,161 - [SearchAgent] DEBUG: 构建了 9 个搜索查询: ['all:barren plateau', 'all:PQC', 'abs:quantum machine learning', 'ti:quantum machine learning', 'ti:variational quantum algorithm', 'ti:VQA', 'abs:variational quantum algorithm', 'abs:VQA', 'all:parameterized quantum circuit']
+2026-03-11 21:47:02,161 - [SearchAgent] DEBUG: 构建了 7 个搜索查询: ['all:barren plateau', 'abs:quantum machine learning', 'ti:quantum machine learning', 'ti:variational quantum algorithm', 'all:VQA', 'abs:variational quantum algorithm', 'all:parameterized quantum circuit']
+2026-03-11 21:47:02,161 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: all:barren plateau
+2026-03-11 21:47:03,982 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: abs:quantum machine learning
+2026-03-11 21:47:06,668 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: ti:quantum machine learning
+2026-03-11 21:47:09,346 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: ti:variational quantum algorithm
+2026-03-11 21:47:12,241 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: all:VQA
+2026-03-11 21:47:14,219 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: abs:variational quantum algorithm
+2026-03-11 21:47:16,772 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: all:parameterized quantum circuit
+2026-03-11 21:47:18,486 - [SearchAgent] INFO: [Search Agent] 成功从 arXiv 抓取 7 篇论文
+2026-03-11 21:47:18,487 - [SearchAgent] INFO: [Search Agent] 正在批量获取 7 篇论文的引用数据...
+2026-03-11 21:47:18,487 - [SearchAgent] INFO: [Search Agent] 批量查询 Semantic Scholar: 第 1 批，共 7 篇论文
+2026-03-11 21:47:19,768 - [SearchAgent] INFO: [Search Agent] 批量查询完成，成功获取 2 篇论文的引用数据
+2026-03-11 21:47:19,769 - [SearchAgent] INFO: [Search Agent] 引用数据获取完成，成功增强 7 篇论文
+2026-03-11 21:47:19,771 - [SearchAgent] INFO: [Search Agent] 论文已保存至: d:\work\code\PaperAutoReader\data\raw_papers\2026-03-11.json
+2026-03-11 21:49:47,477 - [SearchAgent] WARNING: Semantic Scholar API 限流 (429)，第 1 次重试，等待 1.0 秒...
+2026-03-11 21:49:49,132 - [SearchAgent] INFO: 从 YAML 文件加载配置: d:\work\code\PaperAutoReader\fields\Domain_Profile_QML.yaml
+2026-03-11 21:49:49,133 - [SearchAgent] DEBUG: 构建了 9 个搜索查询: ['abs:variational quantum algorithm', 'ti:variational quantum algorithm', 'abs:quantum machine learning', 'all:PQC', 'ti:quantum machine learning', 'ti:VQA', 'all:parameterized quantum circuit', 'all:barren plateau', 'abs:VQA']
+2026-03-11 21:49:49,136 - [SearchAgent] DEBUG: 构建了 7 个搜索查询: ['abs:variational quantum algorithm', 'ti:variational quantum algorithm', 'abs:quantum machine learning', 'ti:quantum machine learning', 'all:parameterized quantum circuit', 'all:barren plateau', 'all:VQA']
+2026-03-11 21:49:49,136 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: abs:variational quantum algorithm
+2026-03-11 21:49:50,901 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: ti:variational quantum algorithm
+2026-03-11 21:49:52,612 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: abs:quantum machine learning
+2026-03-11 21:49:54,339 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: ti:quantum machine learning
+2026-03-11 21:49:56,135 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: all:parameterized quantum circuit
+2026-03-11 21:49:57,800 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: all:barren plateau
+2026-03-11 21:49:59,692 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: all:VQA
+2026-03-11 21:50:01,592 - [SearchAgent] INFO: [Search Agent] 成功从 arXiv 抓取 6 篇论文
+2026-03-11 21:50:01,592 - [SearchAgent] INFO: [Search Agent] 正在批量获取 6 篇论文的引用数据...
+2026-03-11 21:50:01,592 - [SearchAgent] INFO: [Search Agent] 批量查询 Semantic Scholar: 第 1 批，共 6 篇论文
+2026-03-11 21:50:02,969 - [SearchAgent] INFO: [Search Agent] 批量查询完成，成功获取 2 篇论文的引用数据
+2026-03-11 21:50:02,973 - [SearchAgent] INFO: [Search Agent] 引用数据获取完成，成功增强 6 篇论文
+2026-03-11 21:50:02,978 - [SearchAgent] INFO: [Search Agent] 论文已保存至: d:\work\code\PaperAutoReader\data\raw_papers\2026-03-11.json
+2026-03-11 22:00:11,946 - [SearchAgent] INFO: 从 YAML 文件加载配置: d:\work\code\PaperAutoReader\fields\Domain_Profile_QML.yaml
+2026-03-11 22:01:52,901 - [SearchAgent] INFO: 从 YAML 文件加载配置: d:\work\code\PaperAutoReader\fields\Domain_Profile_QML.yaml
+2026-03-11 22:01:52,901 - [SearchAgent] INFO: ============================================================
+2026-03-11 22:01:52,901 - [SearchAgent] INFO: [Search Agent] 开始执行数据抓取流程
+2026-03-11 22:01:52,901 - [SearchAgent] INFO:   - 回溯天数: 5
+2026-03-11 22:01:52,901 - [SearchAgent] INFO:   - 最大结果数: 100
+2026-03-11 22:01:52,902 - [SearchAgent] INFO: ============================================================
+2026-03-11 22:01:52,902 - [SearchAgent] DEBUG: 构建了 9 个搜索查询: ['ti:quantum machine learning', 'ti:VQA', 'all:PQC', 'all:parameterized quantum circuit', 'abs:VQA', 'abs:variational quantum algorithm', 'all:barren plateau', 'ti:variational quantum algorithm', 'abs:quantum machine learning']
+2026-03-11 22:01:52,902 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: ti:quantum machine learning
+2026-03-11 22:01:54,708 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: ti:VQA
+2026-03-11 22:02:45,448 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: all:PQC
+2026-03-11 22:02:49,309 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: all:parameterized quantum circuit
+2026-03-11 22:02:55,568 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: abs:VQA
+2026-03-11 22:02:59,860 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: abs:variational quantum algorithm
+2026-03-11 22:03:18,567 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: all:barren plateau
+2026-03-11 22:03:20,516 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: ti:variational quantum algorithm
+2026-03-11 22:03:22,314 - [SearchAgent] INFO: [Search Agent] 正在查询 arXiv: abs:quantum machine learning
+2026-03-11 22:03:24,072 - [SearchAgent] INFO: [Search Agent] 成功从 arXiv 抓取 108 篇论文
+2026-03-11 22:03:24,072 - [SearchAgent] INFO: [Search Agent] 正在批量获取 108 篇论文的引用数据...
+2026-03-11 22:03:24,073 - [SearchAgent] INFO: [Search Agent] 批量查询 Semantic Scholar: 第 1 批，共 108 篇论文
+2026-03-11 22:03:25,794 - [SearchAgent] INFO: [Search Agent] 批量查询完成，成功获取 5 篇论文的引用数据
+2026-03-11 22:03:25,798 - [SearchAgent] INFO: [Search Agent] 引用数据获取完成，成功增强 108 篇论文
+2026-03-11 22:03:25,807 - [SearchAgent] INFO: [Search Agent] 论文已保存至: d:\work\code\PaperAutoReader\data\raw_papers\2026-03-11.json
+2026-03-11 22:03:25,807 - [SearchAgent] INFO: [Search Agent] 数据抓取流程完成

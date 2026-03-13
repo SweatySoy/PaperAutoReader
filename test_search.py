@@ -79,6 +79,8 @@ class MockConfig:
 # Global config instance
 config = MockConfig()
 
+
+
 # ============================================================================
 # Inject Mock into search_agent module
 # ============================================================================
@@ -91,7 +93,7 @@ except ImportError:
     print("[Test] Using MockCandidatePaper (src.models not found)")
 
 try:
-    from src.config_loader import config as real_config
+    from src.config_loader import Config as real_config
 except ImportError:
     search_module.config = config
     print("[Test] Using MockConfig (src.config_loader not found)")
@@ -306,6 +308,18 @@ def run_all_tests():
 
     return passed_count == total_count
 
+from src.agents.search_agent import SearchAgent, ConfigAdapter
+
+config = ConfigAdapter()
+def real_test():
+
+    search_agent= SearchAgent(config_source=config,
+                              max_papers_per_query=500)
+    papers = search_agent.run(days_back=300, max_results=100000)
+    return papers
+
+
 if __name__ == "__main__":
-    success = run_all_tests()
-    sys.exit(0 if success else 1)
+    # success = run_all_tests()
+    real_test()
+    # sys.exit(0 if success else 1)
