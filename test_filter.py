@@ -150,14 +150,16 @@ def create_real_paper() -> List[CandidatePaper]:
     data_dir = project_root / "data" / "raw_papers"
 
     # Find the most recent JSON file
-    json_files = sorted(data_dir.glob("*.json"), reverse=True)
-    if not json_files:
-        raise FileNotFoundError("No raw papers JSON file found in data/raw_papers/")
+    # json_files = sorted(data_dir.glob("*.json"), reverse=True)
+    # if not json_files:
+    #     raise FileNotFoundError("No raw papers JSON file found in data/raw_papers/")
 
-    latest_file = json_files[0]
-    print(f"    Loading from: {latest_file}")
+    # latest_file = json_files[0]
 
-    with open(latest_file, "r", encoding="utf-8") as f:
+    json_file = data_dir / "raw_papers_2026-03-11.json"
+    print(f"    Loading from: {json_file}")
+
+    with open(json_file, "r", encoding="utf-8") as f:
         raw_papers = json.load(f)
 
     # Convert date strings to date objects
@@ -221,9 +223,37 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def load_llm_config() -> dict:
+    """Load LLM configuration from llm_key.json."""
+    project_root = Path(__file__).parent
+    config_path = project_root / "llm_key.json"
+
+    with open(config_path, "r", encoding="utf-8") as f:
+        configs = json.load(f)
+
+    # Return the first config entry
+    if configs and len(configs) > 0:
+        return configs[0]
+    return {}
+
+
 def main() -> None:
     """Run the filter agent test."""
-    args = parse_args()
+
+    # Load LLM config from llm_key.json
+    llm_config = load_llm_config()
+
+    # Build args using llm_key.json config
+    args = argparse.Namespace(
+        real=True,
+        checkpoint=None,
+        llm_api_key=llm_config.get("api_token", ""),
+        embedding_api_key=llm_config.get("api_token", ""),  # Use same key for embedding
+        llm_url=llm_config.get("url", "https://api.openai.com/v1"),
+        embedding_url=llm_config.get("url", "https://api.openai.com/v1"),
+        llm_model=llm_config.get("model", "gpt-3.5-turbo"),
+        embedding_model="text-embedding-v3",  # Qwen embedding model
+    )
 
     print("=" * 60)
     print("Filter Agent Test - Dual-Axis Scoring & Quadrant Routing")
@@ -265,7 +295,10 @@ def main() -> None:
                 embedding_model=args.embedding_model,
                 config=config
             )
-            print("    Mode: Real LLM/Embedding services")
+            print(f"    Mode: Real LLM/Embedding services")
+            print(f"    LLM URL: {args.llm_url}")
+            print(f"    LLM Model: {args.llm_model}")
+            print(f"    Embedding Model: {args.embedding_model}")
         else:
             agent = FilterAgent(config=config)
             print("    Mode: Mock (no API keys provided)")

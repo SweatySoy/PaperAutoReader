@@ -440,6 +440,315 @@ class GitHubLinkDetector:
         return cls.GITHUB_PATTERN.findall(text)
 
 # ============================================================================
+# CrossRef API 客户端 (确认论文发表状态)
+# ============================================================================
+class CrossRefClient:
+    """
+    CrossRef API 客户端。
+    用于确认 arXiv 论文是否已正式发表，并获取发表期刊名称。
+
+    CrossRef 是免费的开放 API，无需 API Key。
+    文档: https://api.crossref.org
+    """
+
+    BASE_URL = "https://api.crossref.org/works"
+    MAX_RETRIES = 3
+    BASE_DELAY = 1.0
+
+    def __init__(self, mailto: Optional[str] = None):
+        """
+        初始化 CrossRef 客户端。
+
+        Args:
+            mailto: 邮箱地址 (CrossRef 建议提供，可提高速率限制)
+        """
+        self.session = requests.Session()
+        headers = {"User-Agent": "PaperAutoReader/1.0 (https://github.com/paperautoreader)"}
+        if mailto:
+            headers["User-Agent"] += f" mailto:{mailto}"
+        self.session.headers.update(headers)
+
+    def _retry_request(
+        self,
+        url: str,
+        params: Dict[str, Any]
+    ) -> Optional[Dict[str, Any]]:
+        """带重试的请求。"""
+        for attempt in range(self.MAX_RETRIES):
+            try:
+                response = self.session.get(url, params=params, timeout=30)
+
+                if response.status_code == 200:
+                    return response.json()
+                elif response.status_code == 429:
+                    delay = self.BASE_DELAY * (2 ** attempt)
+                    logger.warning(f"CrossRef API 限流 (429)，等待 {delay:.1f} 秒...")
+                    time.sleep(delay)
+                    continue
+                else:
+                    logger.debug(f"CrossRef API 返回 {response.status_code}: {url}")
+                    return None
+
+            except requests.exceptions.Timeout:
+                logger.warning(f"CrossRef API 超时，第 {attempt + 1} 次重试...")
+                time.sleep(self.BASE_DELAY * (attempt + 1))
+                continue
+            except requests.exceptions.RequestException as e:
+                logger.error(f"CrossRef API 请求异常: {e}")
+                return None
+
+        return None
+
+    def query_by_arxiv_id(self, arxiv_id: str) -> Optional[Dict[str, Any]]:
+        """
+        通过 arXiv ID 查询 CrossRef。
+
+        CrossRef 支持通过 DOI 前缀查询，但 arXiv 论文的 DOI 格式为:
+        10.48550/arXiv.XXXX.XXXXX 或 10.5555/arXiv.XXXX.XXXXX
+
+        Args:
+            arxiv_id: arXiv ID (如 "2303.12345")
+
+        Returns:
+            包含 venue, DOI 等信息的字典，或 None
+        """
+        # 尝试多种 arXiv DOI 格式
+        doi_candidates = [
+            f"10.48550/arXiv.{arxiv_id}",  # 新格式
+            f"10.5555/arXiv.{arxiv_id}",   # 旧格式
+            f"10.48550/arxiv.{arxiv_id}",  # 小写变体
+        ]
+
+        for doi in doi_candidates:
+            url = f"{self.BASE_URL}/{doi}"
+            data = self._retry_request(url, {})
+
+            if data and "message" in data:
+                msg = data["message"]
+                return self._parse_crossref_response(msg)
+
+        return None
+
+    def query_by_title(
+        self,
+        title: str,
+        authors: Optional[List[str]] = None
+    ) -> Optional[Dict[str, Any]]:
+        """
+        通过标题模糊查询 CrossRef。
+
+        Args:
+            title: 论文标题
+            authors: 作者列表 (用于提高匹配准确度)
+
+        Returns:
+            包含 venue, DOI 等信息的字典，或 None
+        """
+        if not title:
+            return None
+
+        # 构造查询参数
+        params = {
+            "query.title": title,
+            "rows": 5  # 取前5个结果进行匹配
+        }
+
+        data = self._retry_request(self.BASE_URL, params)
+
+        if not data or "message" not in data or "items" not in data["message"]:
+            return None
+
+        items = data["message"]["items"]
+        if not items:
+            return None
+
+        # 寻找最佳匹配
+        best_match = self._find_best_match(title, authors, items)
+        if best_match:
+            return self._parse_crossref_response(best_match)
+
+        return None
+
+    def _parse_crossref_response(self, msg: Dict[str, Any]) -> Dict[str, Any]:
+        """解析 CrossRef 响应，提取发表信息。"""
+        result = {
+            "doi": msg.get("DOI"),
+            "is_published": False,
+            "venue": None
+        }
+
+        # 已知学术出版商白名单
+        known_publishers = {
+            "Elsevier", "Springer", "Wiley", "Taylor & Francis", "Oxford University Press",
+            "Cambridge University Press", "IEEE", "ACM", "Nature Publishing Group",
+            "Science", "AAAS", "APS", "AIP", "IOP Publishing", "World Scientific",
+            "Sage Publications", "MDPI", "Frontiers", "PLoS", "BMC",
+            "Association for Computational Linguistics", "ACL", "NeurIPS", "ICML",
+            "OpenReview", "JMLR", "Proceedings of"
+        }
+
+        # 获取容器标题 (期刊名/会议名) - 这是主要判断依据
+        container_title = msg.get("container-title", [])
+        if container_title:
+            if isinstance(container_title, list):
+                result["venue"] = container_title[0]
+            else:
+                result["venue"] = container_title
+            result["is_published"] = True
+
+        # 备选: short-container-title
+        if not result["venue"]:
+            short_title = msg.get("short-container-title", [])
+            if short_title:
+                if isinstance(short_title, list):
+                    result["venue"] = short_title[0]
+                else:
+                    result["venue"] = short_title
+                result["is_published"] = True
+
+        # 仅当 container-title 存在时才认为正式发表
+        # publisher 字段不可靠 (很多是第三方存档机构)
+        # 只有当 publisher 是已知学术出版商时才作为备选
+        if not result["venue"]:
+            publisher = msg.get("publisher", "")
+            publisher_lower = publisher.lower()
+
+            # 检查是否是已知学术出版商
+            is_known_publisher = any(
+                kp.lower() in publisher_lower or publisher_lower in kp.lower()
+                for kp in known_publishers
+            )
+
+            if is_known_publisher and publisher_lower != "arxiv":
+                result["venue"] = publisher
+                result["is_published"] = True
+
+        # 最终验证: 排除 arXiv 和可疑来源
+        if result["venue"]:
+            venue_lower = result["venue"].lower()
+            if "arxiv" in venue_lower:
+                result["is_published"] = False
+                result["venue"] = None
+            # 排除可疑的第三方存档机构
+            suspicious_keywords = ["academy of", "institute of", "research center", "repository"]
+            if any(kw in venue_lower for kw in suspicious_keywords):
+                # 需要 container-title 确认才可信
+                if not container_title:
+                    result["is_published"] = False
+                    result["venue"] = None
+
+        return result
+
+    def _find_best_match(
+        self,
+        title: str,
+        authors: Optional[List[str]],
+        items: List[Dict[str, Any]]
+    ) -> Optional[Dict[str, Any]]:
+        """
+        从多个结果中找到最佳匹配。
+
+        策略:
+        1. 标题相似度 > 0.70 且至少1个作者匹配
+        2. 标题相似度 > 0.90 且有作者信息 (极高置信度)
+
+        注意: 作者匹配是强制性的，防止误匹配
+        """
+        title_lower = title.lower()
+        title_words = set(title_lower.split())
+        # 过滤掉常见停用词，提高匹配质量
+        stopwords = {"a", "an", "the", "of", "for", "and", "or", "in", "on", "to", "is", "are", "we", "that", "this", "with", "by", "from", "as", "not", "be", "which", "it", "all", "new", "using", "based", "learning", "model", "models", "method", "methods"}
+        title_words_filtered = title_words - stopwords
+
+        best_match_item = None
+        best_similarity = 0.0
+
+        for item in items:
+            item_titles = item.get("title", [])
+            if not item_titles:
+                continue
+
+            item_title = item_titles[0] if isinstance(item_titles, list) else item_titles
+            item_title_lower = item_title.lower()
+            item_title_words = set(item_title_lower.split())
+            item_title_words_filtered = item_title_words - stopwords
+
+            # 计算 Jaccard 相似度 (使用过滤后的词集)
+            if not title_words_filtered or not item_title_words_filtered:
+                continue
+
+            intersection = len(title_words_filtered & item_title_words_filtered)
+            union = len(title_words_filtered | item_title_words_filtered)
+            similarity = intersection / union if union > 0 else 0
+
+            # 检查作者匹配数量
+            author_match_count = 0
+            item_author_names = []
+            if authors:
+                item_authors = item.get("author", [])
+                item_author_names = [
+                    a.get("family", "").lower()
+                    for a in item_authors
+                    if isinstance(a, dict)
+                ]
+                # 计算匹配的作者数量
+                for author in authors[:5]:  # 检查前5个作者
+                    author_lower = author.lower()
+                    if any(author_lower in name or name in author_lower for name in item_author_names):
+                        author_match_count += 1
+
+            # 判断是否接受匹配 - 必须有作者匹配
+            if similarity > 0.90 and len(item_author_names) > 0:
+                # 极高相似度 + 有作者信息
+                if similarity > best_similarity:
+                    best_similarity = similarity
+                    best_match_item = item
+            elif similarity > 0.70 and author_match_count >= 1:
+                # 中等相似度 + 至少1个作者匹配
+                if similarity > best_similarity:
+                    best_similarity = similarity
+                    best_match_item = item
+
+        if best_match_item:
+            logger.debug(f"CrossRef 匹配成功: 相似度={best_similarity:.2f}")
+
+        return best_match_item
+
+    def get_publication_info(
+        self,
+        arxiv_id: str,
+        title: str,
+        authors: Optional[List[str]] = None
+    ) -> Dict[str, Any]:
+        """
+        获取论文发表信息的统一入口。
+
+        优先通过 arXiv ID 查询，失败后通过标题查询。
+
+        Args:
+            arxiv_id: arXiv ID
+            title: 论文标题
+            authors: 作者列表
+
+        Returns:
+            {"is_published": bool, "venue": str/None, "doi": str/None}
+        """
+        # 策略1: 通过 arXiv DOI 查询
+        result = self.query_by_arxiv_id(arxiv_id)
+        if result and result.get("is_published"):
+            logger.debug(f"CrossRef 通过 arXiv ID 确认发表: {arxiv_id} -> {result['venue']}")
+            return result
+
+        # 策略2: 通过标题查询
+        result = self.query_by_title(title, authors)
+        if result and result.get("is_published"):
+            logger.debug(f"CrossRef 通过标题确认发表: {title[:50]}... -> {result['venue']}")
+            return result
+
+        # 未找到发表记录
+        return {"is_published": False, "venue": None, "doi": None}
+
+# ============================================================================
 # 论文数据转换器
 # ============================================================================
 def extract_arxiv_id(paper: arxiv.Result) -> str:
@@ -515,14 +824,16 @@ class SearchAgent:
     职责:
     1. 从 arXiv 抓取最新论文
     2. 调用 Semantic Scholar 获取引用信息
-    3. 检测 GitHub 链接
-    4. 输出 List[CandidatePaper] 并持久化
+    3. 调用 CrossRef 确认论文是否已正式发表
+    4. 检测 GitHub 链接
+    5. 输出 List[CandidatePaper] 并持久化
     """
 
     def __init__(
         self,
         config_source: Optional[Any] = None,
         semantic_scholar_key: Optional[str] = None,
+        crossref_mailto: Optional[str] = None,
         max_papers_per_query: int = 50
     ):
         """
@@ -531,10 +842,12 @@ class SearchAgent:
         Args:
             config_source: 配置源 (config_loader 或 None)
             semantic_scholar_key: Semantic Scholar API Key (可选)
+            crossref_mailto: CrossRef 联系邮箱 (可选，提高速率限制)
             max_papers_per_query: 每个查询最大返回论文数
         """
         self.config = ConfigAdapter(config_source)
         self.ss_client = SemanticScholarClient(api_key=semantic_scholar_key)
+        self.crossref_client = CrossRefClient(mailto=crossref_mailto)
         self.max_papers_per_query = max_papers_per_query
 
     def fetch_from_arxiv(
@@ -649,6 +962,77 @@ class SearchAgent:
         )
         return enriched_papers
 
+    def enrich_with_crossref(
+        self,
+        papers: List[Dict[str, Any]],
+        progress_callback: Optional[callable] = None
+    ) -> List[Dict[str, Any]]:
+        """
+        使用 CrossRef API 确认论文是否已正式发表，并更新 venue 字段。
+
+        对于已在期刊发表的 arXiv 论文，将 venue 从 "arXiv" 更新为实际期刊名。
+
+        Args:
+            papers: 论文字典列表
+            progress_callback: 进度回调函数
+
+        Returns:
+            更新后的论文字典列表
+        """
+        if not papers:
+            return papers
+
+        logger.info(
+            f"[Search Agent] 正在通过 CrossRef 确认 {len(papers)} 篇论文的发表状态..."
+        )
+
+        confirmed_count = 0
+
+        for i, paper in enumerate(papers):
+            # 提取 arXiv ID (去掉 "arXiv:" 前缀)
+            paper_id = paper.get("paper_id", "")
+            if paper_id.startswith("arXiv:"):
+                arxiv_id = paper_id.replace("arXiv:", "")
+            else:
+                arxiv_id = paper_id
+
+            title = paper.get("title", "")
+            authors = paper.get("authors", [])
+
+            try:
+                pub_info = self.crossref_client.get_publication_info(
+                    arxiv_id=arxiv_id,
+                    title=title,
+                    authors=authors
+                )
+
+                if pub_info.get("is_published") and pub_info.get("venue"):
+                    # 更新 venue 为确认的期刊名
+                    original_venue = paper.get("venue", "arXiv")
+                    paper["venue"] = pub_info["venue"]
+                    confirmed_count += 1
+                    logger.info(
+                        f"[Search Agent] CrossRef 确认发表: '{title[:40]}...' "
+                        f"arXiv -> {pub_info['venue']}"
+                    )
+
+                # 保存 DOI (如果有)
+                if pub_info.get("doi"):
+                    paper["doi"] = pub_info["doi"]
+
+            except Exception as e:
+                logger.warning(f"CrossRef 查询失败 [{title[:30]}...]: {e}")
+
+            # 进度回调
+            if progress_callback:
+                progress_callback(i + 1, len(papers), title)
+
+        logger.info(
+            f"[Search Agent] CrossRef 确认完成: "
+            f"{confirmed_count}/{len(papers)} 篇论文已正式发表"
+        )
+        return papers
+
     def save_checkpoint(
         self,
         papers: List[Dict[str, Any]],
@@ -720,7 +1104,10 @@ class SearchAgent:
         # Step 2: 引用数据增强
         enriched_papers = self.enrich_with_citations(arxiv_papers)
 
-        # Step 3: 持久化
+        # Step 3: CrossRef 确认发表状态
+        enriched_papers = self.enrich_with_crossref(enriched_papers)
+
+        # Step 4: 持久化
         if save_output:
             self.save_checkpoint(enriched_papers)
 
