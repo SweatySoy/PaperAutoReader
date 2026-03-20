@@ -280,7 +280,8 @@ class OpenAILLMScoringService:
                     "model": self.model,
                     "messages": [{"role": "user", "content": prompt}],
                     "max_tokens": max_tokens,
-                    "temperature": 0.3
+                    "temperature": 0.3,
+                    'enable_thinking':False,
                 },
                 timeout=60
             )
@@ -290,6 +291,9 @@ class OpenAILLMScoringService:
 
         except requests.exceptions.RequestException as e:
             logger.error(f"LLM API error: {e}")
+            print(response.status_code)
+            print(response.text)
+            exit()
             return ""
 
     def score_task_relevance(self, abstract: str, research_intent: str) -> float:
@@ -969,13 +973,14 @@ class FilterAgent:
         Save scored papers to JSON checkpoint file.
 
         Following the File_IO_and_Logging.md contract:
-        - Output to data/scored_papers/YYYY-MM-DD.json
+        - Output to data/scored_papers/YYYY-MM-DD_HH-MM.json
         - Enables resumption if downstream agents fail
+        - Auto-generates unique filename to avoid overwriting
 
         Args:
             scored_papers: List of scored papers to save
             output_path: Custom output path (optional)
-            date_str: Date string for filename (defaults to today)
+            date_str: Date string for filename (defaults to today with time)
 
         Returns:
             Path to the saved file
@@ -984,8 +989,21 @@ class FilterAgent:
             project_root = Path(__file__).parent.parent
             output_dir = project_root / "data" / "scored_papers"
             output_dir.mkdir(parents=True, exist_ok=True)
-            date_str = date_str or date.today().isoformat()
+
+            # Generate filename with date and time to avoid overwriting
+            if date_str is None:
+                from datetime import datetime
+                now = datetime.now()
+                date_str = f"{now.strftime('%Y-%m-%d_%H-%M')}"
+
             output_path = output_dir / f"{date_str}.json"
+
+            # If file still exists (same minute), add a counter
+            counter = 1
+            base_path = output_path
+            while output_path.exists():
+                output_path = output_dir / f"{date_str}_{counter:02d}.json"
+                counter += 1
 
         # Convert to JSON-serializable format
         data = [paper.model_dump() for paper in scored_papers]

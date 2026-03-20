@@ -1,0 +1,353 @@
+[
+  {
+    "paper_id": "arXiv:2401.08854",
+    "title": "Remote sensing of a levitated superconductor with a flux-tunable microwave cavity",
+    "abstract": "We present a cavity-electromechanical system comprising a superconducting quantum interference device which is embedded in a microwave resonator and coupled via a pick-up loop to a 6 $μ$g magnetically-levitated superconducting sphere. The motion of the sphere in the magnetic trap induces a frequency shift in the SQUID-cavity system. We use microwave spectroscopy to characterize the system, and we demonstrate that the electromechanical interaction is tunable. The measured displacement sensitivity of $10^{-7} \\, \\mathrm{m} / \\sqrt{\\mathrm{Hz}}$, defines a path towards ground-state cooling of levitated particles with Planck-scale masses at millikelvin environment temperatures.",
+    "authors": [
+      "Philip Schmidt",
+      "Remi Claessen",
+      "Gerard Higgins",
+      "Joachim Hofer",
+      "Jannek J. Hansen",
+      "Peter Asenbaum",
+      "Kevin Uhl",
+      "Reinhold Kleiner",
+      "Rudolf Gross",
+      "Hans Huebl",
+      "Michael Trupke",
+      "Markus Aspelmeyer"
+    ],
+    "venue": "Phys. Rev. Applied 22 (2024) 014078",
+    "publication_date": "2024-01-16",
+    "url": "https://arxiv.org/abs/2401.08854v3",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.08852",
+    "title": "Tunable on-chip optical traps for levitating particles based on single-layer metasurface",
+    "abstract": "Optically levitated multiple nanoparticles has emerged as a platform for studying complex fundamental physics such as non-equilibrium phenomena, quantum entanglement, and light-matter interaction, which could be applied for sensing weak forces and torques with high sensitivity and accuracy. An optical trapping landscape of increased complexity is needed to engineer the interaction between levitated particles beyond the single harmonic trap. However, existing platforms based on spatial light modulators for studying interactions between levitated particles suffered from low efficiency, instability at focal points, the complexity of optical systems, and the scalability for sensing applications. Here, we experimentally demonstrated that a metasurface which forms two diffraction-limited focal points with a high numerical aperture (0.9) and high efficiency (31%) can generate tunable optical potential wells without any intensity fluctuations. A bistable potential and double potential wells were observed in the experiment by varying the focal points distance, and two nanoparticles were levitated in double potential wells for hours, which could be used for investigating the levitated particles nonlinear dynamics, thermal dynamics, and optical binding. This would pave the way for scaling the number of levitated optomechanical devices or realizing paralleled levitated sensors.",
+    "authors": [
+      "Chuang Sun",
+      "Hailong Pi",
+      "Kian Shen Kiang",
+      "Tiberius S. Georgescu",
+      "Jun-Yu Ou",
+      "Hendrik Ulbricht",
+      "Jize Yan"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-16",
+    "url": "https://arxiv.org/abs/2401.08852v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.08831",
+    "title": "Manipulating the Dipolar Interactions and Cooperative Effects in Confined Geometries",
+    "abstract": "To facilitate the transition of quantum effects from the controlled laboratory environment to practical real-world applications, there is a pressing need for scalable platforms. One promising strategy involves integrating thermal vapors with nanostructures designed to manipulate atomic interactions. In this tutorial, we aim to gain deeper insights into this by examining the behavior of thermal vapors that are confined within nanocavities or waveguides and exposed to near-resonant light. We explore the interactions between atoms in confined dense thermal vapors. Our investigation reveals deviations from the predictions of continuous electrodynamics models, including density-dependent line shifts and broadening effects. In particular, our results demonstrate that by carefully controlling the saturation of single atoms and the interactions among multiple atoms using nanostructures, along with controlling the geometry of the atomic cloud, it becomes possible to manipulate the effective optical nonlinearity of the entire atomic ensemble. This capability renders the hybrid thermal atom-nanophotonic platform a distinctive and valuable one for manipulating the collective effect and achieving substantial optical nonlinearities.",
+    "authors": [
+      "Hadiseh Alaeian",
+      "Artur Skljarow",
+      "Stefan Scheel",
+      "Tilman Pfau",
+      "Robert Löw"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-16",
+    "url": "https://arxiv.org/abs/2401.08831v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.08824",
+    "title": "Spontaneous breaking of time translation symmetry in a system without periodic external driving",
+    "abstract": "It is known that the spontaneous time translation symmetry breaking can occur in systems periodically driven at a certain period. We predict a spontaneous breaking of time translation symmetry in an atom-cavity system without external driving, in which a time scale is determined by the time of light bypass of the resonator. We demonstrate that there is a parameter range, in which a system state returns to its initial state only after two bypasses of the resonator. We believe that the predicted phenomenon opens a way to a new direction in the time crystal field.",
+    "authors": [
+      "T. T. Sergeev",
+      "A. A. Zyablovsky",
+      "E. S. Andrianov",
+      "Yu. E. Lozovik"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-16",
+    "url": "https://arxiv.org/abs/2401.08824v3",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.08770",
+    "title": "Percolation as a confinement order parameter in $\\mathbb{Z}_2$ lattice gauge theories",
+    "abstract": "Lattice gauge theories (LGTs) were introduced in 1974 by Wilson to study quark confinement. These models have been shown to exhibit (de-)confined phases, yet it remains challenging to define experimentally accessible order parameters. Here we propose percolation-inspired order parameters (POPs) to probe confinement of dynamical matter in $\\mathbb{Z}_2$ LGTs using electric field basis snapshots accessible to quantum simulators. We apply the POPs to study a classical $\\mathbb{Z}_2$ LGT and find a confining phase up to temperature $T=\\infty$ in 2D (critical $T_c$, i.e. finite-$T$ phase transition, in 3D) for any non-zero density of $\\mathbb{Z}_2$ charges. Further, using quantum Monte Carlo we demonstrate that the POPs reproduce the square lattice Fradkin-Shenker phase diagram at $T=0$ and explore the phase diagram at $T>0$. The correlation length exponent coincides with the one of the 3D Ising universality class and we determine the POP critical exponent characterizing percolation. Our proposed POPs provide a geometric perspective of confinement and are directly accessible to snapshots obtained in quantum simulators, making them suitable as a probe for quantum spin liquids.",
+    "authors": [
+      "Simon M. Linsel",
+      "Annabelle Bohrdt",
+      "Lukas Homeier",
+      "Lode Pollet",
+      "Fabian Grusdt"
+    ],
+    "venue": "Phys. Rev. B 110, L241101 (2024)",
+    "publication_date": "2024-01-16",
+    "url": "https://arxiv.org/abs/2401.08770v2",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.08762",
+    "title": "The Floquet Fluxonium Molecule: Driving Down Dephasing in Coupled Superconducting Qubits",
+    "abstract": "High-coherence qubits, which can store and manipulate quantum states for long times with low error rates, are necessary building blocks for quantum computers. Here we propose a driven superconducting erasure qubit, the Floquet fluxonium molecule, which minimizes bit-flip rates through disjoint support of its qubit states and suppresses phase flips by a novel second-order insensitivity to flux-noise dephasing. We estimate the bit-flip, phase-flip, and erasure rates through numerical simulations, with predicted coherence times of approximately 50 ms in the computational subspace and erasure lifetimes of about 500 $μ$s. We also present a protocol for performing high-fidelity single-qubit rotation gates via additional flux modulation, on timescales of roughly 500 ns, and propose a scheme for erasure detection and logical readout. Our results demonstrate the utility of drives for building new qubits that can outperform their static counterparts.",
+    "authors": [
+      "Matthew Thibodeau",
+      "Angela Kou",
+      "Bryan K. Clark"
+    ],
+    "venue": "PRX Quantum 5, 040314 (2024)",
+    "publication_date": "2024-01-16",
+    "url": "https://arxiv.org/abs/2401.08762v3",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.08754",
+    "title": "Floquet Flux Attachment in Cold Atomic Systems",
+    "abstract": "Flux attachment provides a powerful conceptual framework for understanding certain forms of topological order, including most notably the fractional quantum Hall effect. Despite its ubiquitous use as a theoretical tool, directly realizing flux attachment in a microscopic setting remains an open challenge. Here, we propose a simple approach to realizing flux attachment in a periodically-driven (Floquet) system of either spins or hard-core bosons. We demonstrate that such a system naturally realizes correlated hopping interactions and provides a sharp connection between such interactions and flux attachment. Starting with a simple, nearest-neighbor, free boson model, we find evidence -- from both a coupled wire analysis and large-scale density matrix renormalization group simulations -- that Floquet flux attachment stabilizes the bosonic integer quantum Hall state at $1/4$ filling (on a square lattice), and the Halperin-221 fractional quantum Hall state at $1/6$ filling (on a honeycomb lattice). At $1/2$ filling on the square lattice, time-reversal symmetry is instead spontaneously broken and bosonic integer quantum Hall states with opposite Hall conductances are degenerate. Finally, we propose an optical-lattice-based implementation of our model on a square lattice and discuss prospects for adiabatic preparation as well as effects of Floquet heating.",
+    "authors": [
+      "Helia Kamal",
+      "Jack Kemp",
+      "Yin-Chen He",
+      "Yohei Fuji",
+      "Monika Aidelsburger",
+      "Peter Zoller",
+      "Norman Y. Yao"
+    ],
+    "venue": "Physical Review Letters, 133(16), 163403 (2024)",
+    "publication_date": "2024-01-16",
+    "url": "https://arxiv.org/abs/2401.08754v2",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.08568",
+    "title": "Non-Hermitian generalizations of the Yao-Lee model augmented by SO(3)-symmetry-breaking terms",
+    "abstract": "We investigate non-Hermitian versions of the Yao-Lee model, supplemented by various kinds of SO(3)-symmetry-breaking terms, preserving the solvability of the model. The parent model hosts three species of Majorana fermions, thereby serving as an extension of the two-dimensional Kitaev model on the honeycomb lattice. The non-Hermitian couplings represent generic situations when the system is coupled to the environment and, thus, undergoes dissipation. The resulting eigenvalue spectrum and the eigenmodes show a rich structure of exceptional points as well as non-Hermitian skin effects. We chart out such exotic behaviour for some representative parameter regimes.",
+    "authors": [
+      "Ipsita Mandal"
+    ],
+    "venue": "APL Quantum 1, 036104 (2024)",
+    "publication_date": "2024-01-16",
+    "url": "https://arxiv.org/abs/2401.08568v2",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.08550",
+    "title": "Expanding Hardware-Efficiently Manipulable Hilbert Space via Hamiltonian Embedding",
+    "abstract": "Many promising quantum applications depend on the efficient quantum simulation of an exponentially large sparse Hamiltonian, a task known as sparse Hamiltonian simulation, which is fundamentally important in quantum computation. Although several theoretically appealing quantum algorithms have been proposed for this task, they typically require a black-box query model of the sparse Hamiltonian, rendering them impractical for near-term implementation on quantum devices.\n  In this paper, we propose a technique named Hamiltonian embedding. This technique simulates a desired sparse Hamiltonian by embedding it into the evolution of a larger and more structured quantum system, allowing for more efficient simulation through hardware-efficient operations. We conduct a systematic study of this new technique and demonstrate significant savings in computational resources for implementing prominent quantum applications. As a result, we can now experimentally realize quantum walks on complicated graphs (e.g., binary trees, glued-tree graphs), quantum spatial search, and the simulation of real-space Schrödinger equations on current trapped-ion and neutral-atom platforms. Given the fundamental role of Hamiltonian evolution in the design of quantum algorithms, our technique markedly expands the horizon of implementable quantum advantages in the NISQ era.",
+    "authors": [
+      "Jiaqi Leng",
+      "Joseph Li",
+      "Yuxiang Peng",
+      "Xiaodi Wu"
+    ],
+    "venue": "Quantum 9, 1857 (2025)",
+    "publication_date": "2024-01-16",
+    "url": "https://arxiv.org/abs/2401.08550v2",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.08549",
+    "title": "Flux-charge symmetric theory of superconducting circuits",
+    "abstract": "The quantum mechanics of superconducting circuits is derived by starting from a classical Hamiltonian dynamical system describing a dissipationless circuit, usually made of capacitive and inductive elements. However, standard approaches to circuit quantization treat fluxes and charges, which end up as the canonically conjugate degrees of freedom on phase space, asymmetrically. By combining intuition from topological graph theory with a recent symplectic geometry approach to circuit quantization, we present a theory of circuit quantization that treats charges and fluxes on a manifestly symmetric footing. For planar circuits, known circuit dualities are a natural canonical transformation on the classical phase space. We discuss the extent to which such circuit dualities generalize to non-planar circuits.",
+    "authors": [
+      "Andrew Osborne",
+      "Andrew Lucas"
+    ],
+    "venue": "Phys. Rev. B 109, 174524 (2024)",
+    "publication_date": "2024-01-16",
+    "url": "https://arxiv.org/abs/2401.08549v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.08542",
+    "title": "Tensor Renormalization Group for fermions",
+    "abstract": "We review the basic ideas of the Tensor Renormalization Group method and show how they can be applied for lattice field theory models involving relativistic fermions and Grassmann variables in arbitrary dimensions. We discuss recent progress for entanglement filtering, loop optimization, bond-weighting techniques and matrix product decompositions for Grassmann tensor networks. The new methods are tested with two-dimensional Wilson--Majorana fermions and multi-flavor Gross--Neveu models. We show that the methods can also be applied to the fermionic Hubbard model in 1+1 and 2+1 dimensions.",
+    "authors": [
+      "Shinichiro Akiyama",
+      "Yannick Meurice",
+      "Ryo Sakai"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-16",
+    "url": "https://arxiv.org/abs/2401.08542v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.08523",
+    "title": "Information and majorization theory for fermionic phase-space distributions",
+    "abstract": "We put forward several information-theoretic measures for analyzing the uncertainty of fermionic phase-space distributions using the theory of supernumbers. In contrast to the bosonic case, the anticommuting nature of Grassmann variables allows us to provide simple expressions for the Glauber $P$-, Wigner $W$-, and Husimi $Q$-distributions of the arbitrary state of a single fermionic mode. It appears that all physical states are Gaussian and, thus, can be described by positive or negative thermal distributions (over Grassmann variables). We then prove several fermionic uncertainty relations, including notably the fermionic analogs of the (yet unproven) phase-space majorization and Wigner entropy conjectures for a bosonic mode, as well as the Lieb-Solovej theorem and the Wehrl-Lieb inequality. Our central point is that, although fermionic phase-space distributions are Grassmann-valued and do not have a straightforward interpretation, the corresponding uncertainty measures are expressed as Berezin integrals, which take on real values and are physically relevant.",
+    "authors": [
+      "Nicolas J. Cerf",
+      "Tobias Haas"
+    ],
+    "venue": "Phys. Rev. Lett. 135, 110201 (2025)",
+    "publication_date": "2024-01-16",
+    "url": "https://arxiv.org/abs/2401.08523v2",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.08516",
+    "title": "Quantum information scrambling in two-dimensional Bose-Hubbard lattices",
+    "abstract": "It is a well-understood fact that the transport of excitations throughout a lattice is intimately governed by the underlying structures. Hence, it is only natural to recognize that also the dispersion of information has to depend on the lattice geometry. In the present work, we demonstrate that two-dimensional lattices described by the Bose-Hubbard model exhibit information scrambling for systems as little as two hexagons. However, we also find that the OTOC shows the exponential decay characteristic for quantum chaos only for a judicious choice of local observables. More generally, the OTOC is better described by Gaussian-exponential convolutions, which alludes to the close similarity of information scrambling and decoherence theory.",
+    "authors": [
+      "Devjyoti Tripathy",
+      "Akram Touil",
+      "Bartłomiej Gardas",
+      "Sebastian Deffner"
+    ],
+    "venue": "Chaos 34, 043121 (2024)",
+    "publication_date": "2024-01-16",
+    "url": "https://arxiv.org/abs/2401.08516v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.08452",
+    "title": "Incorporating Zero-Probability Constraints to Device-Independent Randomness Expansion",
+    "abstract": "One of the distinguishing features of quantum theory is that its measurement outcomes are usually unpredictable or, equivalently, random. Moreover, this randomness is certifiable with minimal assumptions in the so-called device-independent (DI) paradigm, where a device's behavior does not need to be presupposed but can be verified through the statistics it produces. In this work, we explore various forms of randomness that are certifiable in this setting, where two users can perform two binary-outcome measurements on their shared entangled state. In this case, even though the Clauser-Horne-Shimony-Holt (CHSH) Bell-inequality violation is a pre-requisite for the generation of DI certifiable randomness, the CHSH value alone does not generally give a tight bound on the certifiable randomness. Here, we determine the certifiable randomness when zero-probability constraints are incorporated into the task of DI randomness expansion for the standard local and global randomness and the so-called \"blind\" randomness. Asymptotically, we observe consistent improvements in the amount of DI certifiable randomness (of all kinds) as we increase the number zero constraints for a wide range of given CHSH Bell violations. However, if we further optimize over the allowed CHSH values, then benefits of these additional constraints over the standard CHSH-based protocol are only found in the case of global and blind randomness. In contrast, in the regimes of finite data, these zero constraints only give a slight improvement in the local randomness rate when compared with all existing protocols.",
+    "authors": [
+      "Chun-Yu Chen",
+      "Kai-Siang Chen",
+      "Kai-Min Chung",
+      "Min-Hsiu Hsieh",
+      "Yeong-Cherng Liang",
+      "Gelo Noel M. Tabia"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-16",
+    "url": "https://arxiv.org/abs/2401.08452v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.08435",
+    "title": "Quantization as a Categorical Equivalence",
+    "abstract": "We demonstrate that, in certain cases, quantization and the classical limit provide functors that are \"almost inverse\" to each other. These functors map between categories of algebraic structures for classical and quantum physics, establishing a categorical equivalence.",
+    "authors": [
+      "Benjamin H. Feintzeig"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-16",
+    "url": "https://arxiv.org/abs/2401.08435v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.08418",
+    "title": "Modulating Entanglement Dynamics of Two V-type Atoms in Dissipative Cavity by Detuning, Weak Measurement and Reversal",
+    "abstract": "In this paper, how to modulate entanglement dynamics of two V-type atoms in dissipative cavity by detuning, weak measurement and weak measurement reversal is studied. The analytical solution of this model is obtained by solving Schrodinger Equation after diagonalizing Hamiltonian of dissipative cavity. It is discussed in detail how the entanglement dynamics is influenced by cavity--environment coupling, spontaneously generated interference (SGI) parameter, detuning between cavity with environment and weak measurement reversal. The results show that the entanglement dynamics of different initial states obviously depends on coupling, SGI parameter, detuning and reversing measurement strength. The stronger coupling, the smaller SGI parameter, the larger detuning and the bigger reversing measurement strength can all not only protect but also generate the entanglement, and the detuning is more effectively in tne strong coupling regime than the weak measurement reversal, which is more effectively than the SGI parameter. We also give corresponding physical interpretations.",
+    "authors": [
+      "Fuhua Li",
+      "Jia Wang",
+      "Hong-Mei Zou",
+      "Qiying Pan",
+      "Chenya Liu",
+      "Zhuang Qu"
+    ],
+    "venue": "Phys. Scr. 99(2024) 085116",
+    "publication_date": "2024-01-16",
+    "url": "https://arxiv.org/abs/2401.08418v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.08370",
+    "title": "Digital quantum simulation of gravitational optomechanics with IBM quantum computers",
+    "abstract": "We showcase the digital quantum simulation of the action of a Hamiltonian that governs the interaction between a quantum mechanical oscillator and an optical field, generating quantum entanglement between them via gravitational effects. This is achieved by making use of a boson-qubit mapping protocol and a digital gate decomposition that allow us to run the simulations in the quantum computers available in the IBM Quantum platform. We present the obtained results for the fidelity of the experiment in two different quantum computers, after applying error mitigation and post-selection techniques. The achieved results correspond to fidelities over 90%, which indicates that we were able to perform a faithful digital quantum simulation of the interaction and therefore of the generation of quantum entanglement by gravitational means in optomechanical systems.",
+    "authors": [
+      "Pablo Guillermo Carmona Rufo",
+      "Anupam Mazumdar",
+      "Sougato Bose",
+      "Carlos Sabín"
+    ],
+    "venue": "EPJ Quantum Technology 11, 31 (2024)",
+    "publication_date": "2024-01-16",
+    "url": "https://arxiv.org/abs/2401.08370v3",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.08355",
+    "title": "Multidimensional Quantum Walks, Recursion, and Quantum Divide & Conquer",
+    "abstract": "We introduce an object called a \\emph{subspace graph} that formalizes the technique of multidimensional quantum walks. Composing subspace graphs allows one to seamlessly combine quantum and classical reasoning, keeping a classical structure in mind, while abstracting quantum parts into subgraphs with simple boundaries as needed. As an example, we show how to combine a \\emph{switching network} with arbitrary quantum subroutines, to compute a composed function. As another application, we give a time-efficient implementation of quantum Divide \\& Conquer when the sub-problems are combined via a Boolean formula. We use this to quadratically speed up Savitch's algorithm for directed $st$-connectivity.",
+    "authors": [
+      "Stacey Jeffery",
+      "Galina Pass"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-16",
+    "url": "https://arxiv.org/abs/2401.08355v2",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2402.06632",
+    "title": "Microgram $\\mathrm{BaCl}_2$ Ablation Targets for Trapped Ion Experiments",
+    "abstract": "Trapped ions for quantum information processing has been an area of intense study due to the extraordinarily high fidelity operations that have been reported experimentally. Specifically, barium trapped ions have been shown to have exceptional state-preparation and measurement (SPAM) fidelities. The $^{133}\\mathrm{Ba}^+$ ($I = 1/2$) isotope in particular is a promising candidate for large-scale quantum computing experiments. However, a major pitfall with this isotope is that it is radioactive and is thus generally used in microgram quantities to satisfy safety regulations. We describe a new method for creating microgram barium chloride ($\\mathrm{BaCl}_2$) ablation targets for use in trapped ion experiments and compare our procedure to previous methods. We outline two recipes for fabrication of ablation targets that increase the production of neutral atoms for isotope-selective loading of barium ions. We show that heat-treatment of the ablation targets greatly increases the consistency at which neutral atoms can be produced and we characterize the uniformity of these targets using trap-independent techniques such as energy dispersive x-ray spectroscopy (EDS) and neutral fluorescence collection. Our comparison between fabrication techniques and demonstration of consistent neutral fluorescence paves a path towards reliable loading of $^{133}\\mathrm{Ba}^+$ in surface traps and opens opportunities for scalable quantum computing with this isotope.",
+    "authors": [
+      "Noah Greenberg",
+      "Akbar Jahangiri Jozani",
+      "Collin J. C. Epstein",
+      "Xinghe Tan",
+      "Rajibul Islam",
+      "Crystal Senko"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-16",
+    "url": "https://arxiv.org/abs/2402.06632v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.08325",
+    "title": "Quantum Random Number Generation Based on Phase Reconstruction",
+    "abstract": "Quantum random number generator (QRNG) utilizes the intrinsic randomness of quantum systems to generate completely unpredictable and genuine random numbers, finding wide applications across many fields. QRNGs relying on the phase noise of a laser have attracted considerable attention due to their straightforward system architecture and high random number generation rates. However, traditional phase noise QRNGs suffer from a 50\\% loss of quantum entropy during the randomness extraction process. In this paper, we propose a phase-reconstruction quantum random number generation scheme, in which the phase noise of a laser is reconstructed by simultaneously measuring the orthogonal quadratures of the light field using balanced detectors. This enables direct discretization of uniform phase noise, and the min-entropy can achieve a value of 1. Furthermore, our approach exhibits inherent robustness against the classical phase fluctuations of the unbalanced interferometer, eliminating the need for active compensation. Finally, we conducted experimental validation using commercial optical hybrid and balanced detectors, achieving a random number generation rate of 1.96 Gbps at a sampling rate of 200 MSa/s.",
+    "authors": [
+      "Jialiang Li",
+      "Zitao Huang",
+      "Chunlin Yu",
+      "Jiajie Wu",
+      "Tongge Zhao",
+      "Xiangwei Zhu",
+      "Shihai Sun"
+    ],
+    "venue": "Optics Express,Vol.32,No.4, 2024",
+    "publication_date": "2024-01-16",
+    "url": "https://arxiv.org/abs/2401.08325v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  }
+]

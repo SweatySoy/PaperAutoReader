@@ -2,6 +2,7 @@
   {
     "api_token": "sk-aa0df20068414ebe84e327dc2035ec0f",
     "url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
-    "model": "qwen3-32b"
+    "model": "qwen3-32b",
+    "embedding_model": "text-embedding-v1"
   }
 ]

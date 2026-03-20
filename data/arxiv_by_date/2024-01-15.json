@@ -1,0 +1,341 @@
+[
+  {
+    "paper_id": "arXiv:2401.07997",
+    "title": "Differentiation of Linear Optical Circuits",
+    "abstract": "Linear optical circuits with single-photon sources offer a promising platform for quantum chemistry and machine learning. However, current applications are all based on support vector machines or gradient-free optimization methods. This paper develops classical and quantum algorithms for evaluating the analytic gradients of linear optical circuits with respect to their phase parameters. First, we set up a general framework by characterising the class of observables whose expectation values can be estimated efficiently by sampling from a passive linear optical circuit with finitely many photons. We then show how to compute the gradients of the expectation values of a special class of ``non-interacting'' observables arising in full-counting-statistics. Our differentiation algorithm uses the Halmos dilation and requires evaluating two circuits of twice the size, using one additional photon. Building on the methods of full-counting-statistics, we show how to recover the gradients of arbitrary observables from the gradient of a non-interacting characteristic function. Throughout the paper, we compare the performance of classical and quantum algorithms on the same estimation problems, analysing the sampling complexity of the algorithms and suggesting different cases for which quantum speed-ups could be obtained.",
+    "authors": [
+      "Giovanni de Felice",
+      "Christopher Corlett"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-15",
+    "url": "https://arxiv.org/abs/2401.07997v3",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.07974",
+    "title": "The Space-Time Cost of Purifying Quantum Computations",
+    "abstract": "General quantum computation consists of unitary operations and also measurements. It is well known that intermediate quantum measurements can be deferred to the end of the computation, resulting in an equivalent purely unitary computation. While time efficient, this transformation blows up the space to linear in the running time, which could be super-polynomial for low-space algorithms. Fefferman and Remscrim (STOC'21) and Girish, Raz and Zhan (ICALP'21) show different transformations which are space efficient, but blow up the running time by a factor that is exponential in the space. This leaves the case of algorithms with small-but-super-logarithmic space as incurring a large blowup in either time or space complexity. We show that such a blowup is likely inherent, demonstrating that any \"black-box\" transformation which removes intermediate measurements must significantly blow up either space or time.",
+    "authors": [
+      "Mark Zhandry"
+    ],
+    "venue": "ITCS 2024",
+    "publication_date": "2024-01-15",
+    "url": "https://arxiv.org/abs/2401.07974v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.07946",
+    "title": "Manifestation of the Berry connection in chiral lattice systems",
+    "abstract": "The Aharonov-Bohm effect is a physical phenomenon where the vector potential induces a phase shift of electron wavepackets in regions with zero magnetic fields. It is often referred to as evidence for the physical reality of the vector potential. A similar effect can be observed in solid-state systems, where the Berry connection can influence electron dynamics. Here, we show that in chiral-symmetric processes the Berry connection determines an observable effect on the mean chiral displacement of delocalized wavefunctions. This finding is supported by a photonic experiment realizing a topological quantum walk, and demonstrates a new effect that can be attributed directly to the presence of a gauge field.",
+    "authors": [
+      "Francesco Di Colandrea",
+      "Nazanin Dehghan",
+      "Filippo Cardano",
+      "Alessio D'Errico",
+      "Ebrahim Karimi"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-15",
+    "url": "https://arxiv.org/abs/2401.07946v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.07934",
+    "title": "Demonstration of Algorithmic Quantum Speedup for an Abelian Hidden Subgroup Problem",
+    "abstract": "Simon's problem is to find a hidden period (a bitstring) encoded into an unknown 2-to-1 function. It is one of the earliest problems for which an exponential quantum speedup was proven for ideal, noiseless quantum computers, albeit in the oracle model. Here, using two different 127-qubit IBM Quantum superconducting processors, we demonstrate an algorithmic quantum speedup for a variant of Simon's problem where the hidden period has a restricted Hamming weight $w$. For sufficiently small values of $w$ and for circuits involving up to 58 qubits, we demonstrate an exponential speedup, albeit of a lower quality than the speedup predicted for the noiseless algorithm. The speedup exponent and the range of $w$ values for which an exponential speedup exists are significantly enhanced when the computation is protected by dynamical decoupling. Further enhancement is achieved with measurement error mitigation. This constitutes a demonstration of a bona fide quantum advantage for an Abelian hidden subgroup problem.",
+    "authors": [
+      "P. Singkanipa",
+      "V. Kasatkin",
+      "Z. Zhou",
+      "G. Quiroz",
+      "D. A. Lidar"
+    ],
+    "venue": "Phys. Rev. X. 15, 021082 (2025)",
+    "publication_date": "2024-01-15",
+    "url": "https://arxiv.org/abs/2401.07934v3",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.07914",
+    "title": "Graphical Symplectic Algebra",
+    "abstract": "We give complete presentations for the dagger-compact props of affine Lagrangian and coisotropic relations over an arbitrary field. This provides a unified family of graphical languages for both affinely constrained classical mechanical systems, as well as odd-prime-dimensional stabiliser quantum circuits. To this end, we present affine Lagrangian relations by a particular class of undirected coloured graphs. In order to reason about composite systems, we introduce a powerful scalable notation where the vertices of these graphs are themselves coloured by graphs. In the setting of stabiliser quantum mechanics, this scalable notation gives an extremely concise description of graph states, which can be composed via ``phased spider fusion.'' Likewise, in the classical mechanical setting of electrical circuits, we show that impedance matrices for reciprocal networks are presented in essentially the same way.",
+    "authors": [
+      "Robert I. Booth",
+      "Titouan Carette",
+      "Cole Comfort"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-15",
+    "url": "https://arxiv.org/abs/2401.07914v3",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.07913",
+    "title": "Taking the Road Less Traveled: Solving the One-Dimensional Quantum Oscillator using the Parabolic-Cylinder Equation",
+    "abstract": "The single well 1D harmonic oscillator is one of the most fundamental and commonly solved problems in quantum mechanics. Traditionally, in most introductory quantum mechanics textbooks, it is solved using either a power series method, which ultimately leads to the Hermite polynomials, or by ladder operators methods. We show here that, by employing one straightforward variable transformation, this problem can be solved, and the resulting state functions can be given in terms of parabolic cylinder functions. Additionally, the same approach can be used to solve the Schrödinger equation for the 1D harmonic oscillator in a uniform electric field. In this case, the process yields two possible solutions. One is the well-known result where the 1D oscillator eigenvalues are reduced by a frequency-dependent term, which can have any positive value. The other is where the field term is restricted to be an integer and the eigenvalues are in the same form as for the field-free case. We show how the results can be used to create a harmonic approximation for the bound states of a Lennard-Jones potential.",
+    "authors": [
+      "Mate Garai",
+      "Douglas A. Barlow"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-15",
+    "url": "https://arxiv.org/abs/2401.07913v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.07912",
+    "title": "Lower Bounds for Unitary Property Testing with Proofs and Advice",
+    "abstract": "In unitary property testing a quantum algorithm, also known as a tester, is given query access to a black-box unitary and has to decide whether it satisfies some property. We propose a new technique for proving lower bounds on the quantum query complexity of unitary property testing and related problems, which utilises its connection to unitary channel discrimination. The main advantage of this technique is that all obtained lower bounds hold for any $\\mathsf{C}$-tester with $\\mathsf{C} \\subseteq \\mathsf{QMA}(2)/\\mathsf{qpoly}$, showing that even having access to both (unentangled) quantum proofs and advice does not help for many unitary property testing problems. We apply our technique to prove lower bounds for problems like quantum phase estimation, the entanglement entropy problem, quantum Gibbs sampling and more, removing all logarithmic factors in the lower bounds obtained by the sample-to-query lifting theorem of Wang and Zhang (2023). As a direct corollary, we show that there exist quantum oracles relative to which $\\mathsf{QMA}(2) \\not\\supset \\mathsf{SBQP}$ and $\\mathsf{QMA}/\\mathsf{qpoly} \\not\\supset \\mathsf{SBQP}$. The former shows that, at least in a black-box way, having unentangled quantum proofs does not help in solving problems that require high precision.",
+    "authors": [
+      "Jordi Weggemans"
+    ],
+    "venue": "Quantum 9, 1717 (2025)",
+    "publication_date": "2024-01-15",
+    "url": "https://arxiv.org/abs/2401.07912v3",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.07904",
+    "title": "Multipoles from Majorana constellations",
+    "abstract": "Majorana stars, the $2S$ spin coherent states that are orthogonal to a spin-$S$ state, offer an elegant method to visualize quantum states, disclosing their intrinsic symmetries. These states are naturally described by the corresponding multipoles. These quantities can be experimentally determined and allow for an SU(2)-invariant analysis. We investigate the relationship between Majorana constellations and state multipoles, thus providing insights into the underlying symmetries of the system. We illustrate our approach with some relevant and informative examples.",
+    "authors": [
+      "J. L. Romero",
+      "A. B. Klimov",
+      "A. Z. Goldberg",
+      "G. Leuchs",
+      "L. L. Sanchez-Soto"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-15",
+    "url": "https://arxiv.org/abs/2401.07904v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.07887",
+    "title": "Optics-assisted enhanced sensing at radio-frequencies in an optoelectromechanical system",
+    "abstract": "We investigate a scheme to enhance the sensitivity in detecting weak variations in a parameter of an optoelectromechanical system by detecting the system response at radio frequencies. We consider a setup, where either one or two mechanical modes mediate the interaction between an optical cavity and an rf resonator. This system can be operated in a regime of impedance matching where thermal fluctuations are redistributed among the system elements, and, in particular, rf output noise can be reduced to the quantum vacuum noise level. We show that this effect can be used to boost the sensitivity in detecting parameter variations also in regimes of high thermal noise. We characterize the performance of this protocol in detecting variations in the capacitance of the rf resonator.",
+    "authors": [
+      "Najmeh Eshaqi-Sani",
+      "Stefano Zippilli",
+      "David Vitali"
+    ],
+    "venue": "Phys. Rev. Applied 22, 014003 (2024)",
+    "publication_date": "2024-01-15",
+    "url": "https://arxiv.org/abs/2401.07887v3",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.07833",
+    "title": "The role of initial coherence in the phase-space entropy production rate",
+    "abstract": "The second law of thermodynamics can be expressed in terms of entropy production, which can be used to quantify the degree of irreversibility of a process. In this Chapter, we consider the standard scenario of open quantum systems, where a system irreversibly interacts with an external environment. We show that the standard approach, based on von Neumann entropy, can be replaced by a phase-space formulation of the problem. In particular, we focus on spin systems that can be described using the so-called spin coherent states. We deploy this formalism to study the interplay between the entropy production rate and the initial quantum coherence available to the system.",
+    "authors": [
+      "Giorgio Zicari",
+      "Barış Çakmak",
+      "Mauro Paternostro"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-15",
+    "url": "https://arxiv.org/abs/2401.07833v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.07832",
+    "title": "Newton's laws of motion generating gravity-mediated entanglement",
+    "abstract": "The interface between quantum theory and gravity represents still uncharted territory. Recently, some works suggested promising alternative approaches aimed at witnessing quantum features to test the fundamental nature of gravity in tabletop experiments: Two masses in an initial superposition of spatially localized states are allowed to interact only through gravity and it is measured whether the final state is entangled. Here we show that one can generate the same amount of entanglement in this setup by using classical time evolution given by Newton's laws of motion. We argue that theories of quantum gravity that can be approximated by the Newtonian potential and classical time evolution given by Newton's laws of motion will generate gravity-mediated entanglement.",
+    "authors": [
+      "Marta Maria Marchese",
+      "Martin Plávala",
+      "Matthias Kleinmann",
+      "Stefan Nimmrichter"
+    ],
+    "venue": "Phys. Rev. A 111, 042202 (2025)",
+    "publication_date": "2024-01-15",
+    "url": "https://arxiv.org/abs/2401.07832v2",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.07814",
+    "title": "Correlated spectroscopy of electric noise with color center clusters",
+    "abstract": "Experimental noise often contains valuable information on the interactions of a system with its environment but establishing a relation between the measured time fluctuations and relevant physical observables is rarely apparent. Here, we leverage a multi-dimensional and multi-sensor analysis of spectral diffusion to investigate the dynamics of carriers in charge traps surrounding color center clusters in diamond. Working with nitrogen-vacancy (NV) centers sharing the same diffraction-limited volume, we establish statistical correlations in the spectral changes we measure as we recursively probe the optical resonances of the cluster, which we subsequently exploit to unveil proximal traps. By simultaneously co-monitoring the spectra of multiple NVs in the set, we show the ability to deterministically induce Stark shifts in the observed optical resonances, hence allowing us to identify electrostatically coupled sets of emitters. These cross-correlated measurements allow us to determine the relative three-dimensional positions of interacting NVs in a cluster as well as the location and charge sign of proximal traps. Our results can be generalized to other color centers and open intriguing opportunities for the microscopic characterization of photo-carrier dynamics in semiconductors and for the manipulation of nanoscale spin-qubit clusters connected via electric fields.",
+    "authors": [
+      "Tom Delord",
+      "Richard Monge",
+      "Carlos A. Meriles"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-15",
+    "url": "https://arxiv.org/abs/2401.07814v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.07795",
+    "title": "Unsupervised learning of quantum many-body scars using intrinsic dimension",
+    "abstract": "Quantum many-body scarred systems contain both thermal and non-thermal scar eigenstates in their spectra. When these systems are quenched from special initial states which share high overlap with scar eigenstates, the system undergoes dynamics with atypically slow relaxation and periodic revival. This scarring phenomenon poses a potential avenue for circumventing decoherence in various quantum engineering applications. Given access to an unknown scar system, current approaches for identification of special states leading to non-thermal dynamics rely on costly measures such as entanglement entropy. In this work, we show how two dimensionality reduction techniques, multidimensional scaling and intrinsic dimension estimation, can be used to learn structural properties of dynamics in the PXP model and distinguish between thermal and scar initial states. The latter method is shown to be robust against limited sample sizes and experimental measurement errors.",
+    "authors": [
+      "Harvey Cao",
+      "Dimitris G. Angelakis",
+      "Daniel Leykam"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-15",
+    "url": "https://arxiv.org/abs/2401.07795v2",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.07777",
+    "title": "Quantum Transfer Learning for Acceptability Judgements",
+    "abstract": "Hybrid quantum-classical classifiers promise to positively impact critical aspects of natural language processing tasks, particularly classification-related ones. Among the possibilities currently investigated, quantum transfer learning, i.e., using a quantum circuit for fine-tuning pre-trained classical models for a specific task, is attracting significant attention as a potential platform for proving quantum advantage.\n  This work shows potential advantages, both in terms of performance and expressiveness, of quantum transfer learning algorithms trained on embedding vectors extracted from a large language model to perform classification on a classical Linguistics task: acceptability judgments. Acceptability judgment is the ability to determine whether a sentence is considered natural and well-formed by a native speaker. The approach has been tested on sentences extracted from ItaCoLa, a corpus that collects Italian sentences labeled with their acceptability judgment. The evaluation phase shows results for the quantum transfer learning pipeline comparable to state-of-the-art classical transfer learning algorithms, proving current quantum computers' capabilities to tackle NLP tasks for ready-to-use applications. Furthermore, a qualitative linguistic analysis, aided by explainable AI methods, reveals the capabilities of quantum transfer learning algorithms to correctly classify complex and more structured sentences, compared to their classical counterpart. This finding sets the ground for a quantifiable quantum advantage in NLP in the near future.",
+    "authors": [
+      "Giuseppe Buonaiuto",
+      "Raffaele Guarasci",
+      "Aniello Minutolo",
+      "Giuseppe De Pietro",
+      "Massimo Esposito"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-15",
+    "url": "https://arxiv.org/abs/2401.07777v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.07774",
+    "title": "Predominant Aspects on Security for Quantum Machine Learning: Literature Review",
+    "abstract": "Quantum Machine Learning (QML) has emerged as a promising intersection of quantum computing and classical machine learning, anticipated to drive breakthroughs in computational tasks. This paper discusses the question which security concerns and strengths are connected to QML by means of a systematic literature review. We categorize and review the security of QML models, their vulnerabilities inherent to quantum architectures, and the mitigation strategies proposed. The survey reveals that while QML possesses unique strengths, it also introduces novel attack vectors not seen in classical systems. We point out specific risks, such as cross-talk in superconducting systems and forced repeated shuttle operations in ion-trap systems, which threaten QML's reliability. However, approaches like adversarial training, quantum noise exploitation, and quantum differential privacy have shown potential in enhancing QML robustness. Our review discuss the need for continued and rigorous research to ensure the secure deployment of QML in real-world applications. This work serves as a foundational reference for researchers and practitioners aiming to navigate the security aspects of QML.",
+    "authors": [
+      "Nicola Franco",
+      "Alona Sakhnenko",
+      "Leon Stolpmann",
+      "Daniel Thuerck",
+      "Fabian Petsch",
+      "Annika Rüll",
+      "Jeanette Miriam Lorenz"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-15",
+    "url": "https://arxiv.org/abs/2401.07774v3",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.07763",
+    "title": "QISS: Quantum Industrial Shift Scheduling Algorithm",
+    "abstract": "In this paper, we show the design and implementation of a quantum algorithm for industrial shift scheduling (QISS), which uses Grover's adaptive search to tackle a common and important class of valuable, real-world combinatorial optimization problems. We give an explicit circuit construction of the Grover's oracle, incorporating the multiple constraints present in the problem, and detail the corresponding logical-level resource requirements. Further, we simulate the application of QISS to specific small-scale problem instances to corroborate the performance of the algorithm, and we provide an open-source repository with our code, available on github.com/anneriet/QISS . Our work shows how complex real-world industrial optimization problems can be formulated in the context of Grover's algorithm, and paves the way towards important tasks such as physical-level resource estimation for this category of use cases.",
+    "authors": [
+      "Anna M. Krol",
+      "Marvin Erdmann",
+      "Rajesh Mishra",
+      "Phattharaporn Singkanipa",
+      "Ewan Munro",
+      "Marcin Ziolkowski",
+      "Andre Luckow",
+      "Zaid Al-Ars"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-15",
+    "url": "https://arxiv.org/abs/2401.07763v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.10157",
+    "title": "A qubit regularization of asymptotic freedom without fine-tuning",
+    "abstract": "Other than the commonly used Wilson's regularization of quantum field theories (QFTs), there is a growing interest in regularizations that explore lattice models with a strictly finite local Hilbert space, in anticipation of the upcoming era of quantum simulations of QFTs. A notable example is Euclidean qubit regularization, which provides a natural way to recover continuum QFTs that emerge via infrared fixed points of lattice theories. Can such regularizations also capture the physics of ultraviolet fixed points? We present a novel regularization of the asymptotically free massive continuum QFT that emerges at the Berezenski-Kosterlitz-Thouless (BKT) transition through a hard core loop-gas model, discussing the advantages this model provides compared to traditional regularizations. In particular, we demonstrate that without the need for fine-tuning, it can reproduce the universal step-scaling function of the classical lattice XY model in the massive phase as we approach the phase transition.",
+    "authors": [
+      "Sandip Maiti",
+      "Debasish Banerjee",
+      "Shailesh Chandrasekharan",
+      "Marina Krstic Marinkovic"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-15",
+    "url": "https://arxiv.org/abs/2401.10157v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.07736",
+    "title": "Coupled vertical double quantum dots at single-hole occupancy",
+    "abstract": "Gate-defined quantum dots define an attractive platform for quantum computation and have been used to confine individual charges in a planar array. Here, we demonstrate control over vertical double quantum dots confined in a double quantum well, silicon-germanium heterostructure. We sense individual charge transitions with a single-hole transistor. The vertical separation between the quantum wells provides a sufficient difference in capacitive coupling to distinguish quantum dots located in the top and bottom quantum well. Tuning the vertical double quantum dot to the (1,1) charge state confines a single hole in each quantum well beneath a single plunger gate. By simultaneously accumulating holes under two neighbouring plunger gates, we are able to tune to the (1,1,1,1) charge state. These results motivate quantum dot systems that exploit the third dimension, opening new opportunities for quantum simulation and quantum computing.",
+    "authors": [
+      "Alexander Ivlev",
+      "Hanifa Tidjani",
+      "Stefan Oosterhout",
+      "Amir Sammak",
+      "Giordano Scappucci",
+      "Menno Veldhorst"
+    ],
+    "venue": "Applied Physics Letters (Vol.125, Issue 2, 2024)",
+    "publication_date": "2024-01-15",
+    "url": "https://arxiv.org/abs/2401.07736v2",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.07716",
+    "title": "Disentangling quantum neural networks for unified estimation of quantum entropies and distance measures",
+    "abstract": "The estimation of quantum entropies and distance measures, such as von Neumann entropy, Rényi entropy, Tsallis entropy, trace distance, and fidelity-induced distances such as the Bures distance, has been a key area of research in quantum information science. In our study, we introduce the disentangling quantum neural network (DEQNN), designed to efficiently estimate various physical quantities in quantum information. Estimation algorithms for these quantities are generally tied to the size of the Hilbert space of the quantum state to be estimated. Our proposed DEQNN offers a unified dimensionality reduction methodology that can significantly reduce the size of the Hilbert space while preserving the values of diverse physical quantities. We provide an in-depth discussion of the physical scenarios and limitations in which our algorithm is applicable, as well as the learnability of the proposed quantum neural network.",
+    "authors": [
+      "Myeongjin Shin",
+      "Seungwoo Lee",
+      "Junseo Lee",
+      "Mingyu Lee",
+      "Donghwa Ji",
+      "Hyeonjun Yeo",
+      "Kabgyun Jeong"
+    ],
+    "venue": "Physical Review A 110, 062418 (2024)",
+    "publication_date": "2024-01-15",
+    "url": "https://arxiv.org/abs/2401.07716v3",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.07708",
+    "title": "Emergent Gauge Theory in Rydberg Atom Arrays",
+    "abstract": "Rydberg atom arrays have emerged as a novel platform exhibiting rich quantum many-body physics and offering promise for universal quantum computation. The Rydberg blockade effect plays an essential role in establishing many-body correlations in this system. In this review, we will highlight that the lattice gauge theory is an efficient description of the Rydberg blockade effect and overview recent exciting developments in this system from equilibrium phases to quantum dynamics. These developments include realizing exotic ground states such as spin liquids, discovering quantum many-body scar states violating quantum thermalization, and observing confinement-deconfinement transition through quantum dynamics. We emphasize that the gauge theory description offers a universal theoretical framework to capture all these phenomena. This perspective of Rydberg atom arrays will inspire further the future development of quantum simulation and quantum computation in this platform.",
+    "authors": [
+      "Yanting Cheng",
+      "Hui Zhai"
+    ],
+    "venue": "Nature Reviews Physics 6, 566 (2024)",
+    "publication_date": "2024-01-15",
+    "url": "https://arxiv.org/abs/2401.07708v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  }
+]

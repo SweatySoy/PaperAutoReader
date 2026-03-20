@@ -156,7 +156,7 @@ def create_real_paper() -> List[CandidatePaper]:
 
     # latest_file = json_files[0]
 
-    json_file = data_dir / "raw_papers_2026-03-11.json"
+    json_file = data_dir / "2026-03-11.json"
     print(f"    Loading from: {json_file}")
 
     with open(json_file, "r", encoding="utf-8") as f:
@@ -249,11 +249,15 @@ def main() -> None:
         checkpoint=None,
         llm_api_key=llm_config.get("api_token", ""),
         embedding_api_key=llm_config.get("api_token", ""),  # Use same key for embedding
-        llm_url=llm_config.get("url", "https://api.openai.com/v1"),
-        embedding_url=llm_config.get("url", "https://api.openai.com/v1"),
-        llm_model=llm_config.get("model", "gpt-3.5-turbo"),
-        embedding_model="text-embedding-v3",  # Qwen embedding model
+        llm_url=llm_config.get("url", ""),
+        embedding_url=llm_config.get("url", ""),
+        llm_model=llm_config.get("model", ""),
+        embedding_model=llm_config.get("embedding_model", ""),  # Qwen embedding model
     )
+
+    # print(args)
+
+    # exit()
 
     print("=" * 60)
     print("Filter Agent Test - Dual-Axis Scoring & Quadrant Routing")
@@ -269,6 +273,9 @@ def main() -> None:
 
     # Load papers
     print("\n[2] Loading papers...")
+
+    # papers = create_mock_papers()
+
     try:
         papers = create_real_paper()
         print(f"    Loaded {len(papers)} real papers from data/raw_papers/")
@@ -282,8 +289,8 @@ def main() -> None:
     if args.real:
         # Get API keys from args or environment
         import os
-        llm_key = args.llm_api_key or os.environ.get("LLM_API_KEY", "")
-        embedding_key = args.embedding_api_key or os.environ.get("EMBEDDING_API_KEY", "")
+        llm_key = args.llm_api_key
+        embedding_key = args.embedding_api_key
 
         if llm_key or embedding_key:
             agent = create_filter_agent(

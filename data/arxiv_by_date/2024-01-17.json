@@ -1,0 +1,335 @@
+[
+  {
+    "paper_id": "arXiv:2401.09650",
+    "title": "The role of shared randomness in quantum state certification with unentangled measurements",
+    "abstract": "Given $n$ copies of an unknown quantum state $ρ\\in\\mathbb{C}^{d\\times d}$, quantum state certification is the task of determining whether $ρ=ρ_0$ or $\\|ρ-ρ_0\\|_1>\\varepsilon$, where $ρ_0$ is a known reference state. We study quantum state certification using unentangled quantum measurements, namely measurements which operate only on one copy of $ρ$ at a time. When there is a common source of shared randomness available and the unentangled measurements are chosen based on this randomness, prior work has shown that $Θ(d^{3/2}/\\varepsilon^2)$ copies are necessary and sufficient. This holds even when the measurements are allowed to be chosen adaptively. We consider deterministic measurement schemes (as opposed to randomized) and demonstrate that $Θ(d^2/\\varepsilon^2)$ copies are necessary and sufficient for state certification. This shows a separation between algorithms with and without shared randomness.\n  We develop a unified lower bound framework for both fixed and randomized measurements, under the same theoretical framework that relates the hardness of testing to the well-established Lüders rule. More precisely, we obtain lower bounds for randomized and fixed schemes as a function of the eigenvalues of the Lüders channel which characterizes one possible post-measurement state transformation.",
+    "authors": [
+      "Yuhan Liu",
+      "Jayadev Acharya"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-17",
+    "url": "https://arxiv.org/abs/2401.09650v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.09618",
+    "title": "Ultralong-range Cs-RbCs Rydberg molecules: non-adiabaticity of dipole moments",
+    "abstract": "We consider ultralong-range polyatomic Rydberg molecules formed by combining a Rydberg cesium atom and a ground-state RbCs molecule. We explore the regime where the charge-dipole interaction due to the Rydberg electron with the diatomic polar molecule couples the quantum defect Rydberg states Cs(ns) to the nearest degenerate hydrogenic manifold. We consider polyatomic Rydberg molecules in states which are amenable to production in optical tweezers and study the influence of nonadiabatic coupling on the likelihood of their formation. The decay rates of the vibrational states reflect the interference signature of wave function spread in different coupled potential wells.",
+    "authors": [
+      "David Mellado-Alcedo",
+      "Alexander Guttridge",
+      "Simon L. Cornish",
+      "H. R. Sadeghpour",
+      "Rosario Gonzalez-Ferez"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-17",
+    "url": "https://arxiv.org/abs/2401.09618v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.09578",
+    "title": "Multiplexed quantum repeaters based on single-photon interference with mild stabilization",
+    "abstract": "Quantum repeaters are pivotal in the physical layer of the quantum internet. For its development, quantum repeaters capable of efficient entanglement distribution are necessary. Quantum repeater schemes based on single-photon interference are promising due to their potential efficiency. However, schemes involving first-order interference with photon sources at distant nodes require stringent phase stability in the components, which poses challenges for long-distance implementation. In this paper, we present a quantum repeater scheme that leverages single-photon interference with reduced difficulty of phase stabilization. Additionally, under specific conditions, we demonstrate that our scheme achieves a higher entanglement distribution rate between end nodes compared to existing schemes. This approach, implementable using only feasible technologies including multimode quantum memories and two-photon sources, offers high entanglement distribution rates and mild phase stabilization, leading to the development of multimode quantum repeaters.",
+    "authors": [
+      "Daisuke Yoshida",
+      "Tomoyuki Horikiri"
+    ],
+    "venue": "Commun Phys 7, 367 (2024)",
+    "publication_date": "2024-01-17",
+    "url": "https://arxiv.org/abs/2401.09578v2",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.09573",
+    "title": "Application of the Schwinger Oscillator Construct of Angular Momentum to an Interpretation of the Superconducting Transmon Qubit",
+    "abstract": "The Schwinger oscillator construct of angular momentum, applied to the superconducting transmon and its transmission-line readout, modeled as capacitvely coupled quantum oscillators, provides a natural and robust description of a qubit. The construct defines quantum-entangled, two-photon states that form an angular-momentum-like basis, with symmetry corresponding to physical conservation of total photon number, with respect to the combined transmon and readout. This basis provides a convenient starting point from which to study error-inducing effects of transmon anharmonicity, surrounding-environment decoherence, and random stray fields on qubit state and gate operations. Employing a Lindblad master equation to model dissipation to the surrounding environment, and incorporating the effect of weak transmon anharmonicity, we present examples of the utility of the construct. First, we calculate the frequency response associated with exciting the ground state to a Rabi resonance with the lowest-lying spin-1/2 moment, via a driving external voltage. Second, we calculate the frequency response between the three lowest two-photon states, within a ladder-type excitation scheme. The generality of the Schwinger angular-momentum construct allows it to be applied to other superconducting charge qubits.",
+    "authors": [
+      "R. P. Erickson"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-17",
+    "url": "https://arxiv.org/abs/2401.09573v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.09569",
+    "title": "Optimal remote restoring of quantum states in communication lines via local magnetic field",
+    "abstract": "Optimal state transport across spin chains, which are proposed as quantum wires for information transfer in solid state quantum architectures, is an important topic for quantum technologies. In this work, we study {the remote restoring of a quantum state transferred along a spin chain.} The structural state-restoring technique provides proportionality between the appropriate elements of the density matrices of the initial sender state and receiver state at some time instant. We develop a {remote} state-restoring protocol which uses an inhomogeneous magnetic field with step-wise time-dependent Larmor frequencies as the state-control tool. For simulating the multiparametric Hamiltonian we use two approximating models. First model is based on the Trotter-Suzuki method, while the second model is based on using short pulses of high intensity. In both cases we estimate the accuracy of the approximation and find the optimal restoring parameters (Larmor frequencies) of the protocol which maximize the coefficients in the proportionality for spin chains of various lengths.",
+    "authors": [
+      "E. B. Fel'dman",
+      "A. N. Pechen",
+      "A. I. Zenchuk"
+    ],
+    "venue": "Phys. Scr. 99 (2024) 025112",
+    "publication_date": "2024-01-17",
+    "url": "https://arxiv.org/abs/2401.09569v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.09563",
+    "title": "Giant Enhancement of Vacuum Friction in Spinning YIG Nanospheres",
+    "abstract": "Experimental observations of vacuum radiation and vacuum frictional torque are challenging due to their vanishingly small effects in practical systems. For example, a rotating nanosphere in free space slows down due to friction from vacuum fluctuations with a stopping time around the age of the universe. Here, we show that a spinning yttrium iron garnet (YIG) nanosphere near aluminum or YIG slabs exhibits vacuum radiation eight orders of magnitude larger than other metallic or dielectric spinning nanospheres. We achieve this giant enhancement by exploiting the large near-field magnetic local density of states in YIG systems, which occurs in the low-frequency GHz regime comparable to the rotation frequency. Furthermore, we propose a realistic experimental setup for observing the effects of this large vacuum radiation and frictional torque under experimentally accessible conditions.",
+    "authors": [
+      "Farhad Khosravi",
+      "Wenbo Sun",
+      "Chinmay Khandekar",
+      "Tongcang Li",
+      "Zubin Jacob"
+    ],
+    "venue": "New J. Phys. 26 053006 (2024)",
+    "publication_date": "2024-01-17",
+    "url": "https://arxiv.org/abs/2401.09563v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.09554",
+    "title": "Entanglement cost for infinite-dimensional physical systems",
+    "abstract": "We prove that the entanglement cost equals the regularized entanglement of formation for any infinite-dimensional quantum state $ρ_{AB}$ with finite quantum entropy on at least one of the subsystems $A$ or $B$. This generalizes a foundational result in quantum information theory that was previously formulated only for operations and states on finite-dimensional systems. The extension to infinite dimensions is nontrivial because the conventional tools for establishing both the direct and converse bounds, i.e., strong typically, monotonicity, and asymptotic continuity, are no longer directly applicable. To address this problem, we construct a new entanglement dilution protocol for infinite-dimensional states implementable by local operations and a finite amount of one-way classical communication (one-way LOCC), using weak and strong typicality multiple times. We also prove the optimality of this protocol among all protocols even under infinite-dimensional separable operations by developing an argument based on alternative forms of monotonicity and asymptotic continuity of the entanglement of formation for infinite-dimensional states. Along the way, we derive a new integral representation for the quantum entropy of infinite-dimensional states, which we believe to be of independent interest. Our results allow us to fully characterize an important operational entanglement measure -- the entanglement cost -- for all infinite-dimensional physical systems.",
+    "authors": [
+      "Hayata Yamasaki",
+      "Kohdai Kuroiwa",
+      "Patrick Hayden",
+      "Ludovico Lami"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-17",
+    "url": "https://arxiv.org/abs/2401.09554v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.09548",
+    "title": "Universal contributions to charge fluctuations in spin chains at finite temperature",
+    "abstract": "At finite temperature, conserved charges undergo thermal fluctuations in a quantum many-body system in the grand canonical ensemble. The full structure of the fluctuations of the total U(1) charge $Q$ can be succinctly captured by the generating function $G(θ)=\\left\\langle e^{i θQ}\\right\\rangle$. For a 1D translation-invariant spin chain, in the thermodynamic limit the magnitude $|G(θ)|$ scales with the system size $L$ as $\\ln |G(θ)|=-α(θ)L+γ(θ)$, where $γ(θ)$ is the scale-invariant contribution and may encode universal information about the underlying system. In this work we investigate the behavior and physical meaning of $γ(θ)$ when the system is periodic. We find that $γ(θ)$ only takes nonzero values at isolated points of $θ$, which is $θ=π$ for all our examples. In two exemplary lattice systems we show that $γ(π)$ takes quantized values when the U(1) symmetry exhibits a specific type of 't Hooft anomaly with other symmetries. In other cases, we investigate how $γ(θ)$ depends on microscopic conditions (such as the filling factor) in field theory and exactly solvable lattice models.",
+    "authors": [
+      "Kang-Le Cai",
+      "Meng Cheng"
+    ],
+    "venue": "Phys. Rev. B 111, 205104 (2025)",
+    "publication_date": "2024-01-17",
+    "url": "https://arxiv.org/abs/2401.09548v3",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.09541",
+    "title": "LDPC-cat codes for low-overhead quantum computing in 2D",
+    "abstract": "Quantum low-density parity-check (qLDPC) codes are a promising construction for drastically reducing the overhead of fault-tolerant quantum computing (FTQC) architectures. However, all of the known hardware implementations of these codes require advanced technologies, such as long-range qubit connectivity, high-weight stabilizers, or multi-layered chip layouts. An alternative approach to reduce the hardware overhead of fault-tolerance is to use bosonic cat qubits where bit-flip errors are exponentially suppressed by design. In this work, we combine both approaches and propose an architecture based on cat qubits concatenated in classical LDPC codes correcting for phase-flips. We find that employing such phase-flip LDPC codes provides two major advantages. First, the hardware implementation of the code can be realised using short-range qubit interactions in 2D and low-weight stabilizers, which makes it readily compatible with current superconducting circuit technologies. Second, we demonstrate how to implement a fault-tolerant universal set of logical gates with a second layer of cat qubits while maintaining the local connectivity. We conduct a numerical brute force optimisation of these classical codes to find the ones with the best encoding rate for algorithmically relevant code distances. We discover that some of the best codes benefit from a cellular automaton structure. This allows us to define families of codes with high encoding rates and distances. Finally, we numerically assess the performance of our codes under circuit-level noise. Assuming a physical phase-flip error probability $ε\\approx 0.1\\%$, our $[165+8\\ell, 34+2\\ell, 22]$ code family allows to encode $100$ logical qubits with a total logical error probability (including both logical phase-flip and bit-flip) per cycle and per logical qubit $ε_L \\leq 10^{-8}$ on a $758$ cat qubit chip.",
+    "authors": [
+      "Diego Ruiz",
+      "Jérémie Guillaud",
+      "Anthony Leverrier",
+      "Mazyar Mirrahimi",
+      "Christophe Vuillot"
+    ],
+    "venue": "Nature Communications 16, 1040 (2025)",
+    "publication_date": "2024-01-17",
+    "url": "https://arxiv.org/abs/2401.09541v2",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.09536",
+    "title": "Few-body precursors of topological frustration",
+    "abstract": "Quantum spin chains - the prototypical model for coupled two-level systems - offer a fertile playground both for fundamental and technological applications, ranging from the theory of thermalization to quantum computation. The effects of frustration induced by the boundary conditions have recently been addressed in this context. In this work, we analyze the effects of such frustration on a few spin system and we comment the strong even-odd effects induced in the ground state energy. The purpose of this work is to show that such signatures are visible on current quantum computer platforms.",
+    "authors": [
+      "Federico Raffaele De Filippi",
+      "Antonio Francesco Mello",
+      "Daniel Sacco Shaikh",
+      "Maura Sassetti",
+      "Niccolò Traverso Ziani",
+      "Michele Grossi"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-17",
+    "url": "https://arxiv.org/abs/2401.09536v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.10293",
+    "title": "Symmetry breaking in geometric quantum machine learning in the presence of noise",
+    "abstract": "Geometric quantum machine learning based on equivariant quantum neural networks (EQNN) recently appeared as a promising direction in quantum machine learning. Despite the encouraging progress, the studies are still limited to theory, and the role of hardware noise in EQNN training has never been explored. This work studies the behavior of EQNN models in the presence of noise. We show that certain EQNN models can preserve equivariance under Pauli channels, while this is not possible under the amplitude damping channel. We claim that the symmetry breaking grows linearly in the number of layers and noise strength. We support our claims with numerical data from simulations as well as hardware up to 64 qubits. Furthermore, we provide strategies to enhance the symmetry protection of EQNN models in the presence of noise.",
+    "authors": [
+      "Cenk Tüysüz",
+      "Su Yeon Chang",
+      "Maria Demidik",
+      "Karl Jansen",
+      "Sofia Vallecorsa",
+      "Michele Grossi"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-17",
+    "url": "https://arxiv.org/abs/2401.10293v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.09525",
+    "title": "Universal Vortex Statistics and Stochastic Geometry of Bose-Einstein Condensation",
+    "abstract": "The cooling of a Bose gas in finite time results in the formation of a Bose-Einstein condensate that is spontaneously proliferated with vortices. We propose that the vortex spatial statistics is described by a homogeneous Poisson point process (PPP) with a density dictated by the Kibble-Zurek mechanism (KZM). We validate this model using numerical simulations of the two-dimensional stochastic Gross-Pitaevskii equation (SGPE) for both a homogeneous and a hard-wall trapped condensate. The KZM scaling of the average vortex number with the cooling rate is established along with the universal character of the vortex number distribution. The spatial statistics between vortices is characterized by analyzing the two-point defect-defect correlation function, the corresponding spacing distributions, and the random tessellation of the vortex pattern using the Voronoi cell area statistics. Combining the PPP description with the KZM, we derive universal theoretical predictions for each of these quantities and find them in agreement with the SGPE simulations. Our results establish the universal character of the spatial statistics of point-like topological defects generated during a continuous phase transition and the associated stochastic geometry.",
+    "authors": [
+      "Mithun Thudiyangal",
+      "Adolfo del Campo"
+    ],
+    "venue": "Phys. Rev. Research 6, 033152 (2024)",
+    "publication_date": "2024-01-17",
+    "url": "https://arxiv.org/abs/2401.09525v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.09521",
+    "title": "Experimental Implementation of A Quantum Zero-Knowledge Proof for User Authentication",
+    "abstract": "A new interactive quantum zero-knowledge protocol for identity authentication implementable in currently available quantum cryptographic devices is proposed and demonstrated. The protocol design involves a verifier and a prover knowing a pre-shared secret, and the acceptance or rejection of the proof is determined by the quantum bit error rate. It has been implemented in modified Quantum Key Distribution devices executing two fundamental cases. In the first case, all players are honest, while in the second case, one of the users is a malicious player. We demonstrate an increase of the quantum bit error rate around 25% in the latter case compared to the case of honesty. The protocol has also been validated for distances from a back-to-back setup to more than 60 km between verifier and prover. The security and robustness of the protocol has been analysed, demonstrating its completeness, soundness and zero-knowledge properties.",
+    "authors": [
+      "Marta I. Garcia-Cid",
+      "Dileepsai Bodanapu",
+      "Alberto Gatto",
+      "Paolo Martelli",
+      "Vicente Martin",
+      "Laura Ortiz"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-17",
+    "url": "https://arxiv.org/abs/2401.09521v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.09524",
+    "title": "Size Winding Mechanism beyond Maximal Chaos",
+    "abstract": "The concept of information scrambling elucidates the dispersion of local information in quantum many-body systems, offering insights into various physical phenomena such as wormhole teleportation. This phenomenon has spurred extensive theoretical and experimental investigations. Among these, the size-winding mechanism emerges as a valuable diagnostic tool for optimizing signal detection. In this work, we establish a computational framework for determining the winding size distribution in large-$N$ quantum systems with all-to-all interactions, utilizing the scramblon effective theory. We obtain the winding size distribution for the large-$q$ SYK model across the entire time domain. Notably, we unveil that the manifestation of size winding results from a universal phase factor in the scramblon propagator, highlighting the significance of the Lyapunov exponent. These findings contribute to a sharp and precise connection between operator dynamics and the phenomenon of wormhole teleportation.",
+    "authors": [
+      "Tian-Gang Zhou",
+      "Yingfei Gu",
+      "Pengfei Zhang"
+    ],
+    "venue": "J. High Energ. Phys. 2024, 44 (2024)",
+    "publication_date": "2024-01-17",
+    "url": "https://arxiv.org/abs/2401.09524v2",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.09421",
+    "title": "Towards large-scale quantum optimization solvers with few qubits",
+    "abstract": "We introduce a variational quantum solver for combinatorial optimizations over $m=\\mathcal{O}(n^k)$ binary variables using only $n$ qubits, with tunable $k>1$. The number of parameters and circuit depth display mild linear and sublinear scalings in $m$, respectively. Moreover, we analytically prove that the specific qubit-efficient encoding brings in a super-polynomial mitigation of barren plateaus as a built-in feature. This leads to unprecedented quantum-solver performances. For $m=7000$, numerical simulations produce solutions competitive in quality with state-of-the-art classical solvers. In turn, for $m=2000$, an experiment with $n=17$ trapped-ion qubits featured MaxCut approximation ratios estimated to be beyond the hardness threshold $0.941$. To our knowledge, this is the highest quality attained experimentally on such sizes. Our findings offer a novel heuristics for quantum-inspired solvers as well as a promising route towards solving commercially-relevant problems on near term quantum devices.",
+    "authors": [
+      "Marco Sciorilli",
+      "Lucas Borges",
+      "Taylor L. Patti",
+      "Diego García-Martín",
+      "Giancarlo Camilo",
+      "Anima Anandkumar",
+      "Leandro Aolita"
+    ],
+    "venue": "Nat Commun 16, 476 (2025)",
+    "publication_date": "2024-01-17",
+    "url": "https://arxiv.org/abs/2401.09421v2",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.09398",
+    "title": "A Future-Input Dependent model for Greenberger-Horne-Zeilinger correlations",
+    "abstract": "It is widely appreciated, due to Bell's theorem, that quantum phenomena are inconsistent with local-realist models. In this context, locality refers to local causality, and there is thus an open possibility for reproducing the quantum predictions with models which internally violate the causal arrow of time, while otherwise adhering to the relevant locality condition. So far, this possibility has been demonstrated only at a toy-model level, and only for systems involving one or two spins (or photons). The present work extends one of these models to quantum correlations between three or more spins which are entangled in the Greenberger-Horne-Zeilinger state.",
+    "authors": [
+      "Izhar Neder",
+      "Nathan Argaman"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-17",
+    "url": "https://arxiv.org/abs/2401.09398v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.09393",
+    "title": "Élivágar: Efficient Quantum Circuit Search for Classification",
+    "abstract": "Designing performant and noise-robust circuits for Quantum Machine Learning (QML) is challenging -- the design space scales exponentially with circuit size, and there are few well-supported guiding principles for QML circuit design. Although recent Quantum Circuit Search (QCS) methods attempt to search for performant QML circuits that are also robust to hardware noise, they directly adopt designs from classical Neural Architecture Search (NAS) that are misaligned with the unique constraints of quantum hardware, resulting in high search overheads and severe performance bottlenecks.\n  We present Élivágar, a novel resource-efficient, noise-guided QCS framework. Élivágar innovates in all three major aspects of QCS -- search space, search algorithm and candidate evaluation strategy -- to address the design flaws in current classically-inspired QCS methods. Élivágar achieves hardware-efficiency and avoids an expensive circuit-mapping co-search via noise- and device topology-aware candidate generation. By introducing two cheap-to-compute predictors, Clifford noise resilience and Representational capacity, Élivágar decouples the evaluation of noise robustness and performance, enabling early rejection of low-fidelity circuits and reducing circuit evaluation costs. Due to its resource-efficiency, Élivágar can further search for data embeddings, significantly improving performance.\n  Based on a comprehensive evaluation of Élivágar on 12 real quantum devices and 9 QML applications, Élivágar achieves 5.3% higher accuracy and a 271$\\times$ speedup compared to state-of-the-art QCS methods.",
+    "authors": [
+      "Sashwat Anagolum",
+      "Narges Alavisamani",
+      "Poulami Das",
+      "Moinuddin Qureshi",
+      "Eric Kessler",
+      "Yunong Shi"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-17",
+    "url": "https://arxiv.org/abs/2401.09393v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.09391",
+    "title": "Different theoretical aspects of the intrinsic decoherence in the Milburn formalism",
+    "abstract": "In this work, we consider different theoretical aspects and simple applications of the Milburn equation which is governed by a parameter controlling what is known as intrinsic decoherence. The main goal is to show some similarities also observed when external decoherence is considered. Linear entropy, Ehrenfest relations, probability density current, the Wigner representation as well as the relation to a Lindbladian master equation are analyzed in terms of this intrinsic decoherence, leading to new insights on the Milburn dynamics. Interference of two wave packets, tunneling and the bouncing ball problem are also studied under this perspective.",
+    "authors": [
+      "S. V. Mousavi",
+      "S. Miret-Artés"
+    ],
+    "venue": "Eur. Phys. J. Plus 139, 869 (2024)",
+    "publication_date": "2024-01-17",
+    "url": "https://arxiv.org/abs/2401.09391v2",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.09341",
+    "title": "Cooperative two-photon lasing in two Quantum Dots embedded inside Photonic microcavity",
+    "abstract": "We propose cooperative two-photon lasing in two quantum dots coupled to a single mode photonic crystal cavity. We consider both quantum dots are driven either incoherently or coherently using external pump. We incorporate exciton-phonon coupling using polaron transformed master equation. Using quantum laser theory, single and multi-photon excess emission (difference between emission and absorption) into cavity mode are investigated. The single and two-photon excess emission contribute to cavity photons, predominantly. Varying the pump strength can lead to single-photon excess emission change from negative to positive and thus by appropriately selecting pump strength single-photon excess emission can be made negligible.",
+    "authors": [
+      "Lavakumar Addepalli",
+      "P. K. Pathak"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-17",
+    "url": "https://arxiv.org/abs/2401.09341v1",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  },
+  {
+    "paper_id": "arXiv:2401.09307",
+    "title": "Inflationary Krylov complexity",
+    "abstract": "In this work, we have systematically investigated the Krylov complexity of curvature perturbation for the modified dispersion relation in inflation, using the algorithm in closed system and open system. Our analysis could be applied to the most inflationary models. Following the Lanczos algorithm, we find the very early universe is an infinite, many-body, and maximal chaotic system. Our numerics shows that the Lanczos coefficient and Lyapunov index of the standard dispersion relation are mainly determined by the scale factor. As for the modified case, it is nearly determined by the momentum. In a method of the closed system, we discover that the Krylov complexity will show irregular oscillation before the horizon exits. The modified case will present faster growth after the horizon exists. Since the whole universe is an open system, the approach of an open system is more realistic and reliable. Then, we construct the exact wave function which is very robust only requiring the Lanczos coefficient proportional to $n$ (main quantum number). Based on it, we find the Krylov complexity and Krylov entropy could nicely recover in the case of a closed system under the weak dissipative approximation, in which our analysis shows that the evolution of Krylov complexity will not be the same with the original situation. We also find the inflationary period is a strong dissipative system. Meanwhile, our numerics clearly shows the Krylov complexity will grow during the whole inflationary period. But for the small scales, there will be a peak after the horizon exits. Our analysis reveals that the dramatic change in background (inflation) will significantly impact the evolution of Krylov complexity. Since the curvature perturbation will transit from the quantum level to the classical level.",
+    "authors": [
+      "Tao Li",
+      "Lei-Hua Liu"
+    ],
+    "venue": "JHEP04(2024)123",
+    "publication_date": "2024-01-17",
+    "url": "https://arxiv.org/abs/2401.09307v4",
+    "citation_count": 0,
+    "influential_citation_count": 0,
+    "has_github_link": false
+  }
+]

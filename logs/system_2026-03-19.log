@@ -1,0 +1,691 @@
+2026-03-19 15:06:50,584 - [FilterAgent] INFO: LLM configured: url=https://dashscope.aliyuncs.com/compatible-mode/v1, model=qwen3-32b
+2026-03-19 15:06:50,585 - [FilterAgent] INFO: Embedding configured: url=https://dashscope.aliyuncs.com/compatible-mode/v1, model=qwen3-32b
+2026-03-19 15:06:51,517 - [FilterAgent] ERROR: Embedding API error: 404 Client Error: Not Found for url: https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings
+2026-03-19 15:06:52,137 - [FilterAgent] ERROR: Embedding API error: 404 Client Error: Not Found for url: https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings
+2026-03-19 15:06:52,140 - [FilterAgent] DEBUG: Similarity computed: 0.0000
+2026-03-19 15:06:53,102 - [FilterAgent] ERROR: LLM API error: 400 Client Error: Bad Request for url: https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
+2026-03-19 15:06:53,103 - [FilterAgent] WARNING: Could not parse LLM score from response: 
+2026-03-19 15:06:53,834 - [FilterAgent] ERROR: LLM API error: 400 Client Error: Bad Request for url: https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
+2026-03-19 15:06:54,541 - [FilterAgent] ERROR: Embedding API error: 404 Client Error: Not Found for url: https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings
+2026-03-19 15:06:55,122 - [FilterAgent] ERROR: Embedding API error: 404 Client Error: Not Found for url: https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings
+2026-03-19 15:06:55,124 - [FilterAgent] DEBUG: Similarity computed: 0.0000
+2026-03-19 15:06:55,942 - [FilterAgent] ERROR: LLM API error: 400 Client Error: Bad Request for url: https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
+2026-03-19 15:06:55,944 - [FilterAgent] WARNING: Could not parse LLM score from response: 
+2026-03-19 15:06:56,695 - [FilterAgent] ERROR: LLM API error: 400 Client Error: Bad Request for url: https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
+2026-03-19 15:06:57,300 - [FilterAgent] ERROR: Embedding API error: 404 Client Error: Not Found for url: https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings
+2026-03-19 15:06:57,928 - [FilterAgent] ERROR: Embedding API error: 404 Client Error: Not Found for url: https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings
+2026-03-19 15:06:57,930 - [FilterAgent] DEBUG: Similarity computed: 0.0000
+2026-03-19 15:06:58,752 - [FilterAgent] ERROR: LLM API error: 400 Client Error: Bad Request for url: https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
+2026-03-19 15:06:58,753 - [FilterAgent] WARNING: Could not parse LLM score from response: 
+2026-03-19 15:06:59,448 - [FilterAgent] ERROR: LLM API error: 400 Client Error: Bad Request for url: https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
+2026-03-19 15:07:00,042 - [FilterAgent] ERROR: Embedding API error: 404 Client Error: Not Found for url: https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings
+2026-03-19 15:07:00,654 - [FilterAgent] ERROR: Embedding API error: 404 Client Error: Not Found for url: https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings
+2026-03-19 15:07:00,656 - [FilterAgent] DEBUG: Similarity computed: 0.0000
+2026-03-19 15:07:01,504 - [FilterAgent] ERROR: LLM API error: 400 Client Error: Bad Request for url: https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
+2026-03-19 15:07:01,505 - [FilterAgent] WARNING: Could not parse LLM score from response: 
+2026-03-19 15:07:02,482 - [FilterAgent] ERROR: LLM API error: 400 Client Error: Bad Request for url: https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
+2026-03-19 15:07:03,112 - [FilterAgent] ERROR: Embedding API error: 404 Client Error: Not Found for url: https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings
+2026-03-19 15:07:03,703 - [FilterAgent] ERROR: Embedding API error: 404 Client Error: Not Found for url: https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings
+2026-03-19 15:07:03,704 - [FilterAgent] DEBUG: Similarity computed: 0.0000
+2026-03-19 15:07:04,747 - [FilterAgent] ERROR: LLM API error: 400 Client Error: Bad Request for url: https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
+2026-03-19 15:07:04,753 - [FilterAgent] WARNING: Could not parse LLM score from response: 
+2026-03-19 15:07:05,703 - [FilterAgent] ERROR: LLM API error: 400 Client Error: Bad Request for url: https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
+2026-03-19 15:07:05,707 - [FilterAgent] INFO: Saved 5 scored papers to d:\work\code\PaperAutoReader\data\scored_papers\2026-03-19.json
+2026-03-19 15:44:58,016 - [FilterAgent] INFO: LLM configured: url=https://dashscope.aliyuncs.com/compatible-mode/v1, model=qwen3-32b
+2026-03-19 15:44:58,017 - [FilterAgent] INFO: Embedding configured: url=https://dashscope.aliyuncs.com/compatible-mode/v1, model=qwen3-32b
+2026-03-19 15:44:58,735 - [FilterAgent] ERROR: Embedding API error: 404 Client Error: Not Found for url: https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings
+2026-03-19 15:44:59,406 - [FilterAgent] ERROR: Embedding API error: 404 Client Error: Not Found for url: https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings
+2026-03-19 15:44:59,411 - [FilterAgent] DEBUG: Similarity computed: 0.0000
+2026-03-19 15:45:00,141 - [FilterAgent] ERROR: LLM API error: 400 Client Error: Bad Request for url: https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
+2026-03-19 16:02:31,896 - [FilterAgent] INFO: LLM configured: url=https://dashscope.aliyuncs.com/compatible-mode/v1, model=qwen3-32b
+2026-03-19 16:02:31,896 - [FilterAgent] INFO: Embedding configured: url=https://dashscope.aliyuncs.com/compatible-mode/v1, model=text-embedding-v1
+2026-03-19 16:02:33,441 - [FilterAgent] DEBUG: Similarity computed: 0.7942
+2026-03-19 16:02:38,695 - [FilterAgent] DEBUG: Similarity computed: 0.6953
+2026-03-19 16:02:43,048 - [FilterAgent] DEBUG: Similarity computed: 0.4211
+2026-03-19 16:02:48,165 - [FilterAgent] DEBUG: Similarity computed: 0.5979
+2026-03-19 16:02:52,621 - [FilterAgent] DEBUG: Similarity computed: 0.7955
+2026-03-19 16:02:56,423 - [FilterAgent] INFO: Saved 5 scored papers to d:\work\code\PaperAutoReader\data\scored_papers\2026-03-19.json
+2026-03-19 16:05:09,940 - [FilterAgent] INFO: LLM configured: url=https://dashscope.aliyuncs.com/compatible-mode/v1, model=qwen3-32b
+2026-03-19 16:05:09,941 - [FilterAgent] INFO: Embedding configured: url=https://dashscope.aliyuncs.com/compatible-mode/v1, model=text-embedding-v1
+2026-03-19 16:05:11,463 - [FilterAgent] DEBUG: Similarity computed: 0.3423
+2026-03-19 16:05:15,023 - [FilterAgent] DEBUG: Similarity computed: 0.3344
+2026-03-19 16:05:19,608 - [FilterAgent] DEBUG: Similarity computed: 0.2319
+2026-03-19 16:05:24,217 - [FilterAgent] DEBUG: Similarity computed: 0.2558
+2026-03-19 16:05:27,731 - [FilterAgent] DEBUG: Similarity computed: 0.2493
+2026-03-19 16:05:33,644 - [FilterAgent] DEBUG: Similarity computed: 0.3656
+2026-03-19 16:05:36,994 - [FilterAgent] DEBUG: Similarity computed: 0.2514
+2026-03-19 16:05:40,973 - [FilterAgent] DEBUG: Similarity computed: 0.3994
+2026-03-19 16:05:44,509 - [FilterAgent] DEBUG: Similarity computed: 0.4105
+2026-03-19 16:05:48,276 - [FilterAgent] DEBUG: Similarity computed: 0.3516
+2026-03-19 16:05:52,613 - [FilterAgent] DEBUG: Similarity computed: 0.3366
+2026-03-19 16:05:55,994 - [FilterAgent] DEBUG: Similarity computed: 0.2536
+2026-03-19 16:06:00,260 - [FilterAgent] DEBUG: Similarity computed: 0.2719
+2026-03-19 16:06:03,962 - [FilterAgent] DEBUG: Similarity computed: 0.3557
+2026-03-19 16:06:07,615 - [FilterAgent] DEBUG: Similarity computed: 0.3114
+2026-03-19 16:06:11,394 - [FilterAgent] DEBUG: Similarity computed: 0.3233
+2026-03-19 16:06:14,930 - [FilterAgent] DEBUG: Similarity computed: 0.2402
+2026-03-19 16:06:18,783 - [FilterAgent] DEBUG: Similarity computed: 0.2945
+2026-03-19 16:06:22,120 - [FilterAgent] DEBUG: Similarity computed: 0.2446
+2026-03-19 16:06:26,064 - [FilterAgent] DEBUG: Similarity computed: 0.3254
+2026-03-19 16:06:29,565 - [FilterAgent] DEBUG: Similarity computed: 0.4416
+2026-03-19 16:06:33,798 - [FilterAgent] DEBUG: Similarity computed: 0.4103
+2026-03-19 16:06:37,737 - [FilterAgent] DEBUG: Similarity computed: 0.4455
+2026-03-19 16:06:40,954 - [FilterAgent] DEBUG: Similarity computed: 0.3716
+2026-03-19 16:06:44,578 - [FilterAgent] DEBUG: Similarity computed: 0.3255
+2026-03-19 16:06:48,261 - [FilterAgent] DEBUG: Similarity computed: 0.2877
+2026-03-19 16:06:51,736 - [FilterAgent] DEBUG: Similarity computed: 0.3474
+2026-03-19 16:06:55,925 - [FilterAgent] DEBUG: Similarity computed: 0.3387
+2026-03-19 16:06:59,527 - [FilterAgent] DEBUG: Similarity computed: 0.2586
+2026-03-19 16:07:03,356 - [FilterAgent] DEBUG: Similarity computed: 0.3975
+2026-03-19 16:07:07,441 - [FilterAgent] DEBUG: Similarity computed: 0.3100
+2026-03-19 16:07:11,951 - [FilterAgent] DEBUG: Similarity computed: 0.3263
+2026-03-19 16:07:16,356 - [FilterAgent] DEBUG: Similarity computed: 0.2803
+2026-03-19 16:07:20,367 - [FilterAgent] DEBUG: Similarity computed: 0.6193
+2026-03-19 16:07:24,011 - [FilterAgent] DEBUG: Similarity computed: 0.2781
+2026-03-19 16:07:27,994 - [FilterAgent] DEBUG: Similarity computed: 0.2114
+2026-03-19 16:07:32,163 - [FilterAgent] DEBUG: Similarity computed: 0.3888
+2026-03-19 16:07:41,140 - [FilterAgent] DEBUG: Similarity computed: 0.2888
+2026-03-19 16:07:44,725 - [FilterAgent] DEBUG: Similarity computed: 0.3556
+2026-03-19 16:07:49,340 - [FilterAgent] DEBUG: Similarity computed: 0.3102
+2026-03-19 16:07:52,807 - [FilterAgent] DEBUG: Similarity computed: 0.4960
+2026-03-19 16:07:57,259 - [FilterAgent] DEBUG: Similarity computed: 0.3079
+2026-03-19 16:08:00,697 - [FilterAgent] DEBUG: Similarity computed: 0.2592
+2026-03-19 16:08:07,618 - [FilterAgent] DEBUG: Similarity computed: 0.3253
+2026-03-19 16:08:11,538 - [FilterAgent] DEBUG: Similarity computed: 0.3165
+2026-03-19 16:08:15,710 - [FilterAgent] DEBUG: Similarity computed: 0.2419
+2026-03-19 16:08:18,851 - [FilterAgent] DEBUG: Similarity computed: 0.3974
+2026-03-19 16:08:22,841 - [FilterAgent] DEBUG: Similarity computed: 0.2879
+2026-03-19 16:08:26,598 - [FilterAgent] DEBUG: Similarity computed: 0.2101
+2026-03-19 16:08:30,376 - [FilterAgent] DEBUG: Similarity computed: 0.2709
+2026-03-19 16:08:34,064 - [FilterAgent] DEBUG: Similarity computed: 0.2694
+2026-03-19 16:08:38,270 - [FilterAgent] DEBUG: Similarity computed: 0.4190
+2026-03-19 16:08:41,644 - [FilterAgent] DEBUG: Similarity computed: 0.3148
+2026-03-19 16:08:45,021 - [FilterAgent] DEBUG: Similarity computed: 0.4161
+2026-03-19 16:08:48,876 - [FilterAgent] DEBUG: Similarity computed: 0.2737
+2026-03-19 16:08:52,718 - [FilterAgent] DEBUG: Similarity computed: 0.5637
+2026-03-19 16:08:56,347 - [FilterAgent] DEBUG: Similarity computed: 0.4170
+2026-03-19 16:09:00,216 - [FilterAgent] DEBUG: Similarity computed: 0.1834
+2026-03-19 16:09:03,942 - [FilterAgent] DEBUG: Similarity computed: 0.3408
+2026-03-19 16:09:08,005 - [FilterAgent] DEBUG: Similarity computed: 0.2394
+2026-03-19 16:09:14,093 - [FilterAgent] DEBUG: Similarity computed: 0.2062
+2026-03-19 16:09:17,891 - [FilterAgent] DEBUG: Similarity computed: 0.1932
+2026-03-19 16:09:22,466 - [FilterAgent] DEBUG: Similarity computed: 0.3550
+2026-03-19 16:09:26,178 - [FilterAgent] DEBUG: Similarity computed: 0.3039
+2026-03-19 16:09:30,366 - [FilterAgent] DEBUG: Similarity computed: 0.3582
+2026-03-19 16:09:33,891 - [FilterAgent] DEBUG: Similarity computed: 0.4234
+2026-03-19 16:09:37,940 - [FilterAgent] DEBUG: Similarity computed: 0.3491
+2026-03-19 16:09:42,960 - [FilterAgent] DEBUG: Similarity computed: 0.4079
+2026-03-19 16:09:46,826 - [FilterAgent] DEBUG: Similarity computed: 0.2186
+2026-03-19 16:09:50,257 - [FilterAgent] DEBUG: Similarity computed: 0.3498
+2026-03-19 16:09:53,555 - [FilterAgent] DEBUG: Similarity computed: 0.2845
+2026-03-19 16:09:57,585 - [FilterAgent] DEBUG: Similarity computed: 0.2393
+2026-03-19 16:10:02,080 - [FilterAgent] DEBUG: Similarity computed: 0.2900
+2026-03-19 16:10:07,814 - [FilterAgent] DEBUG: Similarity computed: 0.3500
+2026-03-19 16:10:11,479 - [FilterAgent] DEBUG: Similarity computed: 0.2473
+2026-03-19 16:10:14,906 - [FilterAgent] DEBUG: Similarity computed: 0.4114
+2026-03-19 16:10:19,384 - [FilterAgent] DEBUG: Similarity computed: 0.3237
+2026-03-19 16:10:27,900 - [FilterAgent] DEBUG: Similarity computed: 0.3722
+2026-03-19 16:10:32,041 - [FilterAgent] DEBUG: Similarity computed: 0.3741
+2026-03-19 16:10:35,559 - [FilterAgent] DEBUG: Similarity computed: 0.3759
+2026-03-19 16:10:39,373 - [FilterAgent] DEBUG: Similarity computed: 0.2349
+2026-03-19 16:10:43,572 - [FilterAgent] DEBUG: Similarity computed: 0.4429
+2026-03-19 16:10:47,216 - [FilterAgent] DEBUG: Similarity computed: 0.3630
+2026-03-19 16:10:54,438 - [FilterAgent] DEBUG: Similarity computed: 0.3826
+2026-03-19 16:10:58,680 - [FilterAgent] DEBUG: Similarity computed: 0.3015
+2026-03-19 16:11:02,876 - [FilterAgent] DEBUG: Similarity computed: 0.4123
+2026-03-19 16:11:07,627 - [FilterAgent] DEBUG: Similarity computed: 0.2966
+2026-03-19 16:11:11,145 - [FilterAgent] DEBUG: Similarity computed: 0.3063
+2026-03-19 16:11:14,488 - [FilterAgent] DEBUG: Similarity computed: 0.2361
+2026-03-19 16:11:17,809 - [FilterAgent] DEBUG: Similarity computed: 0.3423
+2026-03-19 16:11:21,627 - [FilterAgent] DEBUG: Similarity computed: 0.3392
+2026-03-19 16:11:27,122 - [FilterAgent] DEBUG: Similarity computed: 0.3431
+2026-03-19 16:11:31,797 - [FilterAgent] DEBUG: Similarity computed: 0.3343
+2026-03-19 16:11:35,150 - [FilterAgent] DEBUG: Similarity computed: 0.2413
+2026-03-19 16:11:39,116 - [FilterAgent] DEBUG: Similarity computed: 0.7180
+2026-03-19 16:11:42,527 - [FilterAgent] DEBUG: Similarity computed: 0.2729
+2026-03-19 16:11:46,696 - [FilterAgent] DEBUG: Similarity computed: 0.3412
+2026-03-19 16:11:51,160 - [FilterAgent] DEBUG: Similarity computed: 0.3164
+2026-03-19 16:11:54,386 - [FilterAgent] DEBUG: Similarity computed: 0.3074
+2026-03-19 16:11:57,840 - [FilterAgent] DEBUG: Similarity computed: 0.4490
+2026-03-19 16:12:01,343 - [FilterAgent] DEBUG: Similarity computed: 0.3525
+2026-03-19 16:12:05,274 - [FilterAgent] DEBUG: Similarity computed: 0.2554
+2026-03-19 16:12:08,845 - [FilterAgent] DEBUG: Similarity computed: 0.3951
+2026-03-19 16:12:13,449 - [FilterAgent] DEBUG: Similarity computed: 0.3192
+2026-03-19 16:12:16,662 - [FilterAgent] DEBUG: Similarity computed: 0.2698
+2026-03-19 16:12:21,329 - [FilterAgent] DEBUG: Similarity computed: 0.1872
+2026-03-19 16:12:25,134 - [FilterAgent] DEBUG: Similarity computed: 0.2101
+2026-03-19 16:12:29,935 - [FilterAgent] DEBUG: Similarity computed: 0.2819
+2026-03-19 16:12:33,225 - [FilterAgent] INFO: Saved 108 scored papers to d:\work\code\PaperAutoReader\data\scored_papers\2026-03-19.json
+2026-03-19 17:26:01,186 - [SearchAgent] INFO: 从 YAML 文件加载配置: D:\work\code\PaperAutoReader\fields\Domain_Profile_QML.yaml
+2026-03-19 17:26:01,187 - [SearchAgent] INFO: ============================================================
+2026-03-19 17:26:01,187 - [SearchAgent] INFO: [Search Agent] 开始执行数据抓取流程
+2026-03-19 17:26:01,187 - [SearchAgent] INFO:   - 模式: 日期范围
+2026-03-19 17:26:01,187 - [SearchAgent] INFO:   - 日期范围: 2024-01-15 到 2024-01-17
+2026-03-19 17:26:01,187 - [SearchAgent] INFO:   - 搜索查询: all:quantum
+2026-03-19 17:26:01,196 - [SearchAgent] INFO: ============================================================
+2026-03-19 17:26:01,196 - [SearchAgent] INFO: [Search Agent] 开始按日期范围获取论文
+2026-03-19 17:26:01,196 - [SearchAgent] INFO:   - 日期范围: 2024-01-15 到 2024-01-17
+2026-03-19 17:26:01,196 - [SearchAgent] INFO:   - 搜索查询: all:quantum
+2026-03-19 17:26:01,196 - [SearchAgent] INFO:   - 每天最大: 10 篇
+2026-03-19 17:26:01,196 - [SearchAgent] INFO: ============================================================
+2026-03-19 17:26:01,196 - [SearchAgent] INFO: [Search Agent] 正在获取 2024-01-15 的论文...
+2026-03-19 17:26:03,453 - [SearchAgent] INFO:   获取到 10 篇论文
+2026-03-19 17:26:03,453 - [SearchAgent] INFO: [Search Agent] 正在获取 2024-01-16 的论文...
+2026-03-19 17:26:06,784 - [SearchAgent] INFO:   获取到 10 篇论文
+2026-03-19 17:26:06,785 - [SearchAgent] INFO: [Search Agent] 正在获取 2024-01-17 的论文...
+2026-03-19 17:26:08,878 - [SearchAgent] INFO:   获取到 10 篇论文
+2026-03-19 17:26:08,878 - [SearchAgent] INFO: ============================================================
+2026-03-19 17:26:08,878 - [SearchAgent] INFO: [Search Agent] 日期范围获取完成，共 30 篇论文
+2026-03-19 17:26:08,881 - [SearchAgent] INFO:   保存: D:\work\code\PaperAutoReader\data\arxiv_by_date\2024-01-15.json
+2026-03-19 17:26:08,881 - [SearchAgent] INFO:   保存: D:\work\code\PaperAutoReader\data\arxiv_by_date\2024-01-16.json
+2026-03-19 17:26:08,882 - [SearchAgent] INFO:   保存: D:\work\code\PaperAutoReader\data\arxiv_by_date\2024-01-17.json
+2026-03-19 17:26:08,884 - [SearchAgent] INFO: [Search Agent] 正在批量获取 30 篇论文的引用数据...
+2026-03-19 17:26:08,884 - [SearchAgent] INFO: [Search Agent] 批量查询 Semantic Scholar: 第 1 批，共 30 篇论文
+2026-03-19 17:26:09,882 - [SearchAgent] INFO: [Search Agent] 批量查询完成，成功获取 24 篇论文的引用数据
+2026-03-19 17:26:09,882 - [SearchAgent] INFO: [Search Agent] 引用数据获取完成
+2026-03-19 17:26:09,882 - [SearchAgent] INFO: ============================================================
+2026-03-19 17:26:09,882 - [SearchAgent] INFO: [Search Agent] 正在通过 CrossRef 确认 30 篇论文的发表状态...
+2026-03-19 17:26:11,229 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08005
+2026-03-19 17:26:11,571 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08005
+2026-03-19 17:26:11,866 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08005
+2026-03-19 17:26:14,089 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 17:26:14,089 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Multiple Frequency Steps in Synthetic Antiferromag... -> World Journal of Advanced Engineering Technology and Sciences
+2026-03-19 17:26:14,089 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Multiple Frequency Steps in Synthetic An...' arXiv -> World Journal of Advanced Engineering Technology and Sciences
+2026-03-19 17:26:14,388 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07997
+2026-03-19 17:26:14,685 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07997
+2026-03-19 17:26:14,989 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07997
+2026-03-19 17:26:17,464 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07980
+2026-03-19 17:26:17,770 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07980
+2026-03-19 17:26:18,074 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07980
+2026-03-19 17:26:22,549 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 17:26:22,549 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Calculating Magnetic Properties of Two-Dimensional... -> International Journal of Science and Research Archive
+2026-03-19 17:26:22,549 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Calculating Magnetic Properties of Two-D...' arXiv -> International Journal of Science and Research Archive
+2026-03-19 17:26:22,854 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07974
+2026-03-19 17:26:23,161 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07974
+2026-03-19 17:26:23,463 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07974
+2026-03-19 17:26:26,003 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07946
+2026-03-19 17:26:26,315 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07946
+2026-03-19 17:26:26,621 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07946
+2026-03-19 17:26:29,273 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09483
+2026-03-19 17:26:29,580 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09483
+2026-03-19 17:26:29,895 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09483
+2026-03-19 17:26:31,668 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07939
+2026-03-19 17:26:32,782 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07939
+2026-03-19 17:26:33,088 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07939
+2026-03-19 17:26:34,619 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07934
+2026-03-19 17:26:34,939 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07934
+2026-03-19 17:26:35,249 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07934
+2026-03-19 17:26:36,460 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 17:26:36,460 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Demonstration of Algorithmic Quantum Speedup for a... -> Physical Review X
+2026-03-19 17:26:36,460 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Demonstration of Algorithmic Quantum Spe...' arXiv -> Physical Review X
+2026-03-19 17:26:36,765 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07914
+2026-03-19 17:26:37,067 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07914
+2026-03-19 17:26:37,375 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07914
+2026-03-19 17:26:39,097 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07913
+2026-03-19 17:26:39,415 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07913
+2026-03-19 17:26:39,719 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07913
+2026-03-19 17:26:42,246 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08888
+2026-03-19 17:26:42,547 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08888
+2026-03-19 17:26:42,879 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08888
+2026-03-19 17:26:45,041 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 17:26:45,041 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: On gravity as a medium property in Maxwell equatio... -> General Relativity and Gravitation
+2026-03-19 17:26:45,041 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'On gravity as a medium property in Maxwe...' arXiv -> General Relativity and Gravitation
+2026-03-19 17:26:45,360 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08885
+2026-03-19 17:26:45,676 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08885
+2026-03-19 17:26:45,984 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08885
+2026-03-19 17:26:47,827 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 17:26:47,827 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Traversable Wormholes from Loop Quantum Gravity... -> Journal of Cosmology and Astroparticle Physics
+2026-03-19 17:26:47,827 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Traversable Wormholes from Loop Quantum ...' arXiv -> Journal of Cosmology and Astroparticle Physics
+2026-03-19 17:26:48,130 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08884
+2026-03-19 17:26:48,455 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08884
+2026-03-19 17:26:48,764 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08884
+2026-03-19 17:26:50,808 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 17:26:50,808 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Extreme Metastability of Diamond and its Transform... -> The Journal of Physical Chemistry Letters
+2026-03-19 17:26:50,808 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Extreme Metastability of Diamond and its...' arXiv -> The Journal of Physical Chemistry Letters
+2026-03-19 17:26:51,563 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08880
+2026-03-19 17:26:51,865 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08880
+2026-03-19 17:26:52,166 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08880
+2026-03-19 17:26:53,951 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08871
+2026-03-19 17:26:54,257 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08871
+2026-03-19 17:26:54,563 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08871
+2026-03-19 17:26:56,561 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 17:26:56,561 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Neutrino Interactions with perturbed Rastall Gravi... -> International Journal of Modern Physics A
+2026-03-19 17:26:56,561 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Neutrino Interactions with perturbed Ras...' arXiv -> International Journal of Modern Physics A
+2026-03-19 17:26:56,889 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08862
+2026-03-19 17:26:57,222 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08862
+2026-03-19 17:26:57,551 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08862
+2026-03-19 17:26:59,587 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 17:26:59,587 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Detecting Dark Matter Substructures on Small Scale... -> Physical Review D
+2026-03-19 17:26:59,587 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Detecting Dark Matter Substructures on S...' arXiv -> Physical Review D
+2026-03-19 17:26:59,905 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08854
+2026-03-19 17:27:00,221 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08854
+2026-03-19 17:27:00,531 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08854
+2026-03-19 17:27:02,631 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 17:27:02,631 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Remote sensing of a levitated superconductor with ... -> Physical Review Applied
+2026-03-19 17:27:02,631 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Remote sensing of a levitated supercondu...' arXiv -> Physical Review Applied
+2026-03-19 17:27:02,937 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08852
+2026-03-19 17:27:03,246 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08852
+2026-03-19 17:27:03,553 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08852
+2026-03-19 17:27:05,543 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 17:27:05,543 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Tunable on-chip optical traps for levitating parti... -> Nanophotonics
+2026-03-19 17:27:05,543 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Tunable on-chip optical traps for levita...' arXiv -> Nanophotonics
+2026-03-19 17:27:05,851 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08831
+2026-03-19 17:27:06,177 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08831
+2026-03-19 17:27:06,493 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08831
+2026-03-19 17:27:08,686 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 17:27:08,686 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Manipulating the Dipolar Interactions and Cooperat... -> New Journal of Physics
+2026-03-19 17:27:08,686 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Manipulating the Dipolar Interactions an...' arXiv -> New Journal of Physics
+2026-03-19 17:27:09,007 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08824
+2026-03-19 17:27:09,321 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08824
+2026-03-19 17:27:09,640 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08824
+2026-03-19 17:27:12,941 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 17:27:12,941 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Spontaneous breaking of time translation symmetry ... -> Optics Letters
+2026-03-19 17:27:12,941 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Spontaneous breaking of time translation...' arXiv -> Optics Letters
+2026-03-19 17:27:13,256 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09650
+2026-03-19 17:27:13,563 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09650
+2026-03-19 17:27:13,876 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09650
+2026-03-19 17:27:17,090 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09633
+2026-03-19 17:27:17,398 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09633
+2026-03-19 17:27:17,711 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09633
+2026-03-19 17:27:20,303 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 17:27:20,303 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Phase Transition to RS: Cool, not Supercool... -> Journal of High Energy Physics
+2026-03-19 17:27:20,303 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Phase Transition to RS: Cool, not Superc...' arXiv -> Journal of High Energy Physics
+2026-03-19 17:27:20,612 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09618
+2026-03-19 17:27:20,912 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09618
+2026-03-19 17:27:21,213 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09618
+2026-03-19 17:27:24,079 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=0.75
+2026-03-19 17:27:24,079 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Ultralong-range Cs-RbCs Rydberg molecules: non-adi... -> Physical Review A
+2026-03-19 17:27:24,079 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Ultralong-range Cs-RbCs Rydberg molecule...' arXiv -> Physical Review A
+2026-03-19 17:27:24,383 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09578
+2026-03-19 17:27:24,692 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09578
+2026-03-19 17:27:24,996 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09578
+2026-03-19 17:27:27,097 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 17:27:27,097 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Multiplexed quantum repeaters based on single-phot... -> Communications Physics
+2026-03-19 17:27:27,097 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Multiplexed quantum repeaters based on s...' arXiv -> Communications Physics
+2026-03-19 17:27:27,394 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09577
+2026-03-19 17:27:27,697 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09577
+2026-03-19 17:27:28,013 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09577
+2026-03-19 17:27:29,841 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 17:27:29,842 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Parameterizing black hole orbits for adiabatic ins... -> Physical Review D
+2026-03-19 17:27:29,842 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Parameterizing black hole orbits for adi...' arXiv -> Physical Review D
+2026-03-19 17:27:30,142 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09575
+2026-03-19 17:27:30,439 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09575
+2026-03-19 17:27:30,744 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09575
+2026-03-19 17:27:32,544 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 17:27:32,544 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Zero Trust Implementation in the Emerging Technolo... -> Complex Engineering Systems
+2026-03-19 17:27:32,544 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Zero Trust Implementation in the Emergin...' arXiv -> Complex Engineering Systems
+2026-03-19 17:27:32,846 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09573
+2026-03-19 17:27:33,149 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09573
+2026-03-19 17:27:33,460 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09573
+2026-03-19 17:27:35,765 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09569
+2026-03-19 17:27:36,064 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09569
+2026-03-19 17:27:36,364 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09569
+2026-03-19 17:27:37,811 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 17:27:37,811 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Optimal remote restoring of quantum states in comm... -> Physica Scripta
+2026-03-19 17:27:37,811 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Optimal remote restoring of quantum stat...' arXiv -> Physica Scripta
+2026-03-19 17:27:38,109 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09563
+2026-03-19 17:27:38,415 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09563
+2026-03-19 17:27:38,718 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09563
+2026-03-19 17:27:40,209 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 17:27:40,209 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Giant Enhancement of Vacuum Friction in Spinning Y... -> New Journal of Physics
+2026-03-19 17:27:40,209 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Giant Enhancement of Vacuum Friction in ...' arXiv -> New Journal of Physics
+2026-03-19 17:27:40,508 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09554
+2026-03-19 17:27:40,810 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09554
+2026-03-19 17:27:41,108 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09554
+2026-03-19 17:27:43,923 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 17:27:43,923 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Entanglement cost for infinite-dimensional physica... -> Communications in Mathematical Physics
+2026-03-19 17:27:43,923 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Entanglement cost for infinite-dimension...' arXiv -> Communications in Mathematical Physics
+2026-03-19 17:27:43,923 - [SearchAgent] INFO: [Search Agent] CrossRef 确认完成: 20/30 篇论文已正式发表
+2026-03-19 17:27:43,923 - [SearchAgent] INFO: [Search Agent] 数据抓取流程完成
+2026-03-19 19:19:57,002 - [SearchAgent] INFO: 从 YAML 文件加载配置: D:\work\code\PaperAutoReader\fields\Domain_Profile_QML.yaml
+2026-03-19 19:19:57,004 - [SearchAgent] INFO: 从 YAML 文件加载配置: D:\work\code\PaperAutoReader\fields\Domain_Profile_QML.yaml
+2026-03-19 19:19:57,005 - [SearchAgent] INFO: ============================================================
+2026-03-19 19:19:57,005 - [SearchAgent] INFO: [Search Agent] 开始执行数据抓取流程
+2026-03-19 19:19:57,005 - [SearchAgent] INFO:   - 模式: 日期范围
+2026-03-19 19:19:57,005 - [SearchAgent] INFO:   - 日期范围: 2024-01-15 到 2024-01-17
+2026-03-19 19:19:57,005 - [SearchAgent] INFO:   - 学科范围: quant-ph (来自配置)
+2026-03-19 19:19:57,013 - [SearchAgent] INFO: ============================================================
+2026-03-19 19:19:57,013 - [SearchAgent] INFO: [Search Agent] 开始按日期范围获取论文
+2026-03-19 19:19:57,013 - [SearchAgent] INFO:   - 日期范围: 2024-01-15 到 2024-01-17
+2026-03-19 19:19:57,013 - [SearchAgent] INFO:   - 学科范围: quant-ph
+2026-03-19 19:19:57,013 - [SearchAgent] INFO:   - 基础查询: cat:quant-ph
+2026-03-19 19:19:57,013 - [SearchAgent] INFO:   - 每天最大: 20 篇
+2026-03-19 19:19:57,013 - [SearchAgent] INFO: ============================================================
+2026-03-19 19:19:57,013 - [SearchAgent] INFO: [Search Agent] 正在获取 2024-01-15 的论文...
+2026-03-19 19:19:59,157 - [SearchAgent] INFO:   获取到 20 篇论文
+2026-03-19 19:19:59,157 - [SearchAgent] INFO: [Search Agent] 正在获取 2024-01-16 的论文...
+2026-03-19 19:20:01,286 - [SearchAgent] INFO:   获取到 20 篇论文
+2026-03-19 19:20:01,286 - [SearchAgent] INFO: [Search Agent] 正在获取 2024-01-17 的论文...
+2026-03-19 19:20:03,734 - [SearchAgent] INFO:   获取到 20 篇论文
+2026-03-19 19:20:03,734 - [SearchAgent] INFO: ============================================================
+2026-03-19 19:20:03,735 - [SearchAgent] INFO: [Search Agent] 日期范围获取完成，共 60 篇论文
+2026-03-19 19:20:03,736 - [SearchAgent] INFO:   保存: D:\work\code\PaperAutoReader\data\arxiv_by_date\2024-01-15.json
+2026-03-19 19:20:03,737 - [SearchAgent] INFO:   保存: D:\work\code\PaperAutoReader\data\arxiv_by_date\2024-01-16.json
+2026-03-19 19:20:03,738 - [SearchAgent] INFO:   保存: D:\work\code\PaperAutoReader\data\arxiv_by_date\2024-01-17.json
+2026-03-19 19:20:03,739 - [SearchAgent] INFO: [Search Agent] 正在批量获取 60 篇论文的引用数据...
+2026-03-19 19:20:03,739 - [SearchAgent] INFO: [Search Agent] 批量查询 Semantic Scholar: 第 1 批，共 60 篇论文
+2026-03-19 19:20:04,742 - [SearchAgent] INFO: [Search Agent] 批量查询完成，成功获取 51 篇论文的引用数据
+2026-03-19 19:20:04,742 - [SearchAgent] INFO: [Search Agent] 引用数据获取完成
+2026-03-19 19:20:04,742 - [SearchAgent] INFO: ============================================================
+2026-03-19 19:20:04,742 - [SearchAgent] INFO: [Search Agent] 正在通过 CrossRef 确认 60 篇论文的发表状态...
+2026-03-19 19:20:06,007 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07997
+2026-03-19 19:20:06,294 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07997
+2026-03-19 19:20:06,568 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07997
+2026-03-19 19:20:07,613 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07974
+2026-03-19 19:20:07,891 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07974
+2026-03-19 19:20:08,175 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07974
+2026-03-19 19:20:09,991 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07946
+2026-03-19 19:20:10,269 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07946
+2026-03-19 19:20:10,543 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07946
+2026-03-19 19:20:12,255 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07934
+2026-03-19 19:20:12,531 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07934
+2026-03-19 19:20:12,807 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07934
+2026-03-19 19:20:14,722 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:20:14,723 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Demonstration of Algorithmic Quantum Speedup for a... -> Physical Review X
+2026-03-19 19:20:14,723 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Demonstration of Algorithmic Quantum Spe...' arXiv -> Physical Review X
+2026-03-19 19:20:15,004 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07914
+2026-03-19 19:20:15,285 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07914
+2026-03-19 19:20:15,555 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07914
+2026-03-19 19:20:16,985 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07913
+2026-03-19 19:20:17,259 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07913
+2026-03-19 19:20:17,536 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07913
+2026-03-19 19:20:19,837 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07912
+2026-03-19 19:20:20,113 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07912
+2026-03-19 19:20:20,387 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07912
+2026-03-19 19:20:21,380 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:20:21,380 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Lower Bounds for Unitary Property Testing with Pro... -> Quantum
+2026-03-19 19:20:21,380 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Lower Bounds for Unitary Property Testin...' arXiv -> Quantum
+2026-03-19 19:20:21,652 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07904
+2026-03-19 19:20:21,930 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07904
+2026-03-19 19:20:22,201 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07904
+2026-03-19 19:20:23,361 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:20:23,361 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Multipoles from Majorana constellations... -> Physical Review A
+2026-03-19 19:20:23,361 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Multipoles from Majorana constellations...' arXiv -> Physical Review A
+2026-03-19 19:20:23,640 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07887
+2026-03-19 19:20:23,916 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07887
+2026-03-19 19:20:24,190 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07887
+2026-03-19 19:20:25,445 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07833
+2026-03-19 19:20:25,724 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07833
+2026-03-19 19:20:26,000 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07833
+2026-03-19 19:20:27,230 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:20:27,230 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: The role of initial coherence in the phase-space e... -> Advances in Atom and Single Molecule Machines
+2026-03-19 19:20:27,230 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'The role of initial coherence in the pha...' arXiv -> Advances in Atom and Single Molecule Machines
+2026-03-19 19:20:27,508 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07832
+2026-03-19 19:20:27,792 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07832
+2026-03-19 19:20:28,105 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07832
+2026-03-19 19:20:29,868 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:20:29,868 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Newton's laws of motion generating gravity-mediate... -> Physical Review A
+2026-03-19 19:20:29,868 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Newton's laws of motion generating gravi...' arXiv -> Physical Review A
+2026-03-19 19:20:30,142 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07814
+2026-03-19 19:20:30,423 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07814
+2026-03-19 19:20:30,695 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07814
+2026-03-19 19:20:32,690 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:20:32,690 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Correlated spectroscopy of electric noise with col... -> Nano Letters
+2026-03-19 19:20:32,690 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Correlated spectroscopy of electric nois...' arXiv -> Nano Letters
+2026-03-19 19:20:32,963 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07795
+2026-03-19 19:20:33,237 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07795
+2026-03-19 19:20:33,509 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07795
+2026-03-19 19:20:34,604 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:20:34,604 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Unsupervised learning of quantum many-body scars u... -> Machine Learning: Science and Technology
+2026-03-19 19:20:34,604 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Unsupervised learning of quantum many-bo...' arXiv -> Machine Learning: Science and Technology
+2026-03-19 19:20:34,878 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07777
+2026-03-19 19:20:35,150 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07777
+2026-03-19 19:20:35,423 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07777
+2026-03-19 19:20:36,158 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:20:36,158 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Quantum Transfer Learning for Acceptability Judgem... -> Quantum Machine Intelligence
+2026-03-19 19:20:36,158 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Quantum Transfer Learning for Acceptabil...' arXiv -> Quantum Machine Intelligence
+2026-03-19 19:20:36,431 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07774
+2026-03-19 19:20:36,705 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07774
+2026-03-19 19:20:36,977 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07774
+2026-03-19 19:20:37,517 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:20:37,518 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Predominant Aspects on Security for Quantum Machin... -> 2024 IEEE International Conference on Quantum Computing and Engineering (QCE)
+2026-03-19 19:20:37,518 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Predominant Aspects on Security for Quan...' arXiv -> 2024 IEEE International Conference on Quantum Computing and Engineering (QCE)
+2026-03-19 19:20:37,795 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07763
+2026-03-19 19:20:38,073 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07763
+2026-03-19 19:20:38,344 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07763
+2026-03-19 19:20:39,511 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.10157
+2026-03-19 19:20:39,788 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.10157
+2026-03-19 19:20:40,062 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.10157
+2026-03-19 19:20:40,865 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:20:40,865 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: A qubit regularization of asymptotic freedom witho... -> Proceedings of The 40th International Symposium on Lattice Field Theory — PoS(LATTICE2023)
+2026-03-19 19:20:40,865 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'A qubit regularization of asymptotic fre...' arXiv -> Proceedings of The 40th International Symposium on Lattice Field Theory — PoS(LATTICE2023)
+2026-03-19 19:20:41,145 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07736
+2026-03-19 19:20:41,421 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07736
+2026-03-19 19:20:41,692 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07736
+2026-03-19 19:20:42,232 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:20:42,233 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Coupled vertical double quantum dots at single-hol... -> Applied Physics Letters
+2026-03-19 19:20:42,233 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Coupled vertical double quantum dots at ...' arXiv -> Applied Physics Letters
+2026-03-19 19:20:42,506 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07716
+2026-03-19 19:20:42,782 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07716
+2026-03-19 19:20:43,060 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07716
+2026-03-19 19:20:43,994 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:20:43,994 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Disentangling quantum neural networks for unified ... -> Physical Review A
+2026-03-19 19:20:43,994 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Disentangling quantum neural networks fo...' arXiv -> Physical Review A
+2026-03-19 19:20:44,293 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.07708
+2026-03-19 19:20:44,571 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.07708
+2026-03-19 19:20:44,845 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.07708
+2026-03-19 19:20:45,449 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=0.75
+2026-03-19 19:20:45,449 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Emergent Gauge Theory in Rydberg Atom Arrays... -> Nature Reviews Physics
+2026-03-19 19:20:45,449 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Emergent Gauge Theory in Rydberg Atom Ar...' arXiv -> Nature Reviews Physics
+2026-03-19 19:20:45,735 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08854
+2026-03-19 19:20:46,012 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08854
+2026-03-19 19:20:46,288 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08854
+2026-03-19 19:20:46,781 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:20:46,781 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Remote sensing of a levitated superconductor with ... -> Physical Review Applied
+2026-03-19 19:20:46,781 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Remote sensing of a levitated supercondu...' arXiv -> Physical Review Applied
+2026-03-19 19:20:47,492 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08852
+2026-03-19 19:20:47,765 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08852
+2026-03-19 19:20:48,040 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08852
+2026-03-19 19:20:48,975 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:20:48,975 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Tunable on-chip optical traps for levitating parti... -> Nanophotonics
+2026-03-19 19:20:48,976 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Tunable on-chip optical traps for levita...' arXiv -> Nanophotonics
+2026-03-19 19:20:49,255 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08831
+2026-03-19 19:20:49,541 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08831
+2026-03-19 19:20:49,815 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08831
+2026-03-19 19:20:50,470 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:20:50,470 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Manipulating the Dipolar Interactions and Cooperat... -> New Journal of Physics
+2026-03-19 19:20:50,471 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Manipulating the Dipolar Interactions an...' arXiv -> New Journal of Physics
+2026-03-19 19:20:50,745 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08824
+2026-03-19 19:20:51,021 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08824
+2026-03-19 19:20:51,291 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08824
+2026-03-19 19:20:52,095 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:20:52,096 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Spontaneous breaking of time translation symmetry ... -> Optics Letters
+2026-03-19 19:20:52,096 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Spontaneous breaking of time translation...' arXiv -> Optics Letters
+2026-03-19 19:20:52,368 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08770
+2026-03-19 19:20:52,641 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08770
+2026-03-19 19:20:52,913 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08770
+2026-03-19 19:20:53,753 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08762
+2026-03-19 19:20:54,060 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08762
+2026-03-19 19:20:54,364 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08762
+2026-03-19 19:20:55,410 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:20:55,410 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: The Floquet Fluxonium Molecule: Driving Down Depha... -> PRX Quantum
+2026-03-19 19:20:55,410 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'The Floquet Fluxonium Molecule: Driving ...' arXiv -> PRX Quantum
+2026-03-19 19:20:55,688 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08754
+2026-03-19 19:20:55,968 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08754
+2026-03-19 19:20:56,245 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08754
+2026-03-19 19:20:57,033 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:20:57,034 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Floquet Flux Attachment in Cold Atomic Systems... -> Physical Review Letters
+2026-03-19 19:20:57,034 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Floquet Flux Attachment in Cold Atomic S...' arXiv -> Physical Review Letters
+2026-03-19 19:20:57,307 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08568
+2026-03-19 19:20:57,586 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08568
+2026-03-19 19:20:57,863 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08568
+2026-03-19 19:20:59,142 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=0.71
+2026-03-19 19:20:59,142 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Non-Hermitian generalizations of the Yao-Lee model... -> APL Quantum
+2026-03-19 19:20:59,142 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Non-Hermitian generalizations of the Yao...' arXiv -> APL Quantum
+2026-03-19 19:20:59,424 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08550
+2026-03-19 19:20:59,699 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08550
+2026-03-19 19:20:59,975 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08550
+2026-03-19 19:21:01,483 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:21:01,483 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Expanding Hardware-Efficiently Manipulable Hilbert... -> Quantum
+2026-03-19 19:21:01,483 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Expanding Hardware-Efficiently Manipulab...' arXiv -> Quantum
+2026-03-19 19:21:01,762 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08549
+2026-03-19 19:21:02,039 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08549
+2026-03-19 19:21:02,314 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08549
+2026-03-19 19:21:03,496 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:21:03,496 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Flux-charge symmetric theory of superconducting ci... -> Physical Review B
+2026-03-19 19:21:03,496 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Flux-charge symmetric theory of supercon...' arXiv -> Physical Review B
+2026-03-19 19:21:03,776 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08542
+2026-03-19 19:21:04,059 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08542
+2026-03-19 19:21:04,332 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08542
+2026-03-19 19:21:05,788 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:21:05,789 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Tensor Renormalization Group for fermions... -> Journal of Physics: Condensed Matter
+2026-03-19 19:21:05,789 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Tensor Renormalization Group for fermion...' arXiv -> Journal of Physics: Condensed Matter
+2026-03-19 19:21:06,065 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08523
+2026-03-19 19:21:06,341 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08523
+2026-03-19 19:21:06,613 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08523
+2026-03-19 19:21:07,532 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:21:07,532 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Information and majorization theory for fermionic ... -> Physical Review Letters
+2026-03-19 19:21:07,532 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Information and majorization theory for ...' arXiv -> Physical Review Letters
+2026-03-19 19:21:07,804 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08516
+2026-03-19 19:21:08,086 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08516
+2026-03-19 19:21:08,369 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08516
+2026-03-19 19:21:09,026 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=0.71
+2026-03-19 19:21:09,026 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Quantum information scrambling in two-dimensional ... -> Chaos: An Interdisciplinary Journal of Nonlinear Science
+2026-03-19 19:21:09,026 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Quantum information scrambling in two-di...' arXiv -> Chaos: An Interdisciplinary Journal of Nonlinear Science
+2026-03-19 19:21:09,301 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08452
+2026-03-19 19:21:09,575 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08452
+2026-03-19 19:21:09,849 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08452
+2026-03-19 19:21:11,614 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08435
+2026-03-19 19:21:11,894 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08435
+2026-03-19 19:21:12,192 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08435
+2026-03-19 19:21:12,849 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:21:12,849 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Quantization as a Categorical Equivalence... -> Letters in Mathematical Physics
+2026-03-19 19:21:12,849 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Quantization as a Categorical Equivalenc...' arXiv -> Letters in Mathematical Physics
+2026-03-19 19:21:13,144 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08418
+2026-03-19 19:21:13,419 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08418
+2026-03-19 19:21:13,692 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08418
+2026-03-19 19:21:14,651 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:21:14,651 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Modulating Entanglement Dynamics of Two V-type Ato... -> Springer Science and Business Media LLC
+2026-03-19 19:21:14,651 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Modulating Entanglement Dynamics of Two ...' arXiv -> Springer Science and Business Media LLC
+2026-03-19 19:21:14,924 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08370
+2026-03-19 19:21:15,222 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08370
+2026-03-19 19:21:15,494 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08370
+2026-03-19 19:21:16,647 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:21:16,920 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08355
+2026-03-19 19:21:17,193 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08355
+2026-03-19 19:21:17,466 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08355
+2026-03-19 19:21:18,220 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2402.06632
+2026-03-19 19:21:18,490 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2402.06632
+2026-03-19 19:21:18,763 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2402.06632
+2026-03-19 19:21:19,854 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=0.75
+2026-03-19 19:21:19,854 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Microgram $\mathrm{BaCl}_2$ Ablation Targets for T... -> Review of Scientific Instruments
+2026-03-19 19:21:19,854 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Microgram $\mathrm{BaCl}_2$ Ablation Tar...' arXiv -> Review of Scientific Instruments
+2026-03-19 19:21:20,128 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.08325
+2026-03-19 19:21:20,402 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.08325
+2026-03-19 19:21:20,680 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.08325
+2026-03-19 19:21:21,542 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:21:21,542 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Quantum Random Number Generation Based on Phase Re... -> Optics Express
+2026-03-19 19:21:21,542 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Quantum Random Number Generation Based o...' arXiv -> Optics Express
+2026-03-19 19:21:21,825 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09650
+2026-03-19 19:21:22,100 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09650
+2026-03-19 19:21:22,376 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09650
+2026-03-19 19:21:23,588 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09618
+2026-03-19 19:21:23,860 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09618
+2026-03-19 19:21:24,133 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09618
+2026-03-19 19:21:25,350 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=0.75
+2026-03-19 19:21:25,351 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Ultralong-range Cs-RbCs Rydberg molecules: non-adi... -> Physical Review A
+2026-03-19 19:21:25,351 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Ultralong-range Cs-RbCs Rydberg molecule...' arXiv -> Physical Review A
+2026-03-19 19:21:25,629 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09578
+2026-03-19 19:21:25,906 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09578
+2026-03-19 19:21:26,210 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09578
+2026-03-19 19:21:26,875 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:21:26,875 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Multiplexed quantum repeaters based on single-phot... -> Communications Physics
+2026-03-19 19:21:26,875 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Multiplexed quantum repeaters based on s...' arXiv -> Communications Physics
+2026-03-19 19:21:27,149 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09573
+2026-03-19 19:21:27,421 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09573
+2026-03-19 19:21:27,701 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09573
+2026-03-19 19:21:28,956 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09569
+2026-03-19 19:21:29,232 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09569
+2026-03-19 19:21:29,508 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09569
+2026-03-19 19:21:30,499 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:21:30,499 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Optimal remote restoring of quantum states in comm... -> Physica Scripta
+2026-03-19 19:21:30,499 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Optimal remote restoring of quantum stat...' arXiv -> Physica Scripta
+2026-03-19 19:21:30,790 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09563
+2026-03-19 19:21:31,095 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09563
+2026-03-19 19:21:31,377 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09563
+2026-03-19 19:21:31,854 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:21:31,854 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Giant Enhancement of Vacuum Friction in Spinning Y... -> New Journal of Physics
+2026-03-19 19:21:31,855 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Giant Enhancement of Vacuum Friction in ...' arXiv -> New Journal of Physics
+2026-03-19 19:21:32,138 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09554
+2026-03-19 19:21:32,417 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09554
+2026-03-19 19:21:32,690 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09554
+2026-03-19 19:21:33,322 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:21:33,322 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Entanglement cost for infinite-dimensional physica... -> Communications in Mathematical Physics
+2026-03-19 19:21:33,322 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Entanglement cost for infinite-dimension...' arXiv -> Communications in Mathematical Physics
+2026-03-19 19:21:33,594 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09548
+2026-03-19 19:21:33,876 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09548
+2026-03-19 19:21:34,167 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09548
+2026-03-19 19:21:35,019 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:21:35,019 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Universal contributions to charge fluctuations in ... -> Physical Review B
+2026-03-19 19:21:35,019 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Universal contributions to charge fluctu...' arXiv -> Physical Review B
+2026-03-19 19:21:35,293 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09541
+2026-03-19 19:21:35,571 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09541
+2026-03-19 19:21:35,842 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09541
+2026-03-19 19:21:36,582 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:21:36,582 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: LDPC-cat codes for low-overhead quantum computing ... -> Nature Communications
+2026-03-19 19:21:36,582 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'LDPC-cat codes for low-overhead quantum ...' arXiv -> Nature Communications
+2026-03-19 19:21:36,859 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09536
+2026-03-19 19:21:37,134 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09536
+2026-03-19 19:21:37,408 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09536
+2026-03-19 19:21:37,867 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:21:37,867 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Few-body precursors of topological frustration... -> Symmetry
+2026-03-19 19:21:37,867 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Few-body precursors of topological frust...' arXiv -> Symmetry
+2026-03-19 19:21:38,138 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.10293
+2026-03-19 19:21:38,415 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.10293
+2026-03-19 19:21:38,687 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.10293
+2026-03-19 19:21:39,380 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:21:39,381 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Symmetry breaking in geometric quantum machine lea... -> PRX Quantum
+2026-03-19 19:21:39,381 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Symmetry breaking in geometric quantum m...' arXiv -> PRX Quantum
+2026-03-19 19:21:39,653 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09525
+2026-03-19 19:21:39,937 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09525
+2026-03-19 19:21:40,220 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09525
+2026-03-19 19:21:40,550 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:21:40,551 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Universal Vortex Statistics and Stochastic Geometr... -> Physical Review Research
+2026-03-19 19:21:40,551 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Universal Vortex Statistics and Stochast...' arXiv -> Physical Review Research
+2026-03-19 19:21:40,834 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09521
+2026-03-19 19:21:41,108 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09521
+2026-03-19 19:21:41,380 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09521
+2026-03-19 19:21:41,928 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:21:41,928 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Experimental Implementation of A Quantum Zero-Know... -> Optics Express
+2026-03-19 19:21:41,928 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Experimental Implementation of A Quantum...' arXiv -> Optics Express
+2026-03-19 19:21:42,227 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09524
+2026-03-19 19:21:42,501 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09524
+2026-03-19 19:21:42,780 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09524
+2026-03-19 19:21:43,494 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:21:43,494 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Size Winding Mechanism beyond Maximal Chaos... -> Journal of High Energy Physics
+2026-03-19 19:21:43,494 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Size Winding Mechanism beyond Maximal Ch...' arXiv -> Journal of High Energy Physics
+2026-03-19 19:21:43,765 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09421
+2026-03-19 19:21:44,045 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09421
+2026-03-19 19:21:44,324 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09421
+2026-03-19 19:21:44,996 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:21:44,997 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Towards large-scale quantum optimization solvers w... -> Nature Communications
+2026-03-19 19:21:44,997 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Towards large-scale quantum optimization...' arXiv -> Nature Communications
+2026-03-19 19:21:45,271 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09398
+2026-03-19 19:21:45,555 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09398
+2026-03-19 19:21:45,827 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09398
+2026-03-19 19:21:46,912 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09393
+2026-03-19 19:21:47,184 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09393
+2026-03-19 19:21:47,455 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09393
+2026-03-19 19:21:48,150 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=0.71
+2026-03-19 19:21:48,150 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Élivágar: Efficient Quantum Circuit Search for Cla... -> Proceedings of the 29th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 2
+2026-03-19 19:21:48,150 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Élivágar: Efficient Quantum Circuit Sear...' arXiv -> Proceedings of the 29th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 2
+2026-03-19 19:21:48,431 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09391
+2026-03-19 19:21:48,721 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09391
+2026-03-19 19:21:49,044 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09391
+2026-03-19 19:21:49,611 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:21:49,611 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Different theoretical aspects of the intrinsic dec... -> The European Physical Journal Plus
+2026-03-19 19:21:49,611 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Different theoretical aspects of the int...' arXiv -> The European Physical Journal Plus
+2026-03-19 19:21:49,891 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09341
+2026-03-19 19:21:50,170 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09341
+2026-03-19 19:21:50,443 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09341
+2026-03-19 19:21:50,916 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:21:50,917 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Cooperative two-photon lasing in two Quantum Dots ... -> Physical Review B
+2026-03-19 19:21:50,917 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Cooperative two-photon lasing in two Qua...' arXiv -> Physical Review B
+2026-03-19 19:21:51,190 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arXiv.2401.09307
+2026-03-19 19:21:51,463 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.5555/arXiv.2401.09307
+2026-03-19 19:21:51,736 - [SearchAgent] DEBUG: CrossRef API 返回 404: https://api.crossref.org/works/10.48550/arxiv.2401.09307
+2026-03-19 19:21:52,118 - [SearchAgent] DEBUG: CrossRef 匹配成功: 相似度=1.00
+2026-03-19 19:21:52,119 - [SearchAgent] DEBUG: CrossRef 通过标题确认发表: Inflationary Krylov complexity... -> Journal of High Energy Physics
+2026-03-19 19:21:52,119 - [SearchAgent] INFO: [Search Agent] CrossRef 确认发表: 'Inflationary Krylov complexity...' arXiv -> Journal of High Energy Physics
+2026-03-19 19:21:52,119 - [SearchAgent] INFO: [Search Agent] CrossRef 确认完成: 46/60 篇论文已正式发表
+2026-03-19 19:21:52,119 - [SearchAgent] INFO: [Search Agent] 数据抓取流程完成

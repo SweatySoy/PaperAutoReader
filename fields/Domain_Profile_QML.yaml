@@ -12,11 +12,12 @@ research_intent: |
   and quantum neural networks. I care deeply about barren plateaus, circuit expressibility, 
   and hardware-efficient implementations.
 
+field: "quant-ph"
+
 # 2. 关键词评分权重矩阵 (供 Filter Agent 计算 Score_core 使用)
 keywords_scoring:
   must_have:
-    - "quantum machine learning"
-    - "variational quantum algorithm"
+    - "quantum"
     - "VQA"
   # highly_relevant: weight = 1.0
   highly_relevant:
@@ -61,7 +62,7 @@ impact_entities:
   vip_authors:
     - "Maria Schuld"
     - "John Preskill"
-    - "Seth Lloyd"
+    - "Seth Lloyd"                                                                                                                                                                                                                                                               
     - "Nathan Wiebe"
 
 # 4. Agent 定制化分析指令 (供 Analysis Agent 动态组装 Prompt 时调用)

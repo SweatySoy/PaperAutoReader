@@ -23,4 +23,5 @@
 2. 编写 `test_analysis.py`。**在测试脚本中，不要导入真实的 Filter Agent。** 请手动硬编码（Mock）两篇 `ScoredPaper` 对象（一篇 Core，一篇 Impact），传入你的 Analysis Agent 进行测试。
 3. 确保测试脚本能将生成的 `AnalyzedPaper` 列表保存为 `data/analysis_cache/mock_output.json`。
 
+极其重要！！！
 请将我们的每次对话记录保存在chat_log/analyst目录下。

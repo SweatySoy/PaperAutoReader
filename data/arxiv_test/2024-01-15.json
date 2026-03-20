@@ -1,0 +1,192 @@
+[
+  {
+    "title": "Contextual Bandits with Stage-wise Constraints",
+    "abstract": "We study contextual bandits in the presence of a stage-wise constraint when the constraint must be satisfied both with high probability and in expectation. We start with the linear case where both the reward function and the stage-wise constraint (cost function) are linear. In each of the high probability and in expectation settings, we propose an upper-confidence bound algorithm for the problem and prove a $T$-round regret bound for it. We also prove a lower-bound for this constrained problem, show how our algorithms and analyses can be extended to multiple constraints, and provide simulations to validate our theoretical results. In the high probability setting, we describe the minimum requirements for the action set for our algorithm to be tractable. In the setting that the constraint is in expectation, we specialize our results to multi-armed bandits and propose a computationally efficient algorithm for this setting with regret analysis. Finally, we extend our results to the case where the reward and cost functions are both non-linear. We propose an algorithm for this case and prove a regret bound for it that characterize the function class complexity by the eluder dimension.",
+    "authors": [
+      "Aldo Pacchiano",
+      "Mohammad Ghavamzadeh",
+      "Peter Bartlett"
+    ],
+    "url": "https://arxiv.org/abs/2401.08016v2",
+    "arxiv_id": "2401.08016v2",
+    "published": "2024-01-15T23:58:21Z",
+    "updated": "2025-08-21T17:32:02Z",
+    "categories": [
+      "cs.LG",
+      "stat.ML"
+    ]
+  },
+  {
+    "title": "Parallel $k$-Core Decomposition with Batched Updates and Asynchronous Reads",
+    "abstract": "Maintaining a dynamic $k$-core decomposition is an important problem that identifies dense subgraphs in dynamically changing graphs. Recent work by Liu et al. [SPAA 2022] presents a parallel batch-dynamic algorithm for maintaining an approximate $k$-core decomposition. In their solution, both reads and updates need to be batched, and therefore each type of operation can incur high latency waiting for the other type to finish. To tackle most real-world workloads, which are dominated by reads, this paper presents a novel hybrid concurrent-parallel dynamic $k$-core data structure where asynchronous reads can proceed concurrently with batches of updates, leading to significantly lower read latencies. Our approach is based on tracking causal dependencies between updates, so that causally related groups of updates appear atomic to concurrent readers. Our data structure guarantees linearizability and liveness for both reads and updates, and maintains the same approximation guarantees as prior work. Our experimental evaluation on a 30-core machine shows that our approach reduces read latency by orders of magnitude compared to the batch-dynamic algorithm, up to a $\\left(4.05 \\cdot 10^{5}\\right)$-factor. Compared to an unsynchronized (non-linearizable) baseline, our read latency overhead is only up to a $3.21$-factor greater, while improving accuracy of coreness estimates by up to a factor of $52.7$.",
+    "authors": [
+      "Quanquan C. Liu",
+      "Julian Shun",
+      "Igor Zablotchi"
+    ],
+    "url": "https://arxiv.org/abs/2401.08015v1",
+    "arxiv_id": "2401.08015v1",
+    "published": "2024-01-15T23:54:18Z",
+    "updated": "2024-01-15T23:54:18Z",
+    "categories": [
+      "cs.DC",
+      "cs.DS"
+    ]
+  },
+  {
+    "title": "Convolutional Neural Network Compression via Dynamic Parameter Rank Pruning",
+    "abstract": "While Convolutional Neural Networks (CNNs) excel at learning complex latent-space representations, their over-parameterization can lead to overfitting and reduced performance, particularly with limited data. This, alongside their high computational and memory demands, limits the applicability of CNNs for edge deployment. Low-rank matrix approximation has emerged as a promising approach to reduce CNN parameters, but its application presents challenges including rank selection and performance loss. To address these issues, we propose an efficient training method for CNN compression via dynamic parameter rank pruning. Our approach integrates efficient matrix factorization and novel regularization techniques, forming a robust framework for dynamic rank reduction and model compression. We use Singular Value Decomposition (SVD) to model low-rank convolutional filters and dense weight matrices and we achieve model compression by training the SVD factors with back-propagation in an end-to-end way. We evaluate our method on an array of modern CNNs, including ResNet-18, ResNet-20, and ResNet-32, and datasets like CIFAR-10, CIFAR-100, and ImageNet (2012), showcasing its applicability in computer vision. Our experiments show that the proposed method can yield substantial storage savings while maintaining or even enhancing classification performance.",
+    "authors": [
+      "Manish Sharma",
+      "Jamison Heard",
+      "Eli Saber",
+      "Panos P. Markopoulos"
+    ],
+    "url": "https://arxiv.org/abs/2401.08014v1",
+    "arxiv_id": "2401.08014v1",
+    "published": "2024-01-15T23:52:35Z",
+    "updated": "2024-01-15T23:52:35Z",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ]
+  },
+  {
+    "title": "A VR Serious Game to Increase Empathy towards Students with Phonological Dyslexia",
+    "abstract": "Dyslexia is a neurodevelopmental disorder that is estimated to affect about 5-10% of the population. In particular, phonological dyslexia causes problems in connecting the sounds of words with their written forms. This results in difficulties such as slow reading speed, inaccurate reading, and difficulty decoding unfamiliar words. Moreover, dyslexia can also be a challenging and frustrating experience for students as they may feel misunderstood or stigmatized by their peers or educators. For these reasons, the use of compensatory tools and strategies is of crucial importance for dyslexic students to have the same opportunities as non-dyslexic ones. However, generally, people underestimate the problem and are not aware of the importance of support methodologies. In the light of this, the main purpose of this paper is to propose a virtual reality (VR) serious game through which teachers, students and, in general, non-dyslexic people could understand which are some of the issues of student with dyslexia and the fundamental utility of offering support to them. In the game, players must create a potion by following a recipe written in an alphabet that is specifically designed to replicate the reading difficulties experienced by individuals with dyslexia. The task must be solved first without any help and then by receiving supporting tools and strategies with the idea that the player can put himself in the place of the dyslexic person and understand the real need for support methodologies.",
+    "authors": [
+      "José M. Alcalde-Llergo",
+      "Enrique Yeguas-Bolívar",
+      "Pilar Aparicio-Martínez",
+      "Andrea Zingoni",
+      "Juri Taborri",
+      "Sara Pinzi"
+    ],
+    "url": "https://arxiv.org/abs/2401.10926v1",
+    "arxiv_id": "2401.10926v1",
+    "published": "2024-01-15T23:47:23Z",
+    "updated": "2024-01-15T23:47:23Z",
+    "categories": [
+      "cs.HC",
+      "cs.CV",
+      "cs.GR"
+    ],
+    "journal_ref": "2023 IEEE International Conference on Metrology for Extended Reality, Artificial Intelligence and Neural Engineering (MetroXRAINE), Milano, Italy, 2023, pp. 184-188"
+  },
+  {
+    "title": "A Day-to-Day Dynamical Approach to the Most Likely User Equilibrium Problem",
+    "abstract": "The lack of a unique user equilibrium (UE) route flow in traffic assignment has posed a significant challenge to many transportation applications. The maximum-entropy principle, which advocates for the consistent selection of the most likely solution as a representative, is often used to address the challenge. Built on a recently proposed day-to-day (DTD) discrete-time dynamical model called cumulative logit (CULO), this study provides a new behavioral underpinning for the maximum-entropy UE (MEUE) route flow. It has been proven that CULO can reach a UE state without presuming travelers are perfectly rational. Here, we further establish that CULO always converges to the MEUE route flow if (i) travelers have zero prior information about routes and thus are forced to give all routes an equal choice probability, or (ii) all travelers gather information from the same source such that the so-called general proportionality condition is satisfied. Thus, CULO may be used as a practical solution algorithm for the MEUE problem. To put this idea into practice, we propose to eliminate the route enumeration requirement of the original CULO model through an iterative route discovery scheme. We also examine the discrete-time versions of four popular continuous-time dynamical models and compare them to CULO. The analysis shows that the replicator dynamic is the only one that has the potential to reach the MEUE solution with some regularity. The analytical results are confirmed through numerical experiments.",
+    "authors": [
+      "Jiayang Li",
+      "Qianni Wang",
+      "Liyang Feng",
+      "Jun Xie",
+      "Yu Marco Nie"
+    ],
+    "url": "https://arxiv.org/abs/2401.08013v1",
+    "arxiv_id": "2401.08013v1",
+    "published": "2024-01-15T23:43:41Z",
+    "updated": "2024-01-15T23:43:41Z",
+    "categories": [
+      "cs.GT",
+      "cs.MA",
+      "econ.GN"
+    ]
+  },
+  {
+    "title": "Numerical evaluation of code live-load models for estimating the forces caused by actual vehicles that act on bridge substructures",
+    "abstract": "The present paper assesses the efficacy of code live-load models in accurately estimating the vehicular loads transferred to bridge substructures, such as abutments, piers, and foundations. Realistic traffic vehicle data are represented using four Weigh-in-Motion databases, which provide an authentic representation of vehicle information, thus providing a realistic basis for the examination of the bridges studied. The evaluation includes various bridge models, such as single-span girder bridges and two-, three-, and four-span continuous pinned-support girder bridges. By analyzing exceedance rates, the study compares the extreme force values obtained for vehicles in the databases with those predicted by selected code live-load models. These exceedance rates are presented in spectra format, as a function of the span length. The significant variations observed in the exceedance rates highlight the need for improving existing code live-load models to achieve more accurate estimations of the forces transferred to bridge substructures. Such improvements would lead to more uniform reliability levels for any limit state, such as resistance, fatigue, serviceability, and cracking.",
+    "authors": [
+      "Alejandro Hernandez-Martinez",
+      "Adrian D. Garcia-Soto",
+      "Jesus G. Valdes-Vazquez"
+    ],
+    "url": "https://arxiv.org/abs/2403.18825v1",
+    "arxiv_id": "2403.18825v1",
+    "published": "2024-01-15T23:42:53Z",
+    "updated": "2024-01-15T23:42:53Z",
+    "categories": [
+      "cs.CE"
+    ]
+  },
+  {
+    "title": "Renormalons and power corrections in pseudo- and quasi-GPDs",
+    "abstract": "High-order behavior of the perturbative expansion for short-distance observables in QCD is intimately related to the contributions of small momenta in the corresponding Feynman diagrams and this correspondence provides one with a useful tool to investigate power-suppressed nonperturbative corrections. We use this technique to study the structure of power corrections to parton quasi- and pseudo-GPDs which are used in lattice calculations of generalized parton distributions. As the main result, we predict the functional dependence of the leading power corrections to quasi(pseudo)-GPDs on $x$ variable for nonzero skewedness parameter $ξ$. The kinematic point $x=\\pmξ$ turns out to be special. We find that the nonperturbative corrections to quasi-GPDs at this point are suppressed by the first power of the hard scale only. These contributions come from soft momenta and have nothing to do with the known UV renormalon in the Wilson line. We also show that power corrections can be strongly suppressed by the normalization procedure.",
+    "authors": [
+      "Vladimir Braun",
+      "Maria Koller",
+      "Jakob Schoenleber"
+    ],
+    "url": "https://arxiv.org/abs/2401.08012v2",
+    "arxiv_id": "2401.08012v2",
+    "published": "2024-01-15T23:42:12Z",
+    "updated": "2024-05-17T20:41:03Z",
+    "categories": [
+      "hep-ph"
+    ]
+  },
+  {
+    "title": "Type Ia Supernovae Can Arise from the Detonations of Both Stars in a Double Degenerate Binary",
+    "abstract": "The precise origin of Type Ia supernovae (SNe Ia) is unknown despite their value to numerous areas in astronomy. While it is a long-standing consensus that they arise from an explosion of a carbon/oxygen white dwarf, the exact progenitor configurations and explosion mechanisms that lead to SNe Ia are still debated. One popular theory is the double detonation in which a helium layer, accreted from a binary companion, detonates on the surface of the primary star, leading to a converging shock-induced detonation of the underlying core. It has recently been seen in simulations that a helium-rich degenerate companion may undergo its own explosion triggered by the impact from the ejecta of the primary star. We show 2D simulations that approximate a white dwarf undergoing a double detonation which triggers the explosion of the degenerate companion, leading to either a triple or quadruple detonation. We also present the first multi-dimensional radiative transfer results from the triple and quadruple detonation scenario. We find that within a range of mass configurations of the degenerate binary, the synthetic light curves and spectra of these events match observations as well as theoretical models of isolated double detonations do. Notably, double and quadruple detonations that are spectrally similar and reach the same peak brightnesses have drastically different ejection masses and produce different amounts of Si- and Fe-group elements. Further understanding of this scenario is needed in order to determine if at least some observed SNe Ia actually originate from two stars exploding.",
+    "authors": [
+      "Samuel J. Boos",
+      "Dean M. Townsley",
+      "Ken J. Shen"
+    ],
+    "url": "https://arxiv.org/abs/2401.08011v2",
+    "arxiv_id": "2401.08011v2",
+    "published": "2024-01-15T23:38:26Z",
+    "updated": "2024-07-08T18:25:21Z",
+    "categories": [
+      "astro-ph.HE",
+      "astro-ph.SR"
+    ]
+  },
+  {
+    "title": "Long-term study of the 2020 magnetar-like outburst of the young pulsar PSRJ1846-0258 in Kes 75",
+    "abstract": "Magnetar-like activity has been observed in a large variety of neutron stars. PSR J1846-0258 is a young 327 ms radio-quiet pulsar with a large rotational power ($\\sim 8 \\times 10^{36}$ erg s$^{-1}$), and resides at the center of the supernova remnant Kes 75. It is one of the rare examples of a high magnetic field pulsar showing characteristics both of magnetars and radio pulsars, and can thus provide important clues on the differences in the emission mechanisms between these two classes. In 2006, PSR J1846-0258 was detected to undergo an outburst for the first time, accompanied by a large flux increase, millisecond X-ray bursts, significant spectral changes and a large timing glitch. In the period between May-June 2020, after fourteen years of quiescent stable emission, the source underwent a second magnetar-like outburst, which was followed up with several observations by NICER, XMM-Newton, NuSTAR and Swift. In this work, we report on the long-term timing and X-ray spectral properties of the source following the 2020 outburst, and place upper limits on any source activity at radio wavelengths. We demonstrate that the pulsed flux increased by a factor $> 6$ during the outburst, followed by non-trivial variability in the spin-down rate. Our timing analysis shows that the spin frequency and its derivative are clearly affected by magnetospheric activity due to the outburst. We find hints for an oscillation in the frequency derivative with a timescale of 50-60 days, recovering later on to stable quiescence.",
+    "authors": [
+      "Rajath Sathyaprakash",
+      "Nanda Rea",
+      "Francesco Coti Zelati",
+      "Alice Borghese",
+      "Maura Pilia",
+      "Matteo Trudu",
+      "Marta Burgay",
+      "Roberto Turolla",
+      "Silvia Zane",
+      "Paolo Esposito",
+      "Sandro Mereghetti",
+      "Sergio Campana",
+      "Diego Götz",
+      "Abubakr Ibrahim",
+      "GianLuca Israel",
+      "Andrea Possenti",
+      "Andrea Tiengo"
+    ],
+    "url": "https://arxiv.org/abs/2401.08010v2",
+    "arxiv_id": "2401.08010v2",
+    "published": "2024-01-15T23:33:47Z",
+    "updated": "2024-10-24T17:31:54Z",
+    "categories": [
+      "astro-ph.HE"
+    ]
+  },
+  {
+    "title": "VLBI Detection of an Active Radio Source Potentially Driving 100-kpc Scale Emission in the Ultraluminous Infrared Galaxy IRAS F01004$-$2237",
+    "abstract": "The nearby ultraluminous infrared galaxy (ULIRG) IRAS F01004$-$2237 exhibits 100-kpc scale continuum emission at radio wavelengths. The absence of extended X-ray emission in IRAS F01004$-$2237 has suggested an active galactic nucleus (AGN) origin for the extended radio emission, whose properties and role in merging systems still need to be better understood. We present the results of multi-frequency observations of IRAS F01004$-$2237 conducted by the Very Long Baseline Array at 2.3 and 8.4 GHz. Compact 8.4-GHz continuum emission was detected on a 1-pc scale in the nuclear region with an intrinsic brightness temperature of $10^{8.1}$ K suggesting that the radio source is originated from an AGN, potentially driving the extended emission. In contrast, no significant emission was observed at 2.3 GHz, indicating the presence of low-frequency absorption. This absorption cannot be attributed solely to synchrotron self-absorption; alternatively, free-free absorption due to thermal plasma is mainly at work in the spectrum. From combined perspectives, including mid-infrared and X-ray data, the AGN is obscured in a dense environment. The kinetic power of the nonthermal jet, as inferred from the extended emission, can play a more important role in dispersing the surrounding medium than the thermal outflow in IRAS F01004$-$2237. These findings hint that jet activities in ULIRGs may contribute to AGN feedback during galaxy evolution induced by merger events.",
+    "authors": [
+      "Takayuki J. Hayashi",
+      "Yoshiaki Hagiwara",
+      "Masatoshi Imanishi"
+    ],
+    "url": "https://arxiv.org/abs/2401.08009v2",
+    "arxiv_id": "2401.08009v2",
+    "published": "2024-01-15T23:30:44Z",
+    "updated": "2024-05-21T16:11:11Z",
+    "categories": [
+      "astro-ph.GA",
+      "astro-ph.HE"
+    ]
+  }
+]

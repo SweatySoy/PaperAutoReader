@@ -105,6 +105,7 @@ class ConfigAdapter:
     def _default_config(self) -> Dict[str, Any]:
         """默认配置 (兜底)。"""
         return {
+            "field": "quant-ph",  # 默认量子物理
             "keywords_scoring": {
                 "must_have": ["quantum machine learning"],
                 "highly_relevant": ["variational quantum algorithm", "VQA"],
@@ -117,6 +118,23 @@ class ConfigAdapter:
                 "vip_authors": []
             }
         }
+
+    @property
+    def field(self) -> str:
+        """
+        获取 arXiv 学科分类代码 (field)。
+        用于限定搜索范围到特定学科。
+
+        常见学科代码:
+        - quant-ph: Quantum Physics
+        - cs.LG: Machine Learning (cs)
+        - cond-mat: Condensed Matter
+        - hep-th: High Energy Physics
+        - math-ph: Mathematical Physics
+        """
+        if self._config and hasattr(self._config, "field"):
+            return self._config.field
+        return self._yaml_config.get("field", "quant-ph")
 
     @property
     def keywords_scoring(self) -> Dict[str, Any]:
@@ -850,6 +868,226 @@ class SearchAgent:
         self.crossref_client = CrossRefClient(mailto=crossref_mailto)
         self.max_papers_per_query = max_papers_per_query
 
+    def _parse_arxiv_xml(self, xml_text: str) -> List[Dict[str, Any]]:
+        """
+        解析 arXiv API 返回的 XML 格式数据。
+
+        Args:
+            xml_text: arXiv API 返回的 XML 字符串
+
+        Returns:
+            论文字典列表
+        """
+        import xml.etree.ElementTree as ET
+
+        papers = []
+
+        try:
+            root = ET.fromstring(xml_text)
+            namespace = {"atom": "http://www.w3.org/2005/Atom",
+                         "arxiv": "http://arxiv.org/schemas/atom"}
+
+            entries = root.findall("atom:entry", namespace)
+
+            for entry in entries:
+                paper = {}
+
+                # 标题
+                title_elem = entry.find("atom:title", namespace)
+                if title_elem is not None:
+                    paper["title"] = title_elem.text.strip() if title_elem.text else ""
+
+                # 摘要
+                summary_elem = entry.find("atom:summary", namespace)
+                if summary_elem is not None:
+                    paper["abstract"] = summary_elem.text.strip() if summary_elem.text else ""
+
+                # 作者
+                authors = []
+                for author_elem in entry.findall("atom:author", namespace):
+                    name_elem = author_elem.find("atom:name", namespace)
+                    if name_elem is not None and name_elem.text:
+                        authors.append(name_elem.text.strip())
+                paper["authors"] = authors
+
+                # 链接和 arXiv ID
+                for link_elem in entry.findall("atom:link", namespace):
+                    href = link_elem.get("href", "")
+                    if "arxiv.org/abs" in href:
+                        paper["url"] = href
+                        paper["arxiv_id"] = href.split("/abs/")[-1].split("v")[0]
+                        break
+
+                # 发布日期
+                published_elem = entry.find("atom:published", namespace)
+                if published_elem is not None and published_elem.text:
+                    paper["published"] = published_elem.text.strip()
+
+                # 期刊引用
+                journal_ref = entry.find("arxiv:journal_ref", namespace)
+                if journal_ref is not None and journal_ref.text:
+                    paper["journal_ref"] = journal_ref.text.strip()
+
+                if paper.get("arxiv_id"):
+                    papers.append(paper)
+
+        except ET.ParseError as e:
+            logger.error(f"arXiv XML 解析错误: {e}")
+
+        return papers
+
+    def fetch_by_date_range(
+        self,
+        start_date: str,
+        end_date: str,
+        max_results_per_day: int = 100,
+        search_query: Optional[str] = None,
+        use_field_filter: bool = True,
+        save_daily_files: bool = False
+    ) -> List[Dict[str, Any]]:
+        """
+        按日期范围分批获取 arXiv 论文，每天一个批次。
+
+        使用 arXiv API 的日期范围查询格式:
+        submittedDate:[YYYYMMDDHHMMSS TO YYYYMMDDHHMMSS]
+
+        Args:
+            start_date: 开始日期 (格式: "2024-06-01")
+            end_date: 结束日期 (格式: "2025-01-31")
+            max_results_per_day: 每天最大获取数量
+            search_query: 自定义搜索查询 (如 "all:quantum")，若为 None 则使用 field
+            use_field_filter: 是否使用配置中的 field 参数限定学科范围
+            save_daily_files: 是否保存每天的单独文件
+
+        Returns:
+            论文字典列表
+        """
+        # 解析日期
+        start = datetime.strptime(start_date, "%Y-%m-%d")
+        end = datetime.strptime(end_date, "%Y-%m-%d")
+
+        # arXiv API endpoint
+        arxiv_api_url = "http://export.arxiv.org/api/query"
+
+        # 构建基础查询
+        if search_query:
+            base_query = search_query
+        elif use_field_filter:
+            # 使用配置中的 field 参数限定学科
+            field = self.config.field
+            base_query = f"cat:{field}"
+        else:
+            base_query = "all:*"  # 无过滤
+
+        all_papers: List[Dict[str, Any]] = []
+        seen_ids: set = set()
+        current_date = start
+
+        logger.info("=" * 60)
+        logger.info(f"[Search Agent] 开始按日期范围获取论文")
+        logger.info(f"  - 日期范围: {start_date} 到 {end_date}")
+        logger.info(f"  - 学科范围: {self.config.field if use_field_filter else '全部'}")
+        logger.info(f"  - 基础查询: {base_query}")
+        logger.info(f"  - 每天最大: {max_results_per_day} 篇")
+        logger.info("=" * 60)
+
+        daily_papers_list = []
+
+        while current_date <= end:
+            # 计算当天的日期范围
+            day_start = current_date
+            day_end = current_date + timedelta(days=1) - timedelta(seconds=1)
+
+            # 格式化为 arXiv API 要求的格式
+            date_from = day_start.strftime("%Y%m%d%H%M%S")
+            date_to = day_end.strftime("%Y%m%d%H%M%S")
+
+            # 构建查询参数: 学科过滤 + 日期范围
+            params = {
+                "search_query": f"{base_query} AND submittedDate:[{date_from} TO {date_to}]",
+                "sortBy": "submittedDate",
+                "sortOrder": "descending",
+                "start": 0,
+                "max_results": max_results_per_day
+            }
+
+            logger.info(f"[Search Agent] 正在获取 {current_date.strftime('%Y-%m-%d')} 的论文...")
+
+            daily_papers = []
+
+            try:
+                response = requests.get(arxiv_api_url, params=params, timeout=60)
+
+                if response.status_code == 200:
+                    papers = self._parse_arxiv_xml(response.text)
+
+                    for paper in papers:
+                        arxiv_id = paper.get("arxiv_id", "")
+                        if arxiv_id and arxiv_id not in seen_ids:
+                            seen_ids.add(arxiv_id)
+
+                            # 转换为标准格式
+                            pub_date = date.today()
+                            if paper.get("published"):
+                                try:
+                                    pub_date = datetime.fromisoformat(
+                                        paper["published"].replace("Z", "+00:00")
+                                    ).date()
+                                except:
+                                    pass
+
+                            standard_paper = {
+                                "paper_id": f"arXiv:{arxiv_id}",
+                                "title": paper.get("title", ""),
+                                "abstract": paper.get("abstract", ""),
+                                "authors": paper.get("authors", []),
+                                "venue": paper.get("journal_ref", "arXiv"),
+                                "publication_date": pub_date,
+                                "url": paper.get("url", ""),
+                                "citation_count": 0,
+                                "influential_citation_count": 0,
+                                "has_github_link": GitHubLinkDetector.detect(paper.get("abstract", ""))
+                            }
+
+                            all_papers.append(standard_paper)
+                            daily_papers.append(standard_paper)
+
+                    logger.info(f"  获取到 {len(papers)} 篇论文")
+
+                else:
+                    logger.warning(f"  HTTP {response.status_code}")
+
+            except requests.exceptions.Timeout:
+                logger.warning(f"  请求超时")
+            except Exception as e:
+                logger.error(f"  错误: {e}")
+
+            if save_daily_files and daily_papers:
+                daily_papers_list.append({
+                    "date": current_date.strftime("%Y-%m-%d"),
+                    "count": len(daily_papers),
+                    "papers": daily_papers
+                })
+
+            current_date += timedelta(days=1)
+
+        logger.info("=" * 60)
+        logger.info(f"[Search Agent] 日期范围获取完成，共 {len(all_papers)} 篇论文")
+
+        # 保存每日文件
+        if save_daily_files and daily_papers_list:
+            project_root = Path(__file__).parent.parent.parent
+            output_dir = project_root / "data" / "arxiv_by_date"
+            output_dir.mkdir(parents=True, exist_ok=True)
+
+            for day_data in daily_papers_list:
+                day_file = output_dir / f"{day_data['date']}.json"
+                with open(day_file, "w", encoding="utf-8") as f:
+                    json.dump(day_data["papers"], f, ensure_ascii=False, indent=2, default=lambda x: x.isoformat() if hasattr(x, 'isoformat') else x)
+                logger.info(f"  保存: {day_file}")
+
+        return all_papers
+
     def fetch_from_arxiv(
         self,
         days_back: int = 7,
@@ -1075,34 +1313,74 @@ class SearchAgent:
         self,
         days_back: int = 7,
         max_results: int = 100,
-        save_output: bool = True
+        save_output: bool = True,
+        date_range: Optional[tuple] = None,
+        search_query: Optional[str] = None,
+        use_field_filter: bool = True
     ) -> List[Dict[str, Any]]:
         """
         执行完整的搜索流程。
 
+        支持两种模式:
+        1. 回溯模式 (默认): 获取最近 N 天的论文
+        2. 日期范围模式: 获取指定日期范围内的论文
+
         Args:
-            days_back: 回溯天数
+            days_back: 回溯天数 (回溯模式)
             max_results: 最大结果数
             save_output: 是否保存输出文件
+            date_range: 日期范围元组 (start_date, end_date)，格式如 ("2024-06-01", "2025-01-31")
+            search_query: 自定义搜索查询 (日期范围模式)，若为 None 则使用 field 配置
+            use_field_filter: 是否使用配置中的 field 参数限定学科范围 (日期范围模式)
 
         Returns:
             候选论文字典列表
         """
         logger.info("=" * 60)
         logger.info("[Search Agent] 开始执行数据抓取流程")
-        logger.info(f"  - 回溯天数: {days_back}")
-        logger.info(f"  - 最大结果数: {max_results}")
+
+        # 根据模式选择获取方法
+        if date_range:
+            start_date, end_date = date_range
+            logger.info(f"  - 模式: 日期范围")
+            logger.info(f"  - 日期范围: {start_date} 到 {end_date}")
+            if search_query:
+                logger.info(f"  - 自定义查询: {search_query}")
+            elif use_field_filter:
+                logger.info(f"  - 学科范围: {self.config.field} (来自配置)")
+
+            # 直接获取论文 (已经是字典格式)
+            enriched_papers = self.fetch_by_date_range(
+                start_date=start_date,
+                end_date=end_date,
+                max_results_per_day=max_results,
+                search_query=search_query,
+                use_field_filter=use_field_filter,
+                save_daily_files=True
+            )
+
+            if not enriched_papers:
+                logger.warning("[Search Agent] 未抓取到任何论文，流程结束")
+                return []
+
+            # 对字典格式的论文进行引用增强
+            enriched_papers = self._enrich_dict_papers_with_citations(enriched_papers)
+
+        else:
+            logger.info(f"  - 模式: 回溯最近 {days_back} 天")
+            logger.info(f"  - 最大结果数: {max_results}")
+
+            # Step 1: 从 arXiv 抓取 (返回 arxiv.Result 对象)
+            arxiv_papers = self.fetch_from_arxiv(days_back, max_results)
+
+            if not arxiv_papers:
+                logger.warning("[Search Agent] 未抓取到任何论文，流程结束")
+                return []
+
+            # Step 2: 引用数据增强
+            enriched_papers = self.enrich_with_citations(arxiv_papers)
+
         logger.info("=" * 60)
-
-        # Step 1: 从 arXiv 抓取
-        arxiv_papers = self.fetch_from_arxiv(days_back, max_results)
-
-        if not arxiv_papers:
-            logger.warning("[Search Agent] 未抓取到任何论文，流程结束")
-            return []
-
-        # Step 2: 引用数据增强
-        enriched_papers = self.enrich_with_citations(arxiv_papers)
 
         # Step 3: CrossRef 确认发表状态
         enriched_papers = self.enrich_with_crossref(enriched_papers)
@@ -1113,6 +1391,55 @@ class SearchAgent:
 
         logger.info("[Search Agent] 数据抓取流程完成")
         return enriched_papers
+
+    def _enrich_dict_papers_with_citations(
+        self,
+        papers: List[Dict[str, Any]]
+    ) -> List[Dict[str, Any]]:
+        """
+        对字典格式的论文列表进行引用数据增强。
+
+        Args:
+            papers: 论文字典列表
+
+        Returns:
+            增强后的论文字典列表
+        """
+        if not papers:
+            return papers
+
+        # 提取 arXiv ID
+        arxiv_ids = []
+        for paper in papers:
+            paper_id = paper.get("paper_id", "")
+            if paper_id.startswith("arXiv:"):
+                arxiv_ids.append(paper_id.replace("arXiv:", ""))
+            elif paper_id:
+                arxiv_ids.append(paper_id)
+
+        if not arxiv_ids:
+            return papers
+
+        logger.info(f"[Search Agent] 正在批量获取 {len(arxiv_ids)} 篇论文的引用数据...")
+
+        # 批量查询 Semantic Scholar
+        citation_data_map = self.ss_client.get_papers_batch(arxiv_ids)
+
+        # 更新引用数据
+        for paper in papers:
+            paper_id = paper.get("paper_id", "")
+            if paper_id.startswith("arXiv:"):
+                arxiv_id = paper_id.replace("arXiv:", "")
+            else:
+                arxiv_id = paper_id
+
+            citation_data = citation_data_map.get(arxiv_id)
+            if citation_data:
+                paper["citation_count"] = citation_data.get("citation_count", 0)
+                paper["influential_citation_count"] = citation_data.get("influential_citation_count", 0)
+
+        logger.info(f"[Search Agent] 引用数据获取完成")
+        return papers
 
 # ============================================================================
 # 便捷函数

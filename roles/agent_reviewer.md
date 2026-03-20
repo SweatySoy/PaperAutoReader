@@ -27,4 +27,5 @@
 
 请保持代码风格优雅、添加必要的 Type Hints (类型注解) 和清晰的 Docstrings。如果你准备好了，请开始编写。
 
-请将我们的每次对话记录保存在chat_log/reviewer目录下。
+极其重要！！！
+请将我们的每次对话记录保存在chat_log/filter目录下。

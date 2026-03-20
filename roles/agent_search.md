@@ -33,7 +33,7 @@
 2. 编写一个 `test_search.py`，写一个只抓取 2 篇论文的极简测试用例，证明你的 API 链路是通的，且能成功生成 JSON 文件。
 
 
-请将我们的每次对话记录保存在chat_log/search目录下。
+
 
 
 # 优化需求！！！
@@ -47,3 +47,5 @@ URL 参数：记得带上 ?fields=citationCount,influentialCitationCount。
 数据对齐：拿到批量返回的 JSON 数组后，根据 ID 将引用数据映射回对应的 CandidatePaper 对象中。
 请重新调整这部分逻辑，并确保加上针对 POST 请求的 try-except 容错。如果没有查到某篇论文的引用（返回 null），将其默认值设为 0。
 
+极其重要！！！
+请将我们的每次对话记录保存在chat_log/search目录下。
