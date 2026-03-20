@@ -1,3 +1,21 @@
+2026-03-19 18:05:59,662 - [AnalysisAgent] INFO: LLM Client initialized with model: qwen3-max
+2026-03-19 18:05:59,668 - [AnalysisAgent] INFO: Starting batch analysis of 3 papers
+2026-03-19 18:05:59,668 - [AnalysisAgent] INFO: Paper distribution: {'CORE_TRACK': 1, 'IMPACT_TRACK': 1, 'REJECTED': 1}
+2026-03-19 18:05:59,668 - [AnalysisAgent] INFO: Processing paper [arXiv:2403.12345] in category: CORE_TRACK
+2026-03-19 18:05:59,668 - [AnalysisAgent] INFO: Analyzing core paper: Variational Quantum Algorithms for Barren Plateau ...
+2026-03-19 18:06:19,714 - [AnalysisAgent] DEBUG: LLM raw response (attempt 1): {
+  "analysis_summary": "The paper introduces a novel parameterized quantum circuit architecture spe...
+2026-03-19 18:06:19,715 - [AnalysisAgent] DEBUG: Analysis complete for [arXiv:2403.12345]
+2026-03-19 18:06:19,715 - [AnalysisAgent] INFO: Processing paper [arXiv:2402.98765] in category: IMPACT_TRACK
+2026-03-19 18:06:19,715 - [AnalysisAgent] INFO: Analyzing impact paper: Quantum Error Correction Thresholds for Surface Co...
+2026-03-19 18:06:35,351 - [AnalysisAgent] DEBUG: LLM raw response (attempt 1): {
+  "impact_briefing": "This paper demonstrates that surface code error correction—long considered a...
+2026-03-19 18:06:35,351 - [AnalysisAgent] DEBUG: Analysis complete for [arXiv:2402.98765]
+2026-03-19 18:06:35,351 - [AnalysisAgent] INFO: Processing paper [arXiv:2401.11111] in category: REJECTED
+2026-03-19 18:06:35,351 - [AnalysisAgent] INFO: Generating rejection note for: Classical Machine Learning for String Theory Param...
+2026-03-19 18:06:35,351 - [AnalysisAgent] DEBUG: Analysis complete for [arXiv:2401.11111]
+2026-03-19 18:06:35,351 - [AnalysisAgent] INFO: Batch analysis complete: 3 papers processed
+
 2026-03-19 15:06:50,584 - [FilterAgent] INFO: LLM configured: url=https://dashscope.aliyuncs.com/compatible-mode/v1, model=qwen3-32b
 2026-03-19 15:06:50,585 - [FilterAgent] INFO: Embedding configured: url=https://dashscope.aliyuncs.com/compatible-mode/v1, model=qwen3-32b
 2026-03-19 15:06:51,517 - [FilterAgent] ERROR: Embedding API error: 404 Client Error: Not Found for url: https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings

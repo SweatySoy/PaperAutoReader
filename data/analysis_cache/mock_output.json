@@ -1,0 +1,83 @@
+[
+  {
+    "paper_id": "arXiv:2403.12345",
+    "title": "Variational Quantum Algorithms for Barren Plateau Mitigation: A Novel Ansatz Architecture",
+    "abstract": "Variational quantum algorithms (VQAs) have emerged as a promising approach for\nnear-term quantum computing applications. However, the barren plateau phenomenon poses a\nsignificant challenge to training these algorithms effectively. In this work, we propose\na novel parameterized quantum circuit architecture that systematically avoids barren plateaus\nby constraining the circuit's expressibility while maintaining sufficient trainability.\nOur approach leverages a layered construction with local cost functions and demonstrates\nempirical improvements in gradient magnitudes of up to 100x compared to random circuits.\nWe validate our method on VQE for molecular Hamiltonians and QAOA for combinatorial\noptimization, achieving comparable or better results with significantly fewer optimization\niterations. The proposed architecture requires only linear depth in the number of qubits\nand is compatible with current NISQ devices.",
+    "authors": [
+      "Alice Quantum",
+      "Bob Variational",
+      "Charlie NISQ"
+    ],
+    "venue": "Physical Review A",
+    "publication_date": "2024-03-15",
+    "url": "https://arxiv.org/abs/2403.12345",
+    "citation_count": 12,
+    "influential_citation_count": 3,
+    "has_github_link": true,
+    "core_score": 85.5,
+    "impact_score": 62.0,
+    "quadrant_category": "CORE_TRACK",
+    "routing_reason": "High relevance to VQA and barren plateau research; moderate impact from mid-tier venue",
+    "analysis_summary": "The paper introduces a novel parameterized quantum circuit architecture specifically designed to mitigate the barren plateau problem in variational quantum algorithms (VQAs). The core technical contribution lies in a structured ansatz that deliberately limits expressibility—typically a driver of barren plateaus—while preserving sufficient trainability for practical tasks. This is achieved through a layered, hardware-efficient construction that enforces locality both in gate connectivity and in the cost function. By using local cost functions (as opposed to global ones), the authors ensure that gradients do not vanish exponentially with system size. Empirically, they demonstrate up to 100× larger gradient magnitudes compared to random or highly expressive circuits, enabling more efficient optimization. The method is validated on two canonical VQA applications: Variational Quantum Eigensolvers (VQE) for molecular ground-state energy estimation and Quantum Approximate Optimization Algorithm (QAOA) for combinatorial problems, showing faster convergence and comparable or superior solution quality with fewer iterations.\n\nThe proposed ansatz scales with linear circuit depth in the number of qubits, making it suitable for current Noisy Intermediate-Scale Quantum (NISQ) devices. Unlike standard hardware-efficient ansätze that often stack arbitrary rotation and entangling layers leading to high expressibility and barren plateaus, this architecture incorporates design constraints—such as limited entanglement range and structured parameter repetition—that reduce the effective Hilbert space exploration while maintaining task-relevant expressivity. The work bridges theoretical insights about cost function locality and gradient scaling with practical circuit design, offering a blueprint for trainable, shallow-depth quantum models.",
+    "extracted_methods": [
+      "Layered parameterized quantum circuit with constrained expressibility",
+      "Local cost function design to avoid exponential gradient decay",
+      "Hardware-efficient ansatz with linear circuit depth in qubit count",
+      "Structured entanglement patterns (e.g., nearest-neighbor couplings)",
+      "Parameter repetition or correlation across layers to reduce effective degrees of freedom",
+      "Empirical gradient magnitude analysis comparing against random circuits",
+      "Application to VQE with molecular Hamiltonians (e.g., H2, LiH)",
+      "Application to QAOA for combinatorial optimization (e.g., MaxCut)",
+      "Optimization iteration benchmarking showing accelerated convergence"
+    ],
+    "impact_briefing": null,
+    "rejection_note": null
+  },
+  {
+    "paper_id": "arXiv:2402.98765",
+    "title": "Quantum Error Correction Thresholds for Surface Codes Under Realistic Noise Models",
+    "abstract": "We present a comprehensive analysis of quantum error correction thresholds\nfor the surface code under various realistic noise models including coherent errors,\nspatially correlated noise, and leakage errors. Our results show that the threshold\nremains robust at around 0.1% for depolarizing noise but degrades significantly under\ncoherent error components. We introduce a novel decoding algorithm that accounts for\ncorrelations in the error model and demonstrate a 20% improvement in logical error rates\ncompared to standard minimum-weight perfect matching decoders. These findings have\ncritical implications for the design of fault-tolerant quantum computers and establish\npractical benchmarks for experimental implementations. The decoder is implemented in\nopen-source software available on GitHub.",
+    "authors": [
+      "David ErrorCorrection",
+      "Eve Surface",
+      "John Preskill"
+    ],
+    "venue": "Nature Physics",
+    "publication_date": "2024-02-20",
+    "url": "https://arxiv.org/abs/2402.98765",
+    "citation_count": 45,
+    "influential_citation_count": 18,
+    "has_github_link": true,
+    "core_score": 45.0,
+    "impact_score": 92.5,
+    "quadrant_category": "IMPACT_TRACK",
+    "routing_reason": "Impact score high due to Nature Physics venue and VIP author Preskill; core score low as error correction is not primary research focus",
+    "analysis_summary": null,
+    "extracted_methods": [],
+    "impact_briefing": "This paper demonstrates that surface code error correction—long considered a cornerstone of fault-tolerant quantum computing—is significantly less robust under realistic noise like coherent or spatially correlated errors than previously assumed under idealized depolarizing noise models. The authors introduce a new decoder that explicitly accounts for error correlations, achieving a 20% reduction in logical error rates. This shifts the benchmark for what constitutes 'practical' fault tolerance and forces a reevaluation of hardware requirements for scalable quantum computation—including applications like quantum machine learning that depend on low logical error rates.",
+    "rejection_note": null
+  },
+  {
+    "paper_id": "arXiv:2401.11111",
+    "title": "Classical Machine Learning for String Theory Parameter Estimation",
+    "abstract": "We apply classical neural networks to estimate parameters in string\ntheory models. Our approach uses standard backpropagation and achieves modest improvements\nover baseline methods. The work is primarily focused on high energy physics applications.",
+    "authors": [
+      "Z. Classical",
+      "Y. String"
+    ],
+    "venue": "arXiv",
+    "publication_date": "2024-01-10",
+    "url": "https://arxiv.org/abs/2401.11111",
+    "citation_count": 2,
+    "influential_citation_count": 0,
+    "has_github_link": false,
+    "core_score": 15.0,
+    "impact_score": 25.0,
+    "quadrant_category": "REJECTED",
+    "routing_reason": "Contains exclude keywords (string theory, classical ML); low scores on both axes",
+    "analysis_summary": null,
+    "extracted_methods": [],
+    "impact_briefing": null,
+    "rejection_note": "Rejected: Contains exclude keywords (string theory, classical ML); low scores on both axes (Core Score: 15.0, Impact Score: 25.0) - Low relevance to research focus."
+  }
+]
