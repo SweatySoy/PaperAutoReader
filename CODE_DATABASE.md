@@ -26,7 +26,7 @@
 
 ---
 
-### 2. Filter Agent (`src/filter_agent.py`)
+### 2. Filter Agent (`src/agents/filter_agent.py`)
 
 **功能**: 对论文进行双轴评分 (Core Score + Impact Score) 和象限分类
 
@@ -84,6 +84,28 @@ Impact Score = 时间衰减权重 × (Venue/Author/Github/CitationVelocity)
 
 ---
 
+### 4. Report Agent (`src/agents/report_agent.py`)
+
+**功能**: 生成最终 Markdown 报告
+
+**输入**: `List[AnalyzedPaper]`
+
+**输出**: Markdown 报告 -> `reports/Research_Radar_YYYY-MM-DD.md`
+
+**关键方法**:
+- `generate_report(papers, report_date)`: 按象限分类组织论文
+- `render_markdown(report)`: 渲染为 Markdown
+- `save_report(report, filename)`: 保存到 reports/ 目录
+- `run(papers, report_date, filename)`: 完整流程
+
+**报告格式**:
+- 👑 Crown Jewels: 详细表格 + 摘要引用块 + 方法列表
+- 🎯 Core Track: 标准列表格式
+- 🔭 Emerging Impact: 紧凑格式，突出 impact_briefing
+- 🗑️ Rejected: 极简表格
+
+---
+
 ## 数据模型
 
 ```
@@ -134,14 +156,36 @@ AnalyzedPaper (深度分析结果)
 
 ---
 
-## 测试文件
+## 统一执行程序
 
-| 文件 | 功能 |
-|------|------|
-| `test_search.py` | Search Agent 单元测试 |
-| `test_filter.py` | Filter Agent 集成测试 |
-| `test_analysis.py` | Analysis Agent Mock 测试 |
-| `test_search_date_range.py` | 日期范围搜索测试 |
+### `run_pipeline.py`
+完整的端到端执行程序，从搜索到报告生成：
+
+```bash
+# 默认执行（昨天的论文）
+python run_pipeline.py
+
+# 指定日期
+python run_pipeline.py 2024-01-15
+
+# 日期范围
+python run_pipeline.py 2024-01-15 2024-01-24
+
+# 指定最大论文数
+python run_pipeline.py --max-papers 50
+```
+
+---
+
+## 测试代码（已归档）
+
+测试代码已移动到 `deprecated/tests/` 目录：
+- `test_search.py` - Search Agent 单元测试
+- `test_filter.py` - Filter Agent 集成测试
+- `test_analysis.py` - Analysis Agent Mock 测试
+- `test_full_pipeline.py` - 全流程测试
+- `test_report.py` - Report Agent 测试
+- `test_report_from_analysis.py` - 从缓存生成报告测试
 
 ---
 
