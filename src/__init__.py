@@ -13,7 +13,7 @@ from src.models import (
     QuadrantCategory,
 )
 from src.config_loader import Config
-from src.filter_agent import FilterAgent
+from src.agents.filter_agent import FilterAgent
 
 __all__ = [
     "CandidatePaper",

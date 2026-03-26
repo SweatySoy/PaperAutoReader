@@ -1,8 +1,10 @@
 [
   {
-    "api_token": "sk-aa0df20068414ebe84e327dc2035ec0f",
-    "url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
-    "model": "qwen3-32b",
+    "api_token": "sk-cp-qIzaPt7uZRFvCYVdBKKfmeXnskav_T_4kP5aAAHC0AQPFgqbr3BFPuTAl3_2EdBnEyI9xTXuO6zWehRT2PW71Iu2sa1odYJbIe88GAhDpxSswyrRu52DtiY",
+    "url": "https://api.minimaxi.com/anthropic",
+    "model": "MiniMax-M2.7",
+    "embedding_token": "sk-aa0df20068414ebe84e327dc2035ec0f",
+    "embedding_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
     "embedding_model": "text-embedding-v1"
   }
 ]

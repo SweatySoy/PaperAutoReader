@@ -61,3 +61,46 @@
 - `test_crossref.py`: 测试脚本
 - `test_crossref_papers.py`: 多论文测试
 - `debug_crossref.py`: API 调试工具
+
+---
+
+# 2026-03-25 MiniMax LLM 集成
+
+## 任务
+将 LLM 从阿里云 DashScope 切换到 MiniMax，保持 Embedding 使用 DashScope。
+
+## API 配置更新
+- LLM: MiniMax-M2.7 (`https://api.minimaxi.com/anthropic`)
+- Embedding: DashScope (`text-embedding-v1`)
+
+## 测试执行
+```
+pytest test_search.py: 5 passed
+```
+
+## 文件变更
+- `llm_key.json`: 更新 API 配置
+- `src/filter_agent.py`: LLM 改用 Anthropic SDK，添加 `thinking={"type": "disabled"}`
+
+---
+
+# 2026-03-25 全链路测试追加
+
+## 测试执行 (pytest test_search.py)
+
+```
+5 passed, 13 warnings in 29.61s
+```
+
+### 测试结果
+- test_arxiv_connection: PASSED
+- test_semantic_scholar_connection: PASSED
+- test_github_detection: PASSED
+- test_full_search_workflow: PASSED
+- test_config_adapter: PASSED
+
+### 核心验证点
+- ✅ Batch API 调用正常 (get_papers_batch 使用 POST /paper/batch)
+- ✅ 指数退避重试机制正常工作
+- ✅ GitHub 链接检测功能正常
+- ✅ Checkpoint 持久化到 data/raw_papers/

@@ -13,13 +13,18 @@ Usage:
 
 import argparse
 import json
+import sys
 from datetime import date, timedelta
 from pathlib import Path
 from typing import List
 
+# Add project root to path
+project_root = Path(__file__).parent.parent
+sys.path.insert(0, str(project_root))
+
 from src.config_loader import Config
 from src.models import CandidatePaper, QuadrantCategory
-from src.filter_agent import (
+from src.agents.filter_agent import (
     FilterAgent,
     create_filter_agent,
     configure_llm,
@@ -244,14 +249,15 @@ def main() -> None:
     llm_config = load_llm_config()
 
     # Build args using llm_key.json config
+    # LLM uses MiniMax, Embedding uses DashScope (separate tokens)
     args = argparse.Namespace(
         real=True,
         checkpoint=None,
-        llm_api_key=llm_config.get("api_token", ""),
-        embedding_api_key=llm_config.get("api_token", ""),  # Use same key for embedding
-        llm_url=llm_config.get("url", ""),
-        embedding_url=llm_config.get("url", ""),
-        llm_model=llm_config.get("model", ""),
+        llm_api_key=llm_config.get("api_token", ""),  # MiniMax token
+        llm_url=llm_config.get("url", ""),  # MiniMax URL
+        llm_model=llm_config.get("model", ""),  # MiniMax model
+        embedding_api_key=llm_config.get("embedding_token", ""),  # DashScope token
+        embedding_url=llm_config.get("embedding_url", ""),  # DashScope URL
         embedding_model=llm_config.get("embedding_model", ""),  # Qwen embedding model
     )
 
@@ -287,8 +293,7 @@ def main() -> None:
     print("\n[3] Initializing Filter Agent...")
 
     if args.real:
-        # Get API keys from args or environment
-        import os
+        # Get API keys from args
         llm_key = args.llm_api_key
         embedding_key = args.embedding_api_key
 
@@ -302,9 +307,10 @@ def main() -> None:
                 embedding_model=args.embedding_model,
                 config=config
             )
-            print(f"    Mode: Real LLM/Embedding services")
+            print(f"    Mode: Real LLM + Embedding services")
             print(f"    LLM URL: {args.llm_url}")
             print(f"    LLM Model: {args.llm_model}")
+            print(f"    Embedding URL: {args.embedding_url}")
             print(f"    Embedding Model: {args.embedding_model}")
         else:
             agent = FilterAgent(config=config)

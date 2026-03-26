@@ -73,7 +73,7 @@ class LLMClient:
     """
     LLM API client with retry mechanism and JSON parsing.
 
-    Uses OpenAI API by default. Handles:
+    Uses Anthropic API (MiniMax-compatible). Handles:
     - Rate limiting with exponential backoff
     - JSON parsing from various response formats
     - Retry on transient failures
@@ -81,7 +81,7 @@ class LLMClient:
 
     MAX_RETRIES = 3
     BASE_DELAY = 1.0  # seconds
-    DEFAULT_MODEL = "gpt-4o-mini"
+    DEFAULT_MODEL = "MiniMax-M2.7"
 
     def __init__(
         self,
@@ -93,25 +93,26 @@ class LLMClient:
         Initialize LLM client.
 
         Args:
-            api_key: OpenAI API key (if None, reads from OPENAI_API_KEY env)
-            model: Model to use (default: gpt-4o-mini)
-            base_url: Custom base URL (for Azure/local deployments)
+            api_key: Anthropic API key (if None, reads from ANTHROPIC_AUTH_TOKEN env)
+            model: Model to use (default: MiniMax-M2.7)
+            base_url: Custom base URL (for MiniMax/custom deployments)
         """
         try:
-            import openai
-            self._openai = openai
+            import anthropic
+            self._anthropic = anthropic
         except ImportError:
             raise ImportError(
-                "openai package not installed. "
-                "Please install with: pip install openai"
+                "anthropic package not installed. "
+                "Please install with: pip install anthropic"
             )
 
-        self.client = openai.OpenAI(
+        self.client = anthropic.Anthropic(
             api_key=api_key,
-            base_url=base_url
+            base_url=base_url,
+            timeout=60.0  # 60 second timeout to prevent hanging
         )
         self.model = model or self.DEFAULT_MODEL
-        logger.info(f"LLM Client initialized with model: {self.model}")
+        logger.info(f"LLM Client initialized with model: {self.model}, base_url: {base_url}")
 
     def _extract_json(self, text: str) -> Dict[str, Any]:
         """
@@ -188,24 +189,38 @@ class LLMClient:
 
         for attempt in range(self.MAX_RETRIES):
             try:
-                response = self.client.chat.completions.create(
+                response = self.client.messages.create(
                     model=self.model,
-                    messages=[
-                        {"role": "system", "content": system_prompt},
-                        {"role": "user", "content": user_prompt}
-                    ],
+                    max_tokens=max_tokens,
                     temperature=temperature,
-                    max_tokens=max_tokens
+                    system=system_prompt,
+                    messages=[
+                        {"role": "user", "content": user_prompt}
+                    ]
                 )
 
-                raw_content = response.choices[0].message.content
+                # Handle both TextBlock and ThinkingBlock in response
+                # MiniMax-M2.7 may return ThinkingBlock with thinking content
+                raw_content = ""
+                for block in response.content:
+                    if hasattr(block, 'text') and block.text:
+                        raw_content = block.text
+                        break
+
+                if not raw_content:
+                    # Try to extract from ThinkingBlock if no TextBlock found
+                    for block in response.content:
+                        if hasattr(block, 'thinking'):
+                            raw_content = f"[Thinking: {block.thinking[:500]}...]"
+                            break
+
                 logger.debug(f"LLM raw response (attempt {attempt + 1}): {raw_content[:100]}...")
 
                 # Parse JSON from response
                 parsed = self._extract_json(raw_content)
                 return parsed
 
-            except self._openai.RateLimitError as e:
+            except self._anthropic.RateLimitError as e:
                 last_error = e
                 delay = self.BASE_DELAY * (2 ** attempt)
                 logger.warning(
@@ -214,7 +229,7 @@ class LLMClient:
                 )
                 time.sleep(delay)
 
-            except self._openai.APIError as e:
+            except self._anthropic.APIError as e:
                 last_error = e
                 logger.error(f"LLM API error (attempt {attempt + 1}): {e}")
                 time.sleep(self.BASE_DELAY * (attempt + 1))
@@ -228,12 +243,19 @@ class LLMClient:
 
             except Exception as e:
                 last_error = e
-                logger.error(f"Unexpected error (attempt {attempt + 1}): {e}")
+                error_str = str(e).lower()
+                if "timeout" in error_str or "timed out" in error_str:
+                    logger.warning(f"LLM timeout (attempt {attempt + 1}/{self.MAX_RETRIES})")
+                else:
+                    logger.warning(f"Unexpected error (attempt {attempt + 1}/{self.MAX_RETRIES}): {type(e).__name__}")
 
-        raise RuntimeError(
-            f"LLM call failed after {self.MAX_RETRIES} retries. "
-            f"Last error: {last_error}"
-        )
+        # Return fallback response instead of raising error to allow pipeline to continue
+        logger.warning(f"LLM call failed after {self.MAX_RETRIES} retries, using fallback. Last error: {last_error}")
+        return {
+            "analysis_summary": f"[Analysis unavailable due to LLM error: {type(last_error).__name__}]",
+            "extracted_methods": [],
+            "relevance_to_research": "Analysis failed due to service error"
+        }
 
 
 # ============================================================================

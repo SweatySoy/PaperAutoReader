@@ -1,4 +1,0 @@
-### WARNING !
-Before writing any code or modifying the architecture, ALWAYS read the markdown files inside the rules/ directory first to understand the System Architecture, Domain Profile, Data Schemas, and Logging Contracts.
-
-请在调用 LLM 时，确保编写了健壮的 JSON 解析清洗逻辑（剥离 Markdown 标记），或者直接使用 Instructor/LangChain 的 StructuredOutput 解析器，以防止 Pydantic 解析报错。

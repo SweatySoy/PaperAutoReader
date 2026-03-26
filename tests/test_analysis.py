@@ -21,7 +21,7 @@ from typing import Any, Dict
 from unittest.mock import MagicMock, patch
 
 # Add project root to path
-project_root = Path(__file__).parent
+project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
 from src.models import QuadrantCategory, ScoredPaper, AnalyzedPaper
@@ -264,9 +264,11 @@ def test_analysis_agent_with_mock():
     # Create Analysis Agent with Mock LLM Client
     # client = MockLLMClient()
 
-    client = LLMClient(api_key='sk-aa0df20068414ebe84e327dc2035ec0f',
-                   model='qwen3-max',
-                   base_url='https://dashscope.aliyuncs.com/compatible-mode/v1')    
+    client = LLMClient(
+        api_key='sk-cp-qIzaPt7uZRFvCYVdBKKfmeXnskav_T_4kP5aAAHC0AQPFgqbr3BFPuTAl3_2EdBnEyI9xTXuO6zWehRT2PW71Iu2sa1odYJbIe88GAhDpxSswyrRu52DtiY',
+        model='MiniMax-M2.7',
+        base_url='https://api.minimaxi.com/anthropic'
+    )    
     agent = AnalysisAgent(llm_client=client)
 
     # Run analysis

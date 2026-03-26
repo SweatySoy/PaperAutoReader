@@ -69,15 +69,15 @@ logger = setup_logging()
 # Global configuration for LLM services
 # These can be set once at application startup
 LLM_API_KEY: str = ""
-LLM_API_URL: str = "https://api.openai.com/v1"
-LLM_MODEL: str = "gpt-3.5-turbo"
+LLM_API_URL: str = "https://api.minimaxi.com/anthropic"
+LLM_MODEL: str = "MiniMax-M2.7"
 
 EMBEDDING_API_KEY: str = ""
-EMBEDDING_API_URL: str = "https://api.openai.com/v1"
-EMBEDDING_MODEL: str = "text-embedding-ada-002"
+EMBEDDING_API_URL: str = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+EMBEDDING_MODEL: str = "text-embedding-v1"
 
 
-def configure_llm(api_key: str, api_url: str = "https://api.openai.com/v1", model: str = "gpt-3.5-turbo") -> None:
+def configure_llm(api_key: str, api_url: str = "https://api.minimaxi.com/anthropic", model: str = "MiniMax-M2.7") -> None:
     """Configure LLM service settings globally."""
     global LLM_API_KEY, LLM_API_URL, LLM_MODEL
     LLM_API_KEY = api_key
@@ -86,7 +86,7 @@ def configure_llm(api_key: str, api_url: str = "https://api.openai.com/v1", mode
     logger.info(f"LLM configured: url={api_url}, model={model}")
 
 
-def configure_embedding(api_key: str, api_url: str = "https://api.openai.com/v1", model: str = "text-embedding-ada-002") -> None:
+def configure_embedding(api_key: str, api_url: str = "https://dashscope.aliyuncs.com/compatible-mode/v1", model: str = "qwen3-vl-embedding") -> None:
     """Configure Embedding service settings globally."""
     global EMBEDDING_API_KEY, EMBEDDING_API_URL, EMBEDDING_MODEL
     EMBEDDING_API_KEY = api_key
@@ -131,13 +131,16 @@ class LLMScoringService(Protocol):
 
 class OpenAIEmbeddingService:
     """
-    Concrete implementation of EmbeddingService using OpenAI-compatible API.
+    Concrete implementation of EmbeddingService using DashScope Qwen embedding API.
 
     Uses global configuration variables for API settings.
     """
 
     # Cache for embeddings to reduce API calls
     _embedding_cache: dict[str, list[float]] = {}
+
+    # Default embedding dimension for qwen3-vl-embedding
+    DEFAULT_EMBEDDING_DIM: int = 1024
 
     def __init__(self) -> None:
         """Initialize the embedding service."""
@@ -162,7 +165,7 @@ class OpenAIEmbeddingService:
         if cache_key in self._embedding_cache:
             return self._embedding_cache[cache_key]
 
-        # Truncate text if too long (OpenAI limit is ~8191 tokens)
+        # Truncate text if too long
         max_chars = 8000
         truncated_text = text[:max_chars] if len(text) > max_chars else text
 
@@ -185,12 +188,13 @@ class OpenAIEmbeddingService:
 
             # Cache the result
             self._embedding_cache[cache_key] = embedding
+            logger.debug(f"Embedding computed successfully, dimension: {len(embedding)}")
             return embedding
 
         except requests.exceptions.RequestException as e:
             logger.error(f"Embedding API error: {e}")
             # Return a zero vector as fallback
-            return [0.0] * 1536  # Standard OpenAI embedding dimension
+            return [0.0] * self.DEFAULT_EMBEDDING_DIM
 
     def compute_similarity(self, text1: str, text2: str) -> float:
         """
@@ -242,7 +246,7 @@ def cosine_similarity(vec1: list[float], vec2: list[float]) -> float:
 
 class OpenAILLMScoringService:
     """
-    Concrete implementation of LLMScoringService using OpenAI-compatible API.
+    Concrete implementation of LLMScoringService using Anthropic API (MiniMax-compatible).
 
     Uses global configuration variables for API settings.
     """
@@ -254,47 +258,66 @@ class OpenAILLMScoringService:
         self.api_key = LLM_API_KEY
         self.api_url = LLM_API_URL
         self.model = LLM_MODEL
+        self.MAX_RETRIES = 3
+        self.BASE_DELAY = 2.0
 
     def _call_llm(self, prompt: str, max_tokens: int = 500) -> str:
         """
-        Make a call to the LLM API.
+        Make a call to the LLM API using Anthropic SDK with retry logic.
 
         Args:
             prompt: The prompt to send
             max_tokens: Maximum tokens in response
 
         Returns:
-            LLM response text
+            LLM response text (empty string on failure after retries)
         """
         if not self.api_key:
             return ""
 
-        try:
-            response = requests.post(
-                f"{self.api_url}/chat/completions",
-                headers={
-                    "Authorization": f"Bearer {self.api_key}",
-                    "Content-Type": "application/json"
-                },
-                json={
-                    "model": self.model,
-                    "messages": [{"role": "user", "content": prompt}],
-                    "max_tokens": max_tokens,
-                    "temperature": 0.3,
-                    'enable_thinking':False,
-                },
-                timeout=60
-            )
-            response.raise_for_status()
-            result = response.json()
-            return result["choices"][0]["message"]["content"].strip()
+        last_error = None
+        import anthropic
 
-        except requests.exceptions.RequestException as e:
-            logger.error(f"LLM API error: {e}")
-            print(response.status_code)
-            print(response.text)
-            exit()
-            return ""
+        for attempt in range(self.MAX_RETRIES):
+            try:
+                client = anthropic.Anthropic(
+                    api_key=self.api_key,
+                    base_url=self.api_url,
+                    timeout=60.0  # 60 second timeout to prevent hanging
+                )
+                response = client.messages.create(
+                    model=self.model,
+                    max_tokens=max_tokens,
+                    thinking={"type": "disabled"},  # Disable thinking to get clean text
+                    messages=[
+                        {"role": "user", "content": prompt}
+                    ]
+                )
+                # Handle TextBlock in response
+                raw_content = ""
+                for block in response.content:
+                    if hasattr(block, 'text') and block.text:
+                        raw_content = block.text
+                        break
+
+                return raw_content.strip()
+
+            except Exception as e:
+                last_error = e
+                error_type = type(e).__name__
+                if "timeout" in str(e).lower() or "timed out" in str(e).lower():
+                    logger.warning(f"LLM timeout (attempt {attempt + 1}/{self.MAX_RETRIES}), retrying...")
+                else:
+                    logger.warning(f"LLM API error (attempt {attempt + 1}/{self.MAX_RETRIES}): {error_type}")
+
+                if attempt < self.MAX_RETRIES - 1:
+                    import time
+                    delay = self.BASE_DELAY * (2 ** attempt)  # Exponential backoff
+                    time.sleep(delay)
+                    continue
+                else:
+                    logger.error(f"LLM API failed after {self.MAX_RETRIES} attempts: {last_error}")
+                    return ""
 
     def score_task_relevance(self, abstract: str, research_intent: str) -> float:
         """
@@ -1051,11 +1074,11 @@ class FilterAgent:
 
 def create_filter_agent(
     llm_api_key: str = "",
-    llm_api_url: str = "https://api.openai.com/v1",
-    llm_model: str = "gpt-3.5-turbo",
+    llm_api_url: str = "https://api.minimaxi.com/anthropic",
+    llm_model: str = "MiniMax-M2.7",
     embedding_api_key: str = "",
-    embedding_api_url: str = "https://api.openai.com/v1",
-    embedding_model: str = "text-embedding-ada-002",
+    embedding_api_url: str = "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    embedding_model: str = "text-embedding-v1",
     config: Config | None = None
 ) -> FilterAgent:
     """

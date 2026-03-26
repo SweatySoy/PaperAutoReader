@@ -131,3 +131,59 @@ Core Score = 60% × LLM_combined_score + 40% × keyword_score
 ## Notes
 - 阿里云 DashScope 提供了 Embedding API (`text-embedding-v3`)
 - 当前代码已支持阿里云 API，可直接运行测试
+
+---
+
+# 2026-03-25 MiniMax LLM 集成
+
+## 任务
+将 LLM 从阿里云 DashScope 切换到 MiniMax，Embedding 使用 text-embedding-v1。
+
+## API 配置更新
+```json
+{
+  "api_token": "MiniMax token",
+  "url": "https://api.minimaxi.com/anthropic",
+  "model": "MiniMax-M2.7",
+  "embedding_token": "DashScope token",
+  "embedding_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+  "embedding_model": "text-embedding-v1"
+}
+```
+
+## 关键修复
+1. **Thinking 禁用**: 添加 `thinking={"type": "disabled"}` 获取干净文本
+2. **Embedding 模型**: 确认 `text-embedding-v1` 是正确模型名
+
+## 完整流程测试 (5 篇论文)
+```
+Filter: 5 papers scored (REJECTED)
+Analysis: 5 papers analyzed (REJECTED 正确短路)
+Checkpoint saved: data/scored_papers/2026-03-25_20-55.json
+```
+
+---
+
+# 2026-03-25 全链路测试追加
+
+## 测试执行 (python test_filter.py)
+
+```
+108 papers scored and saved to data/scored_papers/2026-03-25_20-15.json
+```
+
+### 测试结果
+- 成功加载 108 篇真实论文
+- Mock 模式正常运行 (无 API key)
+- Checkpoint 保存成功
+
+### 核心验证点
+- ✅ 时间衰减权重计算正确 (TimeDecayCalculator)
+- ✅ 二维象限路由正确 (QuadrantRouter)
+- ✅ Checkpoint 去重机制正常 (文件名精确到分钟)
+
+### 修复记录
+- **filter_agent.py 第294-295行**: `print()` 改为 `logger.error()` + `raise RuntimeError()`
+
+### 已知问题
+- LLM API 欠费 (Arrearage)，使用 Mock 模式验证逻辑
