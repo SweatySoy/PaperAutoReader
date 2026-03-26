@@ -1,15 +1,16 @@
 # Domain_Profile_QML.yaml
 # 学科配置文件 (User Persona & Domain Configuration)
 # 作用：将具体学科知识与底层 Agent 代码彻底解耦。代码只负责读取此文件中的变量。
+# 最后更新: 2026-03-26
 
 profile_name: "Quantum Machine Learning Researcher"
 target_discipline: "Quantum Computing & Machine Learning"
 
 # 1. 核心研究意图 (用于注入给 Analysis Agent 的系统提示词中)
 research_intent: |
-  I am researching Quantum Machine Learning (QML), specifically focusing on 
-  parameterized quantum circuits, variational quantum algorithms (VQE, QAOA), 
-  and quantum neural networks. I care deeply about barren plateaus, circuit expressibility, 
+  I am researching Quantum Machine Learning (QML), specifically focusing on
+  parameterized quantum circuits, variational quantum algorithms (VQE, QAOA),
+  and quantum neural networks. I care deeply about barren plateaus, circuit expressibility,
   and hardware-efficient implementations.
 
 field: "quant-ph"
@@ -18,52 +19,301 @@ field: "quant-ph"
 keywords_scoring:
   must_have:
     - "quantum"
-    - "VQA"
+    - "VQE"
+    - "QAOA"
+    - "PQC"
+    - "variational"
+
   # highly_relevant: weight = 1.0
   highly_relevant:
+    # === Variational Quantum Algorithms ===
     - "barren plateau"
     - "parameterized quantum circuit"
-    - "PQC"
     - "quantum neural network"
-    - "QNN"
+    - "variational quantum eigensolver"
+    - "variational quantum algorithm"
+    - "quantum approximate optimization"
+    - "hardware-efficient ansatz"
+    - "unitary coupled cluster"
+    - "UCC"
+    - "parameter shift rule"
+    - "quantum gradient"
+    - "circuit expressibility"
+    - "entanglement capability"
+
+    # === Quantum Machine Learning ===
+    - "quantum kernel"
+    - "quantum feature map"
+    - "quantum classifier"
+    - "quantum supervised learning"
+    - "quantum unsupervised learning"
+    - "quantum reinforcement learning"
+    - "quantum deep learning"
+
+    # === Quantum Error Mitigation & Correction ===
+    - "quantum error correction"
+    - "error mitigation"
+    - "zero-noise extrapolation"
+    - "probabilistic error cancellation"
+    - "dynamic decoupling"
+    - "surface code"
+    - "fault-tolerant"
+    - "threshold theorem"
+
+    # === NISQ & Hardware ===
+    - "NISQ"
+    - "noisy intermediate-scale"
+    - "quantum hardware"
+    - "quantum processor"
+    - "transmon"
+    - "superconducting qubit"
+    - "ion trap"
+    - "quantum calibration"
+    - "quantum control"
+    - "quantum compilation"
+    - "quantum circuit synthesis"
+
+    # === Quantum Algorithms & Complexity ===
+    - "quantum advantage"
+    - "quantum supremacy"
+    - "quantum speedup"
+    - "quantum algorithm"
+    - "quantum complexity"
+    - "BQP"
+
+    # === Quantum Chemistry & Simulation ===
+    - "quantum chemistry"
+    - "quantum simulation"
+    - "quantum many-body"
+    - "Hamiltonian simulation"
+    - "Trotterization"
+    - "tensor network"
+
   # relevant: weight = 0.5
   relevant:
-    - "error mitigation"
-    - "tensor network"
+    # === Optimization & Sampling ===
+    - "quantum optimization"
+    - "quantum annealing"
+    - "quantum sampling"
+    - "quantum walk"
+    - "amplitude amplification"
+    - "quantum Boltzmann machine"
+
+    # === Generative Models ===
+    - "quantum generative model"
+    - "quantum GAN"
+    - "quantum Born machine"
+
+    # === Information & Communication ===
+    - "quantum cryptography"
+    - "quantum key distribution"
+    - "quantum communication"
+    - "quantum teleportation"
+
+    # === Other Quantum Topics ===
+    - "quantum tomography"
+    - "quantum state tomography"
+    - "quantum metrology"
+    - "quantum sensing"
+    - "quantum information theory"
+
+    # === Classical ML for Quantum ===
+    - "machine learning for quantum"
+    - "ML for quantum control"
+    - "neural network for quantum"
+
   # exclude: weight = -100 (碰到这些词直接大幅度降分或直接扔进 Rejected Track)
   exclude:
+    # === Non-Quantum Physics ===
     - "string theory"
-    - "purely classical machine learning"
-    - "fluid dynamics"
+    - "general relativity"
+    - "cosmology"
+    - "astrophysics"
+    - "particle physics"
     - "high energy physics"
+    - "fluid dynamics"
+    - "classical mechanics"
+    - "electrodynamics"
+
+    # === Non-Quantum CS ===
+    - "purely classical machine learning"
+    - "deep learning without quantum"
+    - "classical neural network (non-quantum)"
+    - "conventional computing"
+
+    # === Other Irrelevant ===
+    - "classical optics"
+    - "laser physics (non-quantum)"
+    - "semiconductor physics (non-quantum)"
 
 # 3. 影响力评分实体库 (供 Filter Agent 计算 Score_impact 使用)
 impact_entities:
+  # === Tier 1: 顶级期刊 ===
   tier_1_venues:
+    # 综合顶级
     - "Nature"
     - "Science"
+    - "Nature Physics"
+    - "Nature Communications"
+    - "Science Advances"
+
+    # 物理顶级
     - "Physical Review Letters"
     - "PRL"
-    - "Nature Physics"
+    - "Physical Review X"
     - "PRX"
-    - "NeurIPS" # AI顶会同样视为Tier1
-    - "ICLR"
-  tier_2_venues:
+
+    # 量子专项
+    - "Nature Quantum Information"
+    - "PRX Quantum"
     - "Quantum"
-    - "Physical Review A"
+
+    # AI/ML顶会 (跨领域影响)
+    - "NeurIPS"
+    - "ICLR"
     - "ICML"
+
+    # 量子会议
+    - "QIP"
+    - "TQC"
+
+  # === Tier 2: 高质量期刊 ===
+  tier_2_venues:
+    # Physical Review 系列
+    - "Physical Review A"
+    - "Physical Review B"
+    - "Physical Review C"
+    - "Physical Review D"
+    - "Physical Review E"
+    - "Physical Review Applied"
+
+    # 其他物理期刊
+    - "New Journal of Physics"
+    - "Journal of Physics A"
+    - "Journal of Physics B"
+    - "Europhysics Letters"
+    - "Physics Letters A"
+    - "Physics Letters B"
+    - "Annals of Physics"
+    - "Scientific Reports"
+
+    # 量子专项
+    - "Quantum Science and Technology"
+    - "Advanced Quantum Technologies"
+    - "Quantum Information Processing"
+    - "npj Quantum Information"
+
+    # IEEE
+    - "IEEE Transactions on Information Theory"
+    - "IEEE Transactions on Quantum Engineering"
+
+    # AI/ML会议
+    - "AAAI"
+    - "IJCAI"
+    - "AISTATS"
+
+  # === Tier 3: 中等期刊 ===
+  tier_3_venues:
+    - "Physical Review Research"
+    - "Journal of Statistical Physics"
+    - "European Physical Journal Plus"
+    - "Applied Physics Letters"
+    - "Journal of Applied Physics"
+    - "AIP Advances"
+    - "Entropy"
+    - "Frontiers in Physics"
+
+  # === Tier 1: 顶尖研究机构 ===
   tier_1_institutions:
+    # 美国
     - "MIT"
     - "Caltech"
+    - "Harvard"
+    - "Stanford"
+    - "Yale"
+    - "Princeton"
+    - "University of California Berkeley"
+    - "UC Berkeley"
+
+    # 科技公司
     - "IBM Quantum"
+    - "IBM Research"
     - "Google Quantum AI"
+    - "Google AI"
+    - "Microsoft Quantum"
+    - "Microsoft Research"
+    - "Xanadu"
+    - "Rigetti Computing"
+    - "IonQ"
+    - "PsiQuantum"
+
+    # 中国
     - "USTC"
+    - "Peking University"
+    - "PKU"
+    - "Tsinghua University"
+    - "Chinese Academy of Sciences"
+    - "CAS"
+
+    # 欧洲
     - "Max Planck Institute"
+    - "ETH Zurich"
+    - "University of Oxford"
+    - "University of Cambridge"
+    - "Imperial College London"
+    - "TU Munich"
+    - "Free University of Berlin"
+
+    # 加拿大
+    - "University of Waterloo"
+    - "Perimeter Institute"
+
+  # === VIP Authors: 量子计算/ML领域顶尖学者 ===
   vip_authors:
-    - "Maria Schuld"
-    - "John Preskill"
-    - "Seth Lloyd"                                                                                                                                                                                                                                                               
-    - "Nathan Wiebe"
+    # === Variational Quantum Algorithms ===
+    - "Maria Schuld"              # Xanadu, VQAs, quantum ML
+    - "Alán Aspuru-Guzik"        # Harvard, VQE, quantum chemistry
+    - "Alberto Peruzzo"          # Imperial College, VQE
+    - "Jarrod McClean"            # Google, VQAs, barren plateau
+    - "Peter J. Love"             # Haverford, VQE
+    - "Jules Tilly"               # VQE review author
+    - "Francesco Tacchino"        # IBM, variational algorithms
+
+    # === Quantum Algorithms ===
+    - "Seth Lloyd"                # MIT, quantum ML pioneer
+    - "Nathan Wiebe"               # Microsoft/Indiana, quantum algorithms
+    - "John Preskill"              # Caltech, quantum information
+    - "Scott Aaronson"             # UT Austin, quantum complexity
+    - "Edward Farhi"               # MIT, QAOA
+    - "Jeffrey Goldstone"          # MIT, QAOA
+    - "Sam Gutmann"                # Northeastern, QAOA
+
+    # === Quantum Error Correction ===
+    - "Alexei Kitaev"             # Caltech, surface codes
+    - "Andrew Steane"              # Oxford, quantum codes
+    - "Raymond Laflamme"          # Waterloo, quantum information
+    - "David DiVincenzo"           # IBM, DiVincenzo criteria
+    - "Daniel Gottesman"           # Perimeter Institute, quantum codes
+    - "John Martinis"              # Google, superconducting qubits
+
+    # === Quantum Machine Learning (Additional) ===
+    - "Jacob Biamonte"             # Skolkovo, quantum computation
+    - "Iordanis Kerenidis"        # QC Ware, quantum algorithms
+    - "Ryan Sweke"                 # Free University of Berlin, quantum optimization
+    - "Ashley Montanaro"           # University of Bristol, quantum algorithms
+
+    # === Quantum Chemistry & Many-Body ===
+    - "Brian J. J. K. H. McLachlan"  # VQE
+    - "David J. J. J. J. J."        # placeholder, avoid
+
+    # === Cross-Domain ML for Quantum ===
+    - "Jin-Guo Liu"                # Peking University, quantum ML
+    - "Xiao Yuan"                  # Stanford, quantum networks
+    - "Peng-Fei Zhou"              # USTC, quantum information
+
+    # === Recent Rising Stars ===
+    - "Przemysław Bien"           # quantum machine learning
+    - "Aram Harrow"                # MIT, quantum information theory
 
 # 4. Agent 定制化分析指令 (供 Analysis Agent 动态组装 Prompt 时调用)
 analysis_prompts:
@@ -72,8 +322,34 @@ analysis_prompts:
     - Identify if and how they addressed the Barren Plateau or noise problems.
     - Summarize the hardware requirements (e.g., number of qubits, circuit depth).
     - Compare their method with standard VQE/QAOA approaches.
-  
+    - Note any theoretical guarantees or empirical results on quantum advantage.
+
   impact_paper_focus: |
     - Explain the core breakthrough in 3 sentences using the Feynman technique.
     - Do NOT focus on mathematical proofs. Focus on the paradigm shift.
     - Analyze how this breakthrough might indirectly influence or disrupt the feasibility of Quantum Machine Learning (e.g., hardware scaling, new error correction codes).
+
+# 5. 评分阈值配置
+scoring_thresholds:
+  # Core Score 阈值 (用于象限分类)
+  core_threshold: 70
+
+  # Impact Score 阈值 (用于象限分类)
+  impact_threshold: 70
+
+  # 时间衰减配置 (天数)
+  new_paper_threshold_days: 90      # <90天: 侧重 Venue/Author
+  old_paper_threshold_days: 365     # >365天: 侧重 Citation Velocity
+
+# 6. 时间衰减权重配置
+time_decay_weights:
+  # 新论文 (<90天): 侧重即时影响力
+  new_paper:
+    venue_weight: 0.50
+    author_weight: 0.30
+    github_weight: 0.20
+
+  # 老论文 (>365天): 侧重历史影响力
+  old_paper:
+    venue_weight: 0.20
+    citation_velocity_weight: 0.80
