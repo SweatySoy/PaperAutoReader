@@ -18,7 +18,7 @@ import json
 import logging
 import re
 import time
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -646,7 +646,9 @@ class AnalysisAgent:
             output_dir = project_root / "data" / "analysis_cache"
 
         output_dir.mkdir(parents=True, exist_ok=True)
-        output_file = output_dir / f"{output_date.isoformat()}.json"
+        # Add time suffix to avoid overwriting if run multiple times per day
+        now = datetime.now()
+        output_file = output_dir / f"{output_date.isoformat()}_{now.strftime('%H-%M')}.json"
 
         # Serialize papers
         papers_json = [p.model_dump() for p in papers]
@@ -662,6 +664,34 @@ class AnalysisAgent:
 
         logger.info(f"Analysis checkpoint saved to: {output_file}")
         return output_file
+
+    @classmethod
+    def load_checkpoint(
+        cls,
+        input_path: Path
+    ) -> List[AnalyzedPaper]:
+        """
+        Load analyzed papers from JSON checkpoint file.
+
+        Enables resumption from a previous run.
+
+        Args:
+            input_path: Path to the checkpoint file
+
+        Returns:
+            List of AnalyzedPaper objects
+        """
+        with open(input_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        # Convert date strings back to date objects
+        for paper_data in data:
+            if isinstance(paper_data.get("publication_date"), str):
+                paper_data["publication_date"] = date.fromisoformat(paper_data["publication_date"])
+
+        papers = [AnalyzedPaper(**paper_data) for paper_data in data]
+        logger.info(f"Loaded {len(papers)} analyzed papers from {input_path}")
+        return papers
 
     def run(
         self,

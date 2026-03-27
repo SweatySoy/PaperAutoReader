@@ -187,13 +187,20 @@ def step1_search(start_date: str, end_date: str, max_papers: int) -> List[Candid
     return candidate_papers
 
 
-def step2_filter(candidate_papers: List[CandidatePaper], api_config: dict) -> List[ScoredPaper]:
+def step2_filter(
+    candidate_papers: List[CandidatePaper],
+    api_config: dict,
+    resume: bool = False,
+    resume_date: Optional[str] = None
+) -> List[ScoredPaper]:
     """
     Step 2: Filter Agent - Score papers with LLM + Embedding.
 
     Args:
         candidate_papers: List of CandidatePaper objects
         api_config: API configuration dictionary
+        resume: Resume from existing checkpoint if available
+        resume_date: Date string for checkpoint filename (YYYY-MM-DD)
 
     Returns:
         List of ScoredPaper objects
@@ -205,6 +212,27 @@ def step2_filter(candidate_papers: List[CandidatePaper], api_config: dict) -> Li
     if not candidate_papers:
         logger.warning("No papers to score!")
         return []
+
+    # Check for existing checkpoint if resuming
+    if resume and resume_date:
+        checkpoint_dir = PROJECT_ROOT / "data" / "scored_papers"
+        # Try exact date match first, then find latest with time suffix
+        checkpoint_file = checkpoint_dir / f"{resume_date}.json"
+        if not checkpoint_file.exists():
+            # Find files matching YYYY-MM-DD_*.json pattern
+            matching = sorted(
+                [f for f in checkpoint_dir.glob(f"{resume_date}_*.json")],
+                key=lambda x: x.stat().st_mtime,
+                reverse=True
+            )
+            if matching:
+                checkpoint_file = matching[0]
+        if checkpoint_file.exists():
+            print(f"[RESUME] Found existing checkpoint: {checkpoint_file}")
+            print("[RESUME] Skipping Step 2 (Filter) - loading from checkpoint")
+            scored_papers = FilterAgent.load_checkpoint(checkpoint_file)
+            logger.info(f"[STEP 2] Resumed {len(scored_papers)} papers from checkpoint")
+            return scored_papers
 
     # Configure LLM and Embedding
     configure_llm(
@@ -270,13 +298,20 @@ def step2_filter(candidate_papers: List[CandidatePaper], api_config: dict) -> Li
     return scored_papers
 
 
-def step3_analysis(scored_papers: List[ScoredPaper], api_config: dict) -> List[AnalyzedPaper]:
+def step3_analysis(
+    scored_papers: List[ScoredPaper],
+    api_config: dict,
+    resume: bool = False,
+    resume_date: Optional[str] = None
+) -> List[AnalyzedPaper]:
     """
     Step 3: Analysis Agent - Deep analysis with LLM.
 
     Args:
         scored_papers: List of ScoredPaper objects
         api_config: API configuration dictionary
+        resume: Resume from existing checkpoint if available
+        resume_date: Date string for checkpoint filename (YYYY-MM-DD)
 
     Returns:
         List of AnalyzedPaper objects
@@ -288,6 +323,27 @@ def step3_analysis(scored_papers: List[ScoredPaper], api_config: dict) -> List[A
     if not scored_papers:
         logger.warning("No papers to analyze!")
         return []
+
+    # Check for existing checkpoint if resuming
+    if resume and resume_date:
+        checkpoint_dir = PROJECT_ROOT / "data" / "analysis_cache"
+        # Try exact date match first, then find latest with time suffix
+        checkpoint_file = checkpoint_dir / f"{resume_date}.json"
+        if not checkpoint_file.exists():
+            # Find files matching YYYY-MM-DD_*.json pattern
+            matching = sorted(
+                [f for f in checkpoint_dir.glob(f"{resume_date}_*.json")],
+                key=lambda x: x.stat().st_mtime,
+                reverse=True
+            )
+            if matching:
+                checkpoint_file = matching[0]
+        if checkpoint_file.exists():
+            print(f"[RESUME] Found existing checkpoint: {checkpoint_file}")
+            print("[RESUME] Skipping Step 3 (Analysis) - loading from checkpoint")
+            analyzed_papers = AnalysisAgent.load_checkpoint(checkpoint_file)
+            logger.info(f"[STEP 3] Resumed {len(analyzed_papers)} papers from checkpoint")
+            return analyzed_papers
 
     # Create LLM client for analysis
     llm_client = LLMClient(
@@ -369,7 +425,8 @@ def run_full_pipeline(
     date_from: Optional[str] = None,
     date_to: Optional[str] = None,
     max_papers: int = 10,
-    output_dir: Optional[str] = None
+    output_dir: Optional[str] = None,
+    resume: bool = False
 ) -> str:
     """
     Run the full PaperAutoReader pipeline.
@@ -379,6 +436,7 @@ def run_full_pipeline(
         date_to: End date (YYYY-MM-DD). Defaults to date_from.
         max_papers: Maximum papers per day.
         output_dir: Custom output directory for reports.
+        resume: Resume from existing checkpoints if available.
 
     Returns:
         Path to the generated report file.
@@ -408,20 +466,20 @@ def run_full_pipeline(
 
     report_date = date.today()
 
-    # Step 1: Search
+    # Step 1: Search (always runs, cannot resume)
     candidate_papers = step1_search(date_from, date_to, max_papers)
     if not candidate_papers:
         logger.error("Pipeline failed at Step 1 (Search)")
         raise RuntimeError("No papers fetched from arXiv")
 
-    # Step 2: Filter
-    scored_papers = step2_filter(candidate_papers, api_config)
+    # Step 2: Filter (can resume from checkpoint)
+    scored_papers = step2_filter(candidate_papers, api_config, resume=resume, resume_date=date_from)
     if not scored_papers:
         logger.error("Pipeline failed at Step 2 (Filter)")
         raise RuntimeError("No papers scored")
 
-    # Step 3: Analysis
-    analyzed_papers = step3_analysis(scored_papers, api_config)
+    # Step 3: Analysis (can resume from checkpoint)
+    analyzed_papers = step3_analysis(scored_papers, api_config, resume=resume, resume_date=date_from)
     if not analyzed_papers:
         logger.error("Pipeline failed at Step 3 (Analysis)")
         raise RuntimeError("No papers analyzed")
@@ -490,6 +548,11 @@ def main():
         default=None,
         help="Custom output directory for reports"
     )
+    parser.add_argument(
+        "--resume",
+        action="store_true",
+        help="Resume from existing checkpoints if available"
+    )
 
     args = parser.parse_args()
 
@@ -520,7 +583,8 @@ def main():
             date_from=start_date,
             date_to=end_date,
             max_papers=args.max_papers,
-            output_dir=args.output_dir
+            output_dir=args.output_dir,
+            resume=args.resume
         )
         elapsed = time.time() - start_time
         print(f"\n✅ Success! Report generated in {elapsed:.1f}s")

@@ -1,5 +1,35 @@
 # WORK LOG
 
+## 2026-03-27 - 修复断点续传功能
+
+### 任务简述
+修复 Pipeline 断点续传功能，使 Step 2 (Filter) 和 Step 3 (Analysis) 支持从检查点恢复。
+
+### 修改文件
+- `src/agents/analysis_agent.py` - 新增 `load_checkpoint()` 类方法
+- `run_pipeline.py` - 新增 `--resume` 命令行参数，修改 `step2_filter()` 和 `step3_analysis()` 支持检查点恢复
+
+### 实现细节
+1. **AnalysisAgent.load_checkpoint()**: 新增类方法，支持从 JSON 检查点文件加载已分析的论文列表
+2. **run_pipeline.py --resume**: 新增命令行参数 `--resume`，启用后会在 Step 2/3 检查并使用已有检查点
+3. **检查点查找逻辑**: 根据 `date_from` 参数查找对应日期的检查点文件
+
+### 使用方式
+```bash
+# 从指定日期开始，启用断点续传
+python run_pipeline.py 2026-03-25 --resume
+
+# 查找的检查点文件：
+# - Step 2: data/scored_papers/2026-03-25.json
+# - Step 3: data/analysis_cache/2026-03-25.json
+```
+
+### 测试状态
+- 语法检查通过
+- 待实际运行验证
+
+---
+
 ## 2026-03-26 - 项目整理与文档完善
 
 ### 任务简述

@@ -9,7 +9,7 @@ Author: AI Coding Agent
 Branch: feat/agent4-report
 """
 
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 from typing import List
 
@@ -258,7 +258,9 @@ class ReportAgent:
             Path to the saved file
         """
         if filename is None:
-            filename = f"Research_Radar_{report.report_date.strftime('%Y-%m-%d')}.md"
+            # Add time suffix to avoid overwriting if run multiple times per day
+            now = datetime.now()
+            filename = f"Research_Radar_{report.report_date.strftime('%Y-%m-%d')}_{now.strftime('%H-%M')}.md"
 
         filepath = self.output_dir / filename
         markdown_content = self.render_markdown(report)

@@ -1295,7 +1295,9 @@ class SearchAgent:
         output_dir = project_root / "data" / "raw_papers"
         output_dir.mkdir(parents=True, exist_ok=True)
 
-        output_file = output_dir / f"{output_date.isoformat()}.json"
+        # Add time suffix to avoid overwriting if run multiple times per day
+        now = datetime.now()
+        output_file = output_dir / f"{output_date.isoformat()}_{now.strftime('%H-%M')}.json"
 
         # 序列化 (处理 date 对象)
         def json_serializer(obj):
