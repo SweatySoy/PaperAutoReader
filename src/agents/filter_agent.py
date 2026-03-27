@@ -461,22 +461,37 @@ class TimeDecayCalculator:
         new_threshold = self.config.new_paper_threshold_days  # 90 days
         old_threshold = self.config.old_paper_threshold_days  # 365 days
 
-        # New paper regime (Age < 3 months)
+        # Read weights from config
+        time_decay_cfg = self.config.time_decay_config
+        new_paper_cfg = time_decay_cfg.get("new_paper", {})
+        old_paper_cfg = time_decay_cfg.get("old_paper", {})
+
+        # New paper weights
+        new_venue = new_paper_cfg.get("venue_weight", 0.50)
+        new_author = new_paper_cfg.get("author_weight", 0.30)
+        new_github = new_paper_cfg.get("github_weight", 0.20)
+        new_citation = new_paper_cfg.get("citation_velocity_weight", 0.0)
+
+        # Old paper weights
+        old_venue = old_paper_cfg.get("venue_weight", 0.20)
+        old_citation = old_paper_cfg.get("citation_velocity_weight", 0.80)
+
+        # New paper regime (Age < new_threshold)
         if paper_age_days <= new_threshold:
             return {
-                "venue": 0.50,
-                "author": 0.30,
-                "github": 0.20,
-                "citation_velocity": 0.0
+                "venue": new_venue,
+                "author": new_author,
+                "github": new_github,
+                "citation_velocity": new_citation
             }
 
-        # Old paper regime (Age > 1 year)
+        # Old paper regime (Age >= old_threshold)
         if paper_age_days >= old_threshold:
             return {
-                "venue": 0.20,
+                "venue": old_venue,
                 "author": 0.0,
                 "github": 0.0,
-                "citation_velocity": 0.80
+                "citation_velocity": old_citation
             }
 
         # Transitional regime: interpolate between new and old
@@ -485,10 +500,10 @@ class TimeDecayCalculator:
 
         # Interpolate weights
         return {
-            "venue": 0.50 - 0.30 * progress,  # 0.50 -> 0.20
-            "author": 0.30 * (1 - progress),  # 0.30 -> 0.0
-            "github": 0.20 * (1 - progress),  # 0.20 -> 0.0
-            "citation_velocity": 0.80 * progress  # 0.0 -> 0.80
+            "venue": new_venue - (new_venue - old_venue) * progress,
+            "author": new_author * (1 - progress),
+            "github": new_github * (1 - progress),
+            "citation_velocity": old_citation * progress
         }
 
     def compute_citation_velocity(
@@ -689,6 +704,9 @@ class ImpactScoreCalculator:
             return 100.0
         if venue in self.config.get_all_venues():
             return 70.0  # Tier 2
+        # arXiv papers get higher score since QML field primarily uses arXiv
+        if "arxiv" in venue.lower():
+            return 55.0  # arXiv is field-relevant, give credit
         return 30.0  # Unknown venue
 
     def _compute_author_score(self, authors: list[str]) -> float:

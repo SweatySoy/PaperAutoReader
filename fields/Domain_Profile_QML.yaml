@@ -23,6 +23,9 @@ keywords_scoring:
     - "QAOA"
     - "PQC"
     - "variational"
+    - "variational quantum"
+    - "parameterized"
+    - "ansatz"
 
   # highly_relevant: weight = 1.0
   highly_relevant:
@@ -331,23 +334,24 @@ analysis_prompts:
 
 # 5. 评分阈值配置
 scoring_thresholds:
-  # Core Score 阈值 (用于象限分类)
-  core_threshold: 70
+  # Core Score 阈值 (用于象限分类) - 降低到40更合理
+  core_threshold: 40
 
-  # Impact Score 阈值 (用于象限分类)
-  impact_threshold: 70
+  # Impact Score 阈值 (用于象限分类) - 降低到40更合理
+  impact_threshold: 40
 
   # 时间衰减配置 (天数)
   new_paper_threshold_days: 90      # <90天: 侧重 Venue/Author
   old_paper_threshold_days: 365     # >365天: 侧重 Citation Velocity
 
 # 6. 时间衰减权重配置
-time_decay_weights:
-  # 新论文 (<90天): 侧重即时影响力
+time_decay:
+  # 新论文 (<90天): 即时影响力 + 引用 (至少保留10%给引用)
   new_paper:
-    venue_weight: 0.50
-    author_weight: 0.30
-    github_weight: 0.20
+    venue_weight: 0.45
+    author_weight: 0.25
+    github_weight: 0.15
+    citation_velocity_weight: 0.15   # 保留15%给引用，新论文有引用也是好信号
 
   # 老论文 (>365天): 侧重历史影响力
   old_paper:
